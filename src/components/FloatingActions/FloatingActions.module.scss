@@ -1,0 +1,100 @@
+@keyframes softPulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.55;
+    }
+
+    50% {
+        transform: scale(1.28);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+.floatingContainer {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    left: auto;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+
+    .scrollTopBtn {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        background-color: #ffffff;
+        border: 1.5px solid rgba(196, 167, 94, 0.45);
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 6px 18px rgba(18, 61, 50, 0.12);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(12px) translateZ(0);
+        will-change: transform, opacity;
+        transition: transform 0.2s ease-out, opacity 0.2s ease-out, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+        &.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) translateZ(0);
+        }
+
+        &:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: #ffffff;
+            transform: translateY(-3px) translateZ(0);
+        }
+    }
+
+    .whatsappBtn {
+        position: relative;
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        background-color: #25d366;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 22px rgba(37, 211, 102, 0.4);
+        text-decoration: none;
+        transform: translateZ(0);
+        will-change: transform;
+        transition: transform 0.2s ease-out, background-color 0.2s ease;
+
+        .whatsappSvg {
+            width: 23px;
+            height: 23px;
+            position: relative;
+            z-index: 2;
+            display: block;
+        }
+
+        .pulseRing {
+            position: absolute;
+            inset: -5px;
+            border-radius: 50%;
+            background-color: #25d366;
+            animation: softPulse 2.6s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        &:hover {
+            background-color: #20ba5a;
+            transform: translateY(-2px) scale(1.05) translateZ(0);
+        }
+    }
+}

@@ -1,0 +1,206 @@
+.testimonialsSection {
+    position: relative;
+    background-color: var(--bg-body);
+    overflow: hidden;
+
+    .headerWrapper {
+        max-width: 650px;
+        margin: 0 auto clamp(32px, 5vh, 48px);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .sectionBadge {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 18px;
+            border-radius: 20px;
+            background-color: #ffffff;
+            border: 1px solid rgba(196, 167, 94, 0.4);
+            color: var(--primary-color);
+            font-size: 0.84rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .sectionTitle {
+            font-size: clamp(1.75rem, 3.4vw, 2.4rem);
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1.3;
+            margin-bottom: 12px;
+        }
+
+        .sectionDesc {
+            font-size: clamp(0.92rem, 1.6vw, 1.02rem);
+            color: var(--text-color);
+            opacity: 0.82;
+            line-height: 1.7;
+        }
+    }
+
+    .sliderContainer {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+
+        .swiperInstance {
+            padding-top: 10px;
+            padding-bottom: 50px;
+            overflow: hidden;
+
+            :global(.swiper-wrapper) {
+                transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+            }
+        }
+
+        .slideItem {
+            height: auto;
+            display: flex;
+            box-sizing: border-box;
+        }
+
+        .reviewCard {
+            position: relative;
+            width: 100%;
+            background-color: #ffffff;
+            border: 1px solid rgba(196, 167, 94, 0.28);
+            border-radius: 18px;
+            padding: 24px 22px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transform: translateZ(0);
+            will-change: transform, border-color;
+            transition: transform 0.15s ease-out, border-color 0.15s ease-out;
+
+            &:hover {
+                border-color: var(--secondary-color);
+                transform: translateY(-3px) translateZ(0);
+            }
+
+            .cardHeader {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 14px;
+
+                .starsRow {
+                    display: flex;
+                    align-items: center;
+                    gap: 3px;
+
+                    .goldStar {
+                        color: var(--secondary-color);
+                        fill: var(--secondary-color);
+                    }
+                }
+
+                .quoteIcon {
+                    color: rgba(196, 167, 94, 0.35);
+                }
+            }
+
+            .reviewText {
+                font-size: 0.88rem;
+                color: var(--text-color);
+                opacity: 0.86;
+                line-height: 1.7;
+                margin-bottom: 16px;
+                flex-grow: 1;
+            }
+
+            .trackBadge {
+                display: inline-flex;
+                align-items: center;
+                width: fit-content;
+                padding: 4px 10px;
+                border-radius: 6px;
+                background-color: rgba(18, 61, 50, 0.04);
+                border: 1px solid rgba(196, 167, 94, 0.25);
+                margin-bottom: 16px;
+
+                span {
+                    font-size: 0.74rem;
+                    font-weight: 700;
+                    color: var(--primary-color);
+                }
+            }
+
+            .authorProfile {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding-top: 14px;
+                border-top: 1px dashed rgba(196, 167, 94, 0.3);
+
+                .avatarWrapper {
+                    position: relative;
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 50%;
+                    border: 1.5px solid rgba(196, 167, 94, 0.4);
+                    overflow: hidden;
+                    background-color: #f1ede6;
+                    flex-shrink: 0;
+
+                    .avatarImg {
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+                }
+
+                .authorDetails {
+                    display: flex;
+                    flex-direction: column;
+                    text-align: start;
+
+                    .authorName {
+                        font-size: 0.92rem;
+                        font-weight: 800;
+                        color: var(--primary-color);
+                        line-height: 1.25;
+                        margin-bottom: 3px;
+                    }
+
+                    .locationRow {
+                        display: flex;
+                        align-items: center;
+                        gap: 6px;
+                        font-size: 0.74rem;
+                        color: var(--text-color);
+                        opacity: 0.75;
+                        flex-wrap: wrap;
+
+                        .flagIcon {
+                            font-size: 0.85rem;
+                            line-height: 1;
+                        }
+
+                        .roleDot {
+                            opacity: 0.5;
+                        }
+                    }
+                }
+            }
+        }
+
+        .paginationBullet {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: rgba(196, 167, 94, 0.35);
+            margin: 0 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .activeBullet {
+            width: 22px;
+            border-radius: 6px;
+            background-color: var(--primary-color);
+        }
+    }
+}

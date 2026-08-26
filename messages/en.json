@@ -1,0 +1,123 @@
+{
+    "Header": {
+        "home": "Home",
+        "about": "About Us",
+        "courses": "Courses",
+        "packages": "Packages",
+        "teachers": "Teachers",
+        "blog": "Blog",
+        "contact": "Contact Us",
+        "login": "Login",
+        "menu": "Menu",
+        "close": "Close",
+        "switchLang": "العربية"
+    },
+    "Hero": {
+        "badge": "Accredited Quran & Arabic Academy",
+        "titleStart": "Your Blessed Journey in",
+        "titleHighlight": "The Noble Quran & Arabic",
+        "description": "Interactive, direct 1-on-1 live sessions for Quran memorization, Tajweed mastery, and Arabic linguistics taught by certified scholars worldwide.",
+        "bookTrial": "Book Your Free Trial",
+        "exploreCourses": "Explore Courses",
+        "cardTopTitle": "Live 1-on-1 Session",
+        "cardTopSubtitle": "30 mins completely free",
+        "cardBottomTitle": "Continuous Evaluation",
+        "cardBottomSubtitle": "Weekly progress reports",
+        "studentsCount": "5,000+",
+        "studentsLabel": "Active Global Students",
+        "hoursCount": "45,000+",
+        "hoursLabel": "Live Tutoring Hours",
+        "ratingCount": "4.9/5",
+        "ratingLabel": "Student & Parent Rating"
+    },
+    "Features": {
+        "sectionBadge": "Nour Pillars",
+        "sectionTitle": "A World-Class Quranic Learning Experience",
+        "sectionDesc": "An integrated, interactive platform combining traditional authentic Ijazah with modern digital learning tools."
+    },
+    "Courses": {
+        "sectionBadge": "Educational Tracks",
+        "sectionTitle": "Featured Accredited Courses",
+        "sectionDesc": "Choose the optimal pathway for you or your children with structured curriculum and certified mentors.",
+        "viewDetails": "View Course",
+        "viewAllCourses": "Explore All Courses",
+        "targetAudienceLabel": "Target Audience",
+        "durationLabel": "Estimated Duration"
+    },
+    "Journey": {
+        "sectionBadge": "Onboarding Process",
+        "sectionTitle": "Your Learning Journey in 4 Simple Steps",
+        "sectionDesc": "A straightforward roadmap starting from your free trial to regular interactive tutoring.",
+        "startTrialBtn": "Start Free Trial Now",
+        "stepLabel": "Step"
+    },
+    "Packages": {
+        "sectionBadge": "Subscription Packages",
+        "sectionTitle": "Flexible Monthly Plans Tailored for You",
+        "sectionDesc": "Select the ideal learning frequency with seamless currency switching and round-the-clock rescheduling.",
+        "currencyEgp": "EGP",
+        "currencyUsd": "USD",
+        "perMonth": "/ month",
+        "sessionsCountLabel": "Sessions / Month",
+        "popularBadge": "Most Popular",
+        "subscribeBtn": "Subscribe Now",
+        "customPlanText": "Need a personalized or customized study plan?",
+        "contactSales": "Talk to an Academic Advisor",
+        "viewAllPackages": "Explore All Packages"
+    },
+    "Teachers": {
+        "sectionBadge": "Elite Tutors",
+        "sectionTitle": "Learn from Certified & Licensed Quran Scholars",
+        "sectionDesc": "Al-Azhar graduates holding authentic chains of narration (Sanad) to ensure the highest standard of Tajweed mastery.",
+        "viewProfile": "View Profile",
+        "viewAllTeachers": "Explore All Teachers",
+        "experienceLabel": "Experience",
+        "ijazahLabel": "Sanad & Ijazah",
+        "studentsCount": "Students Taught"
+    },
+    "Testimonials": {
+        "sectionBadge": "Success Stories",
+        "sectionTitle": "What Parents & Students Say About Nour",
+        "sectionDesc": "Genuine feedback and inspiring experiences from our learners and their families across the globe."
+    },
+    "Faq": {
+        "sectionBadge": "Frequently Asked Questions",
+        "sectionTitle": "Everything You Need to Know About Nour",
+        "sectionDesc": "Clear and direct answers to common queries regarding tutoring sessions, scheduling, and subscriptions.",
+        "moreQuestionsText": "Have another question not answered here?",
+        "contactSupport": "Chat with Support Team"
+    },
+    "FinalCta": {
+        "badge": "Start Free Today",
+        "titleStart": "Begin Your Quranic Journey with a",
+        "titleHighlight": "Free Live Trial Class",
+        "description": "Join thousands of learners worldwide. Meet your dedicated certified tutor and assess your level with zero financial commitment.",
+        "ctaBtn": "Book Your Free Trial Now",
+        "feature1": "No Credit Card Required",
+        "feature2": "1-on-1 Live Session",
+        "feature3": "Certified Quran Scholars"
+    },
+    "Footer": {
+        "brandDesc": "Leading online platform specialized in Quranic recitation, practical Tajweed, connected Sanad Ijazah, and Arabic linguistics under certified Al-Azhar scholars.",
+        "quickLinksTitle": "Quick Links",
+        "coursesTitle": "Featured Tracks",
+        "contactTitle": "Contact Us",
+        "navHome": "Home",
+        "navCourses": "Educational Tracks",
+        "navPackages": "Subscription Plans",
+        "navTeachers": "Certified Scholars",
+        "navAbout": "About Nour",
+        "navContact": "Contact Us",
+        "navTrial": "Book Free Trial",
+        "course1": "Noorani Qaida Foundation",
+        "course2": "Practical Tajweed Recitation",
+        "course3": "Quran Memorization & Qira'at",
+        "course4": "Applied Arabic Grammar",
+        "emailLabel": "info@nouracademy.com",
+        "phoneLabel": "+20 100 000 0000",
+        "locationLabel": "Cairo, Egypt",
+        "rights": "All rights reserved to Nour Academy © 2026",
+        "privacyPolicy": "Privacy Policy",
+        "termsOfService": "Terms of Service"
+    }
+}

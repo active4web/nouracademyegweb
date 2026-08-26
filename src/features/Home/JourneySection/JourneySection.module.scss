@@ -1,0 +1,202 @@
+.journeySection {
+    position: relative;
+    background-color: var(--bg-body);
+    overflow: hidden;
+
+    .headerWrapper {
+        max-width: 650px;
+        margin: 0 auto clamp(32px, 5vh, 48px);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .sectionBadge {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 18px;
+            border-radius: 20px;
+            background-color: #ffffff;
+            border: 1px solid rgba(196, 167, 94, 0.4);
+            color: var(--primary-color);
+            font-size: 0.84rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .sectionTitle {
+            font-size: clamp(1.75rem, 3.4vw, 2.4rem);
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1.3;
+            margin-bottom: 12px;
+        }
+
+        .sectionDesc {
+            font-size: clamp(0.92rem, 1.6vw, 1.02rem);
+            color: var(--text-color);
+            opacity: 0.82;
+            line-height: 1.7;
+        }
+    }
+
+    .timelineGrid {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+
+        @media (min-width: 640px) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px 22px;
+        }
+
+        @media (min-width: 1024px) {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .stepCard {
+            position: relative;
+            z-index: 1;
+            background-color: #ffffff;
+            border: 1px solid rgba(196, 167, 94, 0.28);
+            border-radius: 18px;
+            padding: 24px 20px 22px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: border-color 0.25s ease, transform 0.25s ease;
+
+            &:hover {
+                border-color: var(--secondary-color);
+                transform: translateY(-3px);
+
+                .nodeWrapper {
+                    .iconNode {
+                        background-color: var(--primary-color);
+                        border-color: var(--primary-color);
+                        color: #ffffff;
+                    }
+
+                    .numberBadge {
+                        background-color: var(--secondary-color);
+                        color: #ffffff;
+                    }
+                }
+            }
+
+            .nodeWrapper {
+                position: relative;
+                margin-bottom: 18px;
+
+                .iconNode {
+                    width: 54px;
+                    height: 54px;
+                    border-radius: 16px;
+                    background-color: rgba(18, 61, 50, 0.05);
+                    border: 1.5px solid rgba(196, 167, 94, 0.4);
+                    color: var(--primary-color);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all 0.25s ease;
+                }
+
+                .numberBadge {
+                    position: absolute;
+                    top: -6px;
+                    inset-inline-end: -6px;
+                    width: 22px;
+                    height: 22px;
+                    border-radius: 50%;
+                    background-color: var(--primary-color);
+                    color: #ffffff;
+                    font-size: 0.72rem;
+                    font-weight: 800;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 2px solid #ffffff;
+                    transition: background-color 0.25s ease;
+                }
+            }
+
+            .cardBody {
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+
+                .stepCounter {
+                    font-size: 0.74rem;
+                    font-weight: 700;
+                    color: var(--secondary-color);
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                    margin-bottom: 6px;
+                }
+
+                .stepTitle {
+                    font-size: 1.05rem;
+                    font-weight: 800;
+                    color: var(--primary-color);
+                    line-height: 1.4;
+                    margin-bottom: 10px;
+                    min-height: 44px;
+                }
+
+                .stepDesc {
+                    font-size: 0.85rem;
+                    color: var(--text-color);
+                    opacity: 0.8;
+                    line-height: 1.65;
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    .actionWrapper {
+        margin-top: 36px;
+        display: flex;
+        justify-content: center;
+
+        .primaryCta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            height: 48px;
+            padding: 0 26px;
+            border-radius: 10px;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            font-size: 0.95rem;
+            font-weight: 700;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+
+            .arrowIcon {
+                transition: transform 0.2s ease;
+
+                :global(html[dir="rtl"]) & {
+                    transform: rotate(180deg);
+                }
+            }
+
+            &:hover {
+                background-color: #0c2b23;
+                transform: translateY(-2px);
+
+                .arrowIcon {
+                    :global(html[dir="rtl"]) & {
+                        transform: rotate(180deg) translateX(4px);
+                    }
+
+                    :global(html[dir="ltr"]) & {
+                        transform: translateX(4px);
+                    }
+                }
+            }
+        }
+    }
+}
