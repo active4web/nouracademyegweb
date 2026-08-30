@@ -1,15 +1,13 @@
-"use client";
-
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Sparkles, ArrowRight, ShieldCheck, CheckCircle2 } from "lucide-react";
-import styles from "./FinalCtaSection.module.scss";
+import styles from "./AboutCtaSection.module.scss";
 
-export default function FinalCtaSection() {
-    const t = useTranslations("FinalCta");
+export default function AboutCtaSection() {
+    const t = useTranslations("AboutCTA");
 
     return (
-        <section className={styles.finalCtaSection}>
+        <section className={styles.aboutCtaSection}>
             <div className="container">
                 <div className={styles.bannerCard}>
                     <div className={styles.calligraphyPattern} aria-hidden="true">
@@ -34,11 +32,11 @@ export default function FinalCtaSection() {
                         <span className={styles.highlightText}>{t("titleHighlight")}</span>
                     </h2>
 
-                    <p className={styles.bannerDesc}>{t("description")}</p>
+                    <p className={styles.bannerDesc}>{t("desc")}</p>
 
                     <div className={styles.actions}>
                         <Link href="/free-trial" className={styles.ctaButton}>
-                            <span>{t("ctaBtn")}</span>
+                            <span>{t("button")}</span>
                             <ArrowRight size={16} className={styles.arrowIcon} />
                         </Link>
                     </div>
@@ -46,15 +44,15 @@ export default function FinalCtaSection() {
                     <div className={styles.guaranteesRow}>
                         <div className={styles.guaranteeItem}>
                             <ShieldCheck size={16} />
-                            <span>{t("feature1")}</span>
+                            <span>{t("perk1")}</span>
                         </div>
                         <div className={styles.guaranteeItem}>
                             <CheckCircle2 size={16} />
-                            <span>{t("feature2")}</span>
+                            <span>{t("perk2")}</span>
                         </div>
                         <div className={styles.guaranteeItem}>
                             <CheckCircle2 size={16} />
-                            <span>{t("feature3")}</span>
+                            <span>{t("perk3")}</span>
                         </div>
                     </div>
                 </div>

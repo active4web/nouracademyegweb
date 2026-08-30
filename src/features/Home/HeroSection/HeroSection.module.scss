@@ -109,7 +109,7 @@
                     position: relative;
                 }
 
-                html[lang="ar"] {
+                html[lang="ar"] & {
                     font-family: var(--font-ruqaa), "Aref Ruqaa", serif;
                     font-size: clamp(2.4rem, 4.8vw, 3.6rem);
 

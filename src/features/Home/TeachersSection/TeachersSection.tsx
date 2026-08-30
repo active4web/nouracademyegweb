@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { motion, type Variants } from "framer-motion";
 import {
     Award,
     BookOpenCheck,
@@ -14,28 +13,6 @@ import {
 import { featuredTeachers } from "@/data/teachers.data";
 import styles from "./TeachersSection.module.scss";
 
-const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.05
-        }
-    }
-};
-
-const cardVariants: Variants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: {
-            duration: 0.2,
-            ease: "easeOut"
-        }
-    }
-};
-
 export default function TeachersSection() {
     const t = useTranslations("Teachers");
     const locale = useLocale() as "ar" | "en";
@@ -43,32 +20,19 @@ export default function TeachersSection() {
     return (
         <section className={styles.teachersSection}>
             <div className="container">
-                <motion.div
-                    className={styles.headerWrapper}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.2 }}
-                >
+                <div className={styles.headerWrapper}>
                     <div className={styles.sectionBadge}>
                         <span>{t("sectionBadge")}</span>
                     </div>
                     <h2 className={styles.sectionTitle}>{t("sectionTitle")}</h2>
                     <p className={styles.sectionDesc}>{t("sectionDesc")}</p>
-                </motion.div>
+                </div>
 
-                <motion.div
-                    className={styles.teachersGrid}
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.1 }}
-                >
+                <div className={styles.teachersGrid}>
                     {featuredTeachers.map((teacher) => (
-                        <motion.div
+                        <div
                             key={teacher.id}
                             className={styles.teacherCard}
-                            variants={cardVariants}
                         >
                             <div className={styles.imageContainer}>
                                 <div className={styles.imageRing}>
@@ -128,9 +92,9 @@ export default function TeachersSection() {
                                     </Link>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
-                </motion.div>
+                </div>
 
                 <div className={styles.viewAllWrapper}>
                     <Link href="/teachers" className={styles.allTeachersBtn}>

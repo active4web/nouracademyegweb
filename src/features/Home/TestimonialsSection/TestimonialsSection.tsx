@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
-import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Star, Quote } from "lucide-react";
@@ -19,19 +18,13 @@ export default function TestimonialsSection() {
     return (
         <section className={styles.testimonialsSection}>
             <div className="container">
-                <motion.div
-                    className={styles.headerWrapper}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.2 }}
-                >
+                <div className={styles.headerWrapper}>
                     <div className={styles.sectionBadge}>
                         <span>{t("sectionBadge")}</span>
                     </div>
                     <h2 className={styles.sectionTitle}>{t("sectionTitle")}</h2>
                     <p className={styles.sectionDesc}>{t("sectionDesc")}</p>
-                </motion.div>
+                </div>
 
                 <div className={styles.sliderContainer}>
                     <Swiper

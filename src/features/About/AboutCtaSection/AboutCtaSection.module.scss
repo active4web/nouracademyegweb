@@ -1,5 +1,6 @@
-.finalCtaSection {
+.aboutCtaSection {
     position: relative;
+    padding-top: 0;
     padding-bottom: clamp(65px, 9vh, 95px);
     background-color: var(--bg-body);
     overflow: hidden;
@@ -182,7 +183,7 @@
                             transform: rotate(180deg) translateX(4px);
                         }
 
-                        :global(html[dir="ltr"]) & {
+                        :global(html[ltr]) & {
                             transform: translateX(4px);
                         }
                     }

@@ -20,19 +20,13 @@ export default function FaqSection() {
     return (
         <section className={styles.faqSection}>
             <div className="container">
-                <motion.div
-                    className={styles.headerWrapper}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.2 }}
-                >
+                <div className={styles.headerWrapper}>
                     <div className={styles.sectionBadge}>
                         <span>{t("sectionBadge")}</span>
                     </div>
                     <h2 className={styles.sectionTitle}>{t("sectionTitle")}</h2>
                     <p className={styles.sectionDesc}>{t("sectionDesc")}</p>
-                </motion.div>
+                </div>
 
                 <div className={styles.accordionContainer}>
                     {faqsData.map((faq, idx) => {
@@ -71,7 +65,7 @@ export default function FaqSection() {
                                             initial={{ height: 0, opacity: 0 }}
                                             animate={{ height: "auto", opacity: 1 }}
                                             exit={{ height: 0, opacity: 0 }}
-                                            transition={{ duration: 0.2, ease: "easeOut" }}
+                                            transition={{ duration: 0.25, ease: [0.04, 0.62, 0.23, 0.98] }}
                                             className={styles.accordionContent}
                                         >
                                             <div className={styles.answerInner}>

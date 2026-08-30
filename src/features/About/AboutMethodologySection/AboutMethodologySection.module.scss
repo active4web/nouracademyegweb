@@ -1,0 +1,117 @@
+.methodologySection {
+    position: relative;
+    padding: 0; // بدون padding فوق أو تحت
+    background-color: var(--bg-body);
+
+    .headerWrapper {
+        margin: 0 auto clamp(28px, 4vw, 40px);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .sectionBadge {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 16px;
+            border-radius: 20px;
+            background-color: #ffffff;
+            border: 1px solid rgba(196, 167, 94, 0.4);
+            color: var(--primary-color);
+            font-size: 0.84rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .sectionTitle {
+            font-size: clamp(1.75rem, 3.4vw, 2.3rem);
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1.35;
+            margin-bottom: 10px;
+        }
+
+        .sectionDesc {
+            font-size: clamp(0.92rem, 1.6vw, 1.02rem);
+            color: var(--text-color);
+            opacity: 0.85;
+            line-height: 1.7;
+        }
+    }
+
+    .standardsGrid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+
+        @media (min-width: 1024px) {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .standardCard {
+            background-color: #ffffff;
+            border: 1px solid rgba(196, 167, 94, 0.28);
+            border-radius: 16px;
+            padding: 24px 22px;
+            box-shadow: 0 4px 18px rgba(18, 61, 50, 0.03);
+            display: flex;
+            flex-direction: column;
+
+            .cardHeader {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 16px;
+
+                .iconCircle {
+                    width: 42px;
+                    height: 42px;
+                    border-radius: 10px;
+                    background-color: rgba(18, 61, 50, 0.05);
+                    border: 1px solid rgba(196, 167, 94, 0.25);
+                    color: var(--secondary-color);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .stepNumber {
+                    font-size: 0.95rem;
+                    font-weight: 800;
+                    color: var(--secondary-color);
+                    font-family: monospace;
+                    opacity: 0.75;
+                }
+            }
+
+            .tagBadge {
+                align-self: flex-start;
+                display: inline-flex;
+                padding: 4px 10px;
+                border-radius: 6px;
+                background-color: rgba(196, 167, 94, 0.12);
+                color: var(--primary-color);
+                font-size: 0.78rem;
+                font-weight: 700;
+                margin-bottom: 12px;
+            }
+
+            .cardTitle {
+                font-size: 1.05rem;
+                font-weight: 800;
+                color: var(--primary-color);
+                line-height: 1.45;
+                margin-bottom: 10px;
+            }
+
+            .cardDesc {
+                font-size: 0.88rem;
+                color: var(--text-color);
+                opacity: 0.85;
+                line-height: 1.75;
+                margin: 0;
+            }
+        }
+    }
+}

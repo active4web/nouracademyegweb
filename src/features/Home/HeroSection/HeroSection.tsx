@@ -104,12 +104,7 @@ export default function HeroSection() {
 
             <div className="container">
                 <div className={styles.heroGrid}>
-                    <motion.div
-                        className={styles.textContent}
-                        initial={{ opacity: 0, y: 15 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.35, ease: "easeOut" }}
-                    >
+                    <div className={styles.textContent}>
                         <div className={styles.badgeWrapper}>
                             <div className={styles.badge}>
                                 <ShieldCheck size={16} />
@@ -139,14 +134,9 @@ export default function HeroSection() {
                                 <ArrowRight size={16} className={styles.arrowIcon} />
                             </Link>
                         </div>
-                    </motion.div>
+                    </div>
 
-                    <motion.div
-                        className={styles.visualContent}
-                        initial={{ opacity: 0, scale: 0.96 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.35, ease: "easeOut" }}
-                    >
+                    <div className={styles.visualContent}>
                         <div className={styles.archContainer}>
                             <div className={styles.archBackdrop} />
 
@@ -189,15 +179,10 @@ export default function HeroSection() {
                                 </div>
                             </motion.div>
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
 
-                <motion.div
-                    className={styles.statsCard}
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.35, delay: 0.1, ease: "easeOut" }}
-                >
+                <div className={styles.statsCard}>
                     <div className={styles.statsGrid}>
                         {stats.map((item, index) => {
                             const Icon = item.icon;
@@ -217,7 +202,7 @@ export default function HeroSection() {
                             );
                         })}
                     </div>
-                </motion.div>
+                </div>
             </div>
         </section>
     );

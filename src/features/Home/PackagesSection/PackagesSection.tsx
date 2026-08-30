@@ -3,35 +3,11 @@
 import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { motion, type Variants } from "framer-motion";
 import { Check, ArrowRight, MessageCircle, Layers } from "lucide-react";
 import { featuredPackages } from "@/data/packages.data";
 import styles from "./PackagesSection.module.scss";
 
 type CurrencyType = "EGP" | "USD";
-
-const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.08,
-            delayChildren: 0.05
-        }
-    }
-};
-
-const cardVariants: Variants = {
-    hidden: { opacity: 0, y: 15 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: {
-            duration: 0.3,
-            ease: "easeOut"
-        }
-    }
-};
 
 export default function PackagesSection() {
     const t = useTranslations("Packages");
@@ -41,13 +17,7 @@ export default function PackagesSection() {
     return (
         <section className={styles.packagesSection}>
             <div className="container">
-                <motion.div
-                    className={styles.headerWrapper}
-                    initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.3 }}
-                >
+                <div className={styles.headerWrapper}>
                     <div className={styles.sectionBadge}>
                         <span>{t("sectionBadge")}</span>
                     </div>
@@ -70,21 +40,13 @@ export default function PackagesSection() {
                             {t("currencyUsd")}
                         </button>
                     </div>
-                </motion.div>
+                </div>
 
-                <motion.div
-                    className={styles.packagesGrid}
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.1 }}
-                >
+                <div className={styles.packagesGrid}>
                     {featuredPackages.map((pkg) => (
-                        <motion.div
+                        <div
                             key={pkg.id}
                             className={`${styles.packageCard} ${pkg.isPopular ? styles.popularCard : ""}`}
-                            variants={cardVariants}
-                            whileHover={{ y: -4 }}
                         >
                             {pkg.isPopular && (
                                 <div className={styles.popularBadge}>
@@ -136,9 +98,9 @@ export default function PackagesSection() {
                                     <ArrowRight size={15} className={styles.arrowIcon} />
                                 </Link>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
-                </motion.div>
+                </div>
 
                 <div className={styles.customPlanBanner}>
                     <div className={styles.bannerInfo}>

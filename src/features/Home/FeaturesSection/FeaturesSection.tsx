@@ -1,7 +1,6 @@
 "use client";
 
 import { useTranslations, useLocale } from "next-intl";
-import { motion, type Variants } from "framer-motion";
 import {
     GraduationCap,
     Video,
@@ -78,29 +77,6 @@ const featuresData: FeatureCardData[] = [
     }
 ];
 
-const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.1,
-            delayChildren: 0.05
-        }
-    }
-};
-
-const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: {
-            duration: 0.35,
-            ease: "easeOut"
-        }
-    }
-};
-
 export default function FeaturesSection() {
     const t = useTranslations("Features");
     const locale = useLocale() as "ar" | "en";
@@ -108,27 +84,15 @@ export default function FeaturesSection() {
     return (
         <section className={styles.featuresSection}>
             <div className="container">
-                <motion.div
-                    className={styles.headerWrapper}
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.35 }}
-                >
+                <div className={styles.headerWrapper}>
                     <div className={styles.sectionBadge}>
                         <span>{t("sectionBadge")}</span>
                     </div>
                     <h2 className={styles.sectionTitle}>{t("sectionTitle")}</h2>
                     <p className={styles.sectionDesc}>{t("sectionDesc")}</p>
-                </motion.div>
+                </div>
 
-                <motion.div
-                    className={styles.bentoGrid}
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.15 }}
-                >
+                <div className={styles.bentoGrid}>
                     {featuresData.map((item) => {
                         const isTeachers = item.type === "teachers";
                         const isIndividual = item.type === "individual";
@@ -144,10 +108,9 @@ export default function FeaturesSection() {
                                     : styles.timingCard;
 
                         return (
-                            <motion.div
+                            <div
                                 key={item.id}
                                 className={`${styles.bentoCard} ${cardClass}`}
-                                variants={itemVariants}
                             >
                                 <div className={styles.cardHeader}>
                                     <div className={styles.tagBadge}>
@@ -202,10 +165,10 @@ export default function FeaturesSection() {
                                         <span>{item.visualText[locale] || item.visualText.ar}</span>
                                     </div>
                                 )}
-                            </motion.div>
+                            </div>
                         );
                     })}
-                </motion.div>
+                </div>
             </div>
         </section>
     );

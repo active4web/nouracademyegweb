@@ -2,7 +2,6 @@
 
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { motion, type Variants } from "framer-motion";
 import {
     ClipboardCheck,
     UserCheck2,
@@ -75,29 +74,6 @@ const journeySteps: JourneyStep[] = [
     }
 ];
 
-const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.1,
-            delayChildren: 0.05
-        }
-    }
-};
-
-const stepVariants: Variants = {
-    hidden: { opacity: 0, y: 15 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: {
-            duration: 0.3,
-            ease: "easeOut"
-        }
-    }
-};
-
 export default function JourneySection() {
     const t = useTranslations("Journey");
     const locale = useLocale() as "ar" | "en";
@@ -105,34 +81,21 @@ export default function JourneySection() {
     return (
         <section className={styles.journeySection}>
             <div className="container">
-                <motion.div
-                    className={styles.headerWrapper}
-                    initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.3 }}
-                >
+                <div className={styles.headerWrapper}>
                     <div className={styles.sectionBadge}>
                         <span>{t("sectionBadge")}</span>
                     </div>
                     <h2 className={styles.sectionTitle}>{t("sectionTitle")}</h2>
                     <p className={styles.sectionDesc}>{t("sectionDesc")}</p>
-                </motion.div>
+                </div>
 
-                <motion.div
-                    className={styles.timelineGrid}
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.15 }}
-                >
+                <div className={styles.timelineGrid}>
                     {journeySteps.map((step) => {
                         const Icon = step.icon;
                         return (
-                            <motion.div
+                            <div
                                 key={step.id}
                                 className={styles.stepCard}
-                                variants={stepVariants}
                             >
                                 <div className={styles.nodeWrapper}>
                                     <div className={styles.numberBadge}>{step.stepNumber}</div>
@@ -152,10 +115,10 @@ export default function JourneySection() {
                                         {step.desc[locale] || step.desc.ar}
                                     </p>
                                 </div>
-                            </motion.div>
+                            </div>
                         );
                     })}
-                </motion.div>
+                </div>
 
                 <div className={styles.actionWrapper}>
                     <Link href="/free-trial" className={styles.primaryCta}>

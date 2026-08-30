@@ -3,10 +3,10 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Sparkles, ArrowRight, ShieldCheck, CheckCircle2 } from "lucide-react";
-import styles from "./FinalCtaSection.module.scss";
+import styles from "./CoursesFinalCtaSection.module.scss";
 
-export default function FinalCtaSection() {
-    const t = useTranslations("FinalCta");
+export default function CoursesFinalCtaSection() {
+    const t = useTranslations("FinalCtaCourses");
 
     return (
         <section className={styles.finalCtaSection}>
