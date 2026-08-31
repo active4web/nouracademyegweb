@@ -1,2 +1,5 @@
 run1 : npx next dev --hostname 192.168.1.21
 run1 : npx next dev --hostname 192.168.1.3
+
+
+https://dev.nouracademyeg.com/

@@ -49,10 +49,10 @@ export default function CourseCard({ course }: CourseCardProps) {
                 </div>
 
                 <div className={styles.actionsRow}>
-                    <Link href={`/courses/${course.id}`} className={styles.detailsBtn}>
+                    <Link href={``} className={styles.detailsBtn}>
                         <span>{t("detailsBtn")}</span>
                     </Link>
-                    <Link href={`/courses/${course.id}/apply`} className={styles.applyBtn}>
+                    <Link href={``} className={styles.applyBtn}>
                         <span>{t("applyBtn")}</span>
                         <ArrowRight size={15} className={styles.arrowIcon} />
                     </Link>

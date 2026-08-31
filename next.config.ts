@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
     experimental: {
         serverActions: {
             allowedOrigins: [
+                'dev.nouracademyeg.com/',
                 'localhost:3000',
                 '192.168.1.*',
             ],

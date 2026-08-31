@@ -61,7 +61,7 @@ export default function CoursesSection() {
                                 </div>
 
                                 <div className={styles.cardFooter}>
-                                    <Link href={`/courses/${course.id}`} className={styles.detailsLink}>
+                                    <Link href={``} className={styles.detailsLink}>
                                         <span>{t("viewDetails")}</span>
                                         <ArrowRight size={15} className={styles.arrowIcon} />
                                     </Link>

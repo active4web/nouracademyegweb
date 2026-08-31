@@ -4,7 +4,6 @@ import FeaturesSection from "@/features/Home/FeaturesSection/FeaturesSection";
 import FinalCtaSection from "@/features/Home/FinalCtaSection/FinalCtaSection";
 import HeroSection from "@/features/Home/HeroSection/HeroSection";
 import JourneySection from "@/features/Home/JourneySection/JourneySection";
-// import PackagesSection from "@/features/Home/PackagesSection/PackagesSection";
 import TeachersSection from "@/features/Home/TeachersSection/TeachersSection";
 import TestimonialsSection from "@/features/Home/TestimonialsSection/TestimonialsSection";
 
@@ -15,7 +14,6 @@ export default function Home() {
             <FeaturesSection />
             <CoursesSection />
             <JourneySection />
-            {/* <PackagesSection /> */}
             <TeachersSection />
             <TestimonialsSection />
             <FaqSection />

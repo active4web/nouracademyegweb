@@ -3,9 +3,10 @@
 import { useState, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
+import { motion, AnimatePresence } from "framer-motion";
 import { Search, X, RotateCcw, Filter } from "lucide-react";
 import { allCoursesData, courseCategories } from "@/data/courses.data";
-import CourseCard from "./components/CourseCard";
+import CourseCard from "../../../components/CourseCard/CourseCard";
 import styles from "./CoursesListingSection.module.scss";
 
 export default function CoursesListingSection() {
@@ -42,23 +43,35 @@ export default function CoursesListingSection() {
     return (
         <section id="courses-grid" className={styles.listingSection}>
             <div className="container">
-                {/* Filter Bar (Matched with Teachers style) */}
+                {/* Filter Bar with Framer Motion Pill */}
                 <div className={styles.filterBar}>
                     <div className={styles.filterIconLabel}>
                         <Filter size={16} />
                         <span>التصنيف:</span>
                     </div>
                     <div className={styles.filterButtonsWrapper}>
-                        {courseCategories.map((cat) => (
-                            <button
-                                key={cat.key}
-                                type="button"
-                                className={`${styles.filterBtn} ${selectedCategory === cat.key ? styles.active : ""}`}
-                                onClick={() => setSelectedCategory(cat.key)}
-                            >
-                                {cat.label[locale] || cat.label.ar}
-                            </button>
-                        ))}
+                        {courseCategories.map((cat) => {
+                            const isActive = selectedCategory === cat.key;
+                            return (
+                                <button
+                                    key={cat.key}
+                                    type="button"
+                                    className={`${styles.filterBtn} ${isActive ? styles.active : ""}`}
+                                    onClick={() => setSelectedCategory(cat.key)}
+                                >
+                                    <span className={styles.btnText}>
+                                        {cat.label[locale] || cat.label.ar}
+                                    </span>
+                                    {isActive && (
+                                        <motion.span
+                                            layoutId="courseFilterPill"
+                                            className={styles.activePill}
+                                            transition={{ type: "spring", stiffness: 350, damping: 28 }}
+                                        />
+                                    )}
+                                </button>
+                            );
+                        })}
                     </div>
                 </div>
 
@@ -78,26 +91,49 @@ export default function CoursesListingSection() {
                     </div>
                 )}
 
-                {/* Courses Grid or Empty State */}
-                {filteredCourses.length > 0 ? (
-                    <div className={styles.coursesGrid}>
-                        {filteredCourses.map((course) => (
-                            <CourseCard key={course.id} course={course} />
-                        ))}
-                    </div>
-                ) : (
-                    <div className={styles.emptyState}>
-                        <div className={styles.emptyIconCircle}>
-                            <Search size={32} />
-                        </div>
-                        <h3 className={styles.emptyTitle}>{t("noResultsTitle")}</h3>
-                        <p className={styles.emptyDesc}>{t("noResultsDesc")}</p>
-                        <button type="button" className={styles.resetBtn} onClick={handleReset}>
-                            <RotateCcw size={16} />
-                            <span>{t("clearSearch")}</span>
-                        </button>
-                    </div>
-                )}
+                {/* Courses Grid or Empty State with Framer Motion */}
+                <AnimatePresence mode="wait">
+                    {filteredCourses.length > 0 ? (
+                        <motion.div
+                            key={selectedCategory + searchQuery}
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -15 }}
+                            transition={{ duration: 0.25, ease: "easeInOut" }}
+                            className={styles.coursesGrid}
+                        >
+                            {filteredCourses.map((course) => (
+                                <motion.div
+                                    key={course.id}
+                                    layout
+                                    initial={{ opacity: 0, scale: 0.96 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.2 }}
+                                >
+                                    <CourseCard course={course} />
+                                </motion.div>
+                            ))}
+                        </motion.div>
+                    ) : (
+                        <motion.div
+                            key="empty-state"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className={styles.emptyState}
+                        >
+                            <div className={styles.emptyIconCircle}>
+                                <Search size={32} />
+                            </div>
+                            <h3 className={styles.emptyTitle}>{t("noResultsTitle")}</h3>
+                            <p className={styles.emptyDesc}>{t("noResultsDesc")}</p>
+                            <button type="button" className={styles.resetBtn} onClick={handleReset}>
+                                <RotateCcw size={16} />
+                                <span>{t("clearSearch")}</span>
+                            </button>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </section>
     );
