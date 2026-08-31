@@ -1,0 +1,78 @@
+.packagesHeroSection {
+    position: relative;
+    padding-top: clamp(140px, 16vh, 175px);
+    padding-bottom: 0;
+    background-color: var(--bg-body);
+
+    .contentWrapper {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: 30px;
+            background-color: #ffffff;
+            border: 1px solid rgba(196, 167, 94, 0.4);
+            color: var(--primary-color);
+            font-size: 0.84rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+
+            svg {
+                color: var(--secondary-color);
+            }
+        }
+
+        .mainTitle {
+            font-size: clamp(1.95rem, 4.2vw, 3.1rem);
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1.35;
+            margin-bottom: 16px;
+
+            :global(html[lang="ar"]) & {
+                font-family: var(--font-ruqaa), "Aref Ruqaa", serif;
+                font-size: clamp(2.2rem, 4.6vw, 3.5rem);
+                line-height: 1.45;
+            }
+        }
+
+        .leadDesc {
+            font-size: clamp(0.92rem, 1.6vw, 1.05rem);
+            color: var(--text-color);
+            opacity: 0.85;
+            line-height: 1.8;
+            max-width: 700px;
+            margin-bottom: 28px;
+        }
+
+        .trustRow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px 24px;
+
+            .trustItem {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 0.82rem;
+                font-weight: 600;
+                color: var(--primary-color);
+                opacity: 0.85;
+
+                svg {
+                    color: var(--secondary-color);
+                    flex-shrink: 0;
+                }
+            }
+        }
+    }
+}

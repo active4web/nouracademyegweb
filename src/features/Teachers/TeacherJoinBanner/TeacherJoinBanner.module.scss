@@ -1,0 +1,112 @@
+.joinBannerSection {
+    position: relative;
+    background-color: var(--bg-body);
+    padding-top: 20px;
+    padding-bottom: 0;
+
+    .bannerCard {
+        position: relative;
+        background: linear-gradient(135deg, var(--primary-color) 0%, #0c2b23 100%);
+        border: 1.5px solid rgba(196, 167, 94, 0.4);
+        border-radius: 24px;
+        padding: clamp(36px, 5vw, 54px) clamp(24px, 4vw, 48px);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        box-shadow: 0 12px 36px rgba(18, 61, 50, 0.12);
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: rgba(196, 167, 94, 0.08);
+            pointer-events: none;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            background-color: rgba(196, 167, 94, 0.15);
+            border: 1px solid rgba(196, 167, 94, 0.35);
+            color: var(--secondary-color);
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .bannerTitle {
+            font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.35;
+            max-width: 780px;
+            margin-bottom: 14px;
+
+            :global(html[lang="ar"]) & {
+                font-family: var(--font-ruqaa), "Aref Ruqaa", serif;
+                font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+            }
+        }
+
+        .bannerDesc {
+            font-size: clamp(0.9rem, 1.5vw, 1.02rem);
+            color: rgba(255, 255, 255, 0.82);
+            line-height: 1.7;
+            max-width: 680px;
+            margin-bottom: 30px;
+        }
+
+        .actionWrapper {
+            display: flex;
+            justify-content: center;
+
+            .joinBtn {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                height: 48px;
+                padding: 0 28px;
+                border-radius: 12px;
+                background-color: var(--secondary-color);
+                color: var(--primary-color);
+                font-size: 0.94rem;
+                font-weight: 800;
+                text-decoration: none;
+                box-shadow: 0 6px 20px rgba(196, 167, 94, 0.25);
+                transition: transform 0.15s ease, background-color 0.15s ease;
+
+                .arrowIcon {
+                    transition: transform 0.15s ease;
+
+                    :global(html[dir="rtl"]) & {
+                        transform: rotate(180deg);
+                    }
+                }
+
+                &:hover {
+                    background-color: #d8b769;
+                    transform: translateY(-2px);
+
+                    .arrowIcon {
+                        :global(html[dir="rtl"]) & {
+                            transform: rotate(180deg) translateX(4px);
+                        }
+
+                        :global(html[dir="ltr"]) & {
+                            transform: translateX(4px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

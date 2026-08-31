@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
-import { Search, X, RotateCcw } from "lucide-react";
+import { Search, X, RotateCcw, Filter } from "lucide-react";
 import { allCoursesData, courseCategories } from "@/data/courses.data";
 import CourseCard from "./components/CourseCard";
 import styles from "./CoursesListingSection.module.scss";
@@ -15,7 +15,6 @@ export default function CoursesListingSection() {
 
     const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
-    // استخراج قيمة البحث مباشرة من الـ URL كمتغير مشتق بدون الحاجة لـ useState أو useEffect
     const searchQuery = searchParams.get("q") || "";
 
     const filteredCourses = useMemo(() => {
@@ -43,18 +42,24 @@ export default function CoursesListingSection() {
     return (
         <section id="courses-grid" className={styles.listingSection}>
             <div className="container">
-                {/* Categories Filter Bar */}
-                <div className={styles.categoriesBar}>
-                    {courseCategories.map((cat) => (
-                        <button
-                            key={cat.key}
-                            type="button"
-                            className={`${styles.catBtn} ${selectedCategory === cat.key ? styles.active : ""}`}
-                            onClick={() => setSelectedCategory(cat.key)}
-                        >
-                            {cat.label[locale] || cat.label.ar}
-                        </button>
-                    ))}
+                {/* Filter Bar (Matched with Teachers style) */}
+                <div className={styles.filterBar}>
+                    <div className={styles.filterIconLabel}>
+                        <Filter size={16} />
+                        <span>التصنيف:</span>
+                    </div>
+                    <div className={styles.filterButtonsWrapper}>
+                        {courseCategories.map((cat) => (
+                            <button
+                                key={cat.key}
+                                type="button"
+                                className={`${styles.filterBtn} ${selectedCategory === cat.key ? styles.active : ""}`}
+                                onClick={() => setSelectedCategory(cat.key)}
+                            >
+                                {cat.label[locale] || cat.label.ar}
+                            </button>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Active Search Notification Bar */}

@@ -1,0 +1,193 @@
+.comparisonSection {
+    position: relative;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: var(--bg-body);
+
+    .sectionHeader {
+        margin: 0 auto 35px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 14px;
+            border-radius: 20px;
+            background-color: #ffffff;
+            border: 1px solid rgba(196, 167, 94, 0.4);
+            color: var(--primary-color);
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+
+            svg {
+                color: var(--secondary-color);
+            }
+        }
+
+        .sectionTitle {
+            font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1.35;
+            margin-bottom: 10px
+        }
+
+        .sectionDesc {
+            font-size: 0.92rem;
+            color: var(--text-color);
+            opacity: 0.85;
+            line-height: 1.6;
+        }
+    }
+
+    .tableWrapper {
+        width: 100%;
+        overflow-x: auto;
+        background-color: #ffffff;
+        border: 1.5px solid rgba(196, 167, 94, 0.35);
+        border-radius: 20px;
+        box-shadow: 0 8px 30px rgba(18, 61, 50, 0.04);
+        -webkit-overflow-scrolling: touch;
+
+        &::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(196, 167, 94, 0.4);
+            border-radius: 4px;
+        }
+
+        .comparisonTable {
+            width: 100%;
+            min-width: 760px;
+            border-collapse: collapse;
+            text-align: center;
+
+            thead {
+                background-color: #fdfcf9;
+                border-bottom: 1.5px solid rgba(196, 167, 94, 0.3);
+
+                th {
+                    padding: 18px 16px;
+                    font-size: 0.92rem;
+                    font-weight: 800;
+                    color: var(--primary-color);
+
+                    &.featureCol {
+                        text-align: start;
+                        width: 24%;
+                        padding-inline-start: 24px;
+                    }
+
+                    &.planCol {
+                        width: 19%;
+                    }
+
+                    &.popularCol {
+                        background-color: rgba(196, 167, 94, 0.1);
+                        color: var(--primary-color);
+                    }
+                }
+            }
+
+            tbody {
+                tr {
+                    border-bottom: 1px solid rgba(196, 167, 94, 0.15);
+                    transition: background-color 0.15s ease;
+
+                    &:hover {
+                        background-color: rgba(18, 61, 50, 0.015);
+                    }
+
+                    td {
+                        padding: 16px 14px;
+                        font-size: 0.84rem;
+                        color: var(--text-color);
+                        font-weight: 600;
+
+                        &.featureName {
+                            text-align: start;
+                            padding-inline-start: 24px;
+                            font-weight: 700;
+                            color: var(--primary-color);
+                        }
+
+                        &.popularCol {
+                            background-color: rgba(196, 167, 94, 0.05);
+                            color: var(--primary-color);
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+
+            tfoot {
+                td {
+                    padding: 20px 14px;
+
+                    &.popularCol {
+                        background-color: rgba(196, 167, 94, 0.05);
+                    }
+
+                    .tableBtn {
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 5px;
+                        height: 38px;
+                        padding: 0 16px;
+                        width: 100%;
+                        max-width: 120px;
+                        border-radius: 8px;
+                        background-color: transparent;
+                        border: 1px solid rgba(196, 167, 94, 0.4);
+                        color: var(--primary-color);
+                        font-size: 0.82rem;
+                        font-weight: 700;
+                        text-decoration: none;
+                        transition: all 0.15s ease;
+
+                        .arrowIcon {
+                            transition: transform 0.15s ease;
+
+                            :global(html[dir="rtl"]) & {
+                                transform: rotate(180deg);
+                            }
+                        }
+
+                        &:hover {
+                            background-color: rgba(18, 61, 50, 0.04);
+                            border-color: var(--primary-color);
+
+                            .arrowIcon {
+                                :global(html[dir="rtl"]) & {
+                                    transform: rotate(180deg) translateX(3px);
+                                }
+
+                                :global(html[dir="ltr"]) & {
+                                    transform: translateX(3px);
+                                }
+                            }
+                        }
+
+                        &.popularBtn {
+                            background-color: var(--primary-color);
+                            color: #ffffff;
+                            border-color: var(--primary-color);
+
+                            &:hover {
+                                background-color: #0c2b23;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

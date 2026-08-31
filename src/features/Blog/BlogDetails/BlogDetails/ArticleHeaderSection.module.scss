@@ -1,0 +1,182 @@
+.headerSection {
+    position: relative;
+    padding-top: clamp(130px, 15vh, 160px);
+    padding-bottom: 0;
+    background-color: var(--bg-body);
+
+    .breadcrumbNav {
+        margin-bottom: 24px;
+
+        .breadcrumbList {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 0.82rem;
+
+            .breadcrumbLink {
+                display: inline-flex;
+                align-items: center;
+                gap: 5px;
+                color: var(--text-color);
+                opacity: 0.75;
+                text-decoration: none;
+                transition: opacity 0.15s ease, color 0.15s ease;
+
+                &:hover {
+                    opacity: 1;
+                    color: var(--secondary-color);
+                }
+            }
+
+            .separator {
+                color: var(--text-color);
+                opacity: 0.4;
+                display: flex;
+                align-items: center;
+            }
+
+            .currentCrumb {
+                color: var(--primary-color);
+                font-weight: 700;
+                max-width: 280px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                @media (min-width: 640px) {
+                    max-width: 450px;
+                }
+            }
+        }
+    }
+
+    .headerContent {
+        margin: 0 auto 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        .categoryBadge {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            border: 1px solid rgba(196, 167, 94, 0.4);
+            margin-bottom: 16px;
+        }
+
+        .articleTitle {
+            font-size: clamp(1.6rem, 3.4vw, 2.5rem);
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1.35;
+            margin-bottom: 20px;
+
+            :global(html[lang="ar"]) & {
+                font-family: var(--font-ruqaa), "Aref Ruqaa", serif;
+                font-size: clamp(1.85rem, 3.8vw, 2.85rem);
+                line-height: 1.45;
+            }
+        }
+
+        .metaRow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            padding-top: 10px;
+
+            .authorBox {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                .authorImgRing {
+                    width: 38px;
+                    height: 38px;
+                    border-radius: 50%;
+                    border: 1.5px solid var(--secondary-color);
+                    overflow: hidden;
+                    background-color: #ffffff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .authorAvatar {
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+                }
+
+                .authorText {
+                    display: flex;
+                    flex-direction: column;
+                    text-align: start;
+
+                    .authorName {
+                        font-size: 0.84rem;
+                        font-weight: 700;
+                        color: var(--primary-color);
+                    }
+
+                    .authorRole {
+                        font-size: 0.72rem;
+                        color: var(--text-color);
+                        opacity: 0.7;
+                    }
+                }
+            }
+
+            .metaDivider {
+                width: 1px;
+                height: 24px;
+                background-color: rgba(196, 167, 94, 0.4);
+                display: none;
+
+                @media (min-width: 480px) {
+                    display: block;
+                }
+            }
+
+            .dateMeta {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 0.82rem;
+                color: var(--text-color);
+                opacity: 0.8;
+                font-weight: 600;
+
+                svg {
+                    color: var(--secondary-color);
+                }
+            }
+        }
+    }
+
+    .coverImageContainer {
+        position: relative;
+        max-width: 960px;
+        height: clamp(240px, 40vw, 460px);
+        margin: 0 auto;
+        border-radius: 24px;
+        overflow: hidden;
+        border: 1.5px solid rgba(196, 167, 94, 0.35);
+        box-shadow: 0 10px 32px rgba(18, 61, 50, 0.05);
+        background-color: rgba(18, 61, 50, 0.04);
+
+        .coverImg {
+            object-fit: cover;
+        }
+    }
+}

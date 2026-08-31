@@ -1,0 +1,263 @@
+.blogHeroSection {
+    position: relative;
+    padding-top: clamp(140px, 16vh, 175px);
+    padding-bottom: 0;
+    background-color: var(--bg-body);
+
+    .headerWrapper {
+        max-width: 800px;
+        margin: 0 auto clamp(32px, 5vh, 44px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: 30px;
+            background-color: #ffffff;
+            border: 1px solid rgba(196, 167, 94, 0.4);
+            color: var(--primary-color);
+            font-size: 0.84rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+
+            svg {
+                color: var(--secondary-color);
+            }
+        }
+
+        .mainTitle {
+            font-size: clamp(1.95rem, 4.2vw, 3.1rem);
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1.35;
+            margin-bottom: 16px;
+
+            :global(html[lang="ar"]) & {
+                font-family: var(--font-ruqaa), "Aref Ruqaa", serif;
+                font-size: clamp(2.2rem, 4.6vw, 3.5rem);
+                line-height: 1.45;
+            }
+        }
+
+        .leadDesc {
+            font-size: clamp(0.92rem, 1.6vw, 1.05rem);
+            color: var(--text-color);
+            opacity: 0.85;
+            line-height: 1.8;
+            max-width: 700px;
+        }
+    }
+
+    .featuredWrapper {
+        max-width: 1040px;
+        margin: 0 auto;
+
+        .featuredCard {
+            display: grid;
+            grid-template-columns: 1fr;
+            background-color: #ffffff;
+            border: 1px solid rgba(196, 167, 94, 0.35);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(18, 61, 50, 0.04);
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+
+            @media (min-width: 860px) {
+                grid-template-columns: 1.05fr 1.3fr;
+            }
+
+            &:hover {
+                border-color: var(--secondary-color);
+                box-shadow: 0 12px 36px rgba(18, 61, 50, 0.08);
+
+                .contentContainer .footerRow .readMoreBtn {
+                    background-color: var(--primary-color);
+                    border-color: var(--primary-color);
+                    color: #ffffff;
+
+                    .arrowIcon {
+                        :global(html[dir="rtl"]) & {
+                            transform: rotate(180deg) translateX(4px);
+                        }
+
+                        :global(html[dir="ltr"]) & {
+                            transform: translateX(4px);
+                        }
+                    }
+                }
+            }
+
+            .imageContainer {
+                position: relative;
+                min-height: 240px;
+                background-color: rgba(18, 61, 50, 0.04);
+
+                @media (min-width: 860px) {
+                    min-height: 100%;
+                }
+
+                .postImg {
+                    object-fit: cover;
+                }
+
+                .categoryBadge {
+                    position: absolute;
+                    top: 16px;
+                    inset-inline-start: 16px;
+                    background-color: var(--primary-color);
+                    color: #ffffff;
+                    padding: 4px 12px;
+                    border-radius: 20px;
+                    font-size: 0.76rem;
+                    font-weight: 700;
+                    border: 1px solid rgba(196, 167, 94, 0.4);
+                }
+            }
+
+            .contentContainer {
+                padding: clamp(24px, 4vw, 36px);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                .metaTop {
+                    display: flex;
+                    align-items: center;
+                    gap: 14px;
+                    margin-bottom: 14px;
+                    flex-wrap: wrap;
+
+                    .featuredTag {
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 5px;
+                        color: var(--secondary-color);
+                        font-size: 0.78rem;
+                        font-weight: 700;
+                        background-color: rgba(196, 167, 94, 0.12);
+                        padding: 3px 10px;
+                        border-radius: 12px;
+                    }
+
+                    .dateMeta {
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 6px;
+                        color: var(--text-color);
+                        opacity: 0.75;
+                        font-size: 0.8rem;
+                        font-weight: 600;
+
+                        svg {
+                            color: var(--secondary-color);
+                        }
+                    }
+                }
+
+                .postTitle {
+                    font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+                    font-weight: 800;
+                    color: var(--primary-color);
+                    line-height: 1.4;
+                    margin-bottom: 12px;
+
+                    a {
+                        text-decoration: none;
+                        color: inherit;
+                        transition: color 0.15s ease;
+
+                        &:hover {
+                            color: var(--secondary-color);
+                        }
+                    }
+                }
+
+                .postExcerpt {
+                    font-size: 0.9rem;
+                    color: var(--text-color);
+                    opacity: 0.85;
+                    line-height: 1.7;
+                    margin-bottom: 24px;
+                }
+
+                .footerRow {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    gap: 16px;
+                    padding-top: 18px;
+                    border-top: 1px solid rgba(196, 167, 94, 0.2);
+
+                    .authorBox {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+
+                        .authorImgRing {
+                            width: 38px;
+                            height: 38px;
+                            border-radius: 50%;
+                            border: 1.5px solid var(--secondary-color);
+                            overflow: hidden;
+                            background-color: #ffffff;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            .authorAvatar {
+                                border-radius: 50%;
+                                object-fit: cover;
+                            }
+                        }
+
+                        .authorText {
+                            display: flex;
+                            flex-direction: column;
+
+                            .authorName {
+                                font-size: 0.84rem;
+                                font-weight: 700;
+                                color: var(--primary-color);
+                            }
+
+                            .authorRole {
+                                font-size: 0.72rem;
+                                color: var(--text-color);
+                                opacity: 0.7;
+                            }
+                        }
+                    }
+
+                    .readMoreBtn {
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 6px;
+                        padding: 8px 18px;
+                        border-radius: 10px;
+                        background-color: transparent;
+                        border: 1.5px solid rgba(196, 167, 94, 0.45);
+                        color: var(--primary-color);
+                        font-size: 0.82rem;
+                        font-weight: 700;
+                        text-decoration: none;
+                        transition: all 0.15s ease;
+
+                        .arrowIcon {
+                            transition: transform 0.15s ease;
+
+                            :global(html[dir="rtl"]) & {
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

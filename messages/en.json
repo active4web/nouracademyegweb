@@ -16,10 +16,10 @@
         "badge": "Accredited Quran & Arabic Academy",
         "titleStart": "Your Blessed Journey in",
         "titleHighlight": "The Noble Quran & Arabic",
-        "description": "Interactive, direct 1-on-1 live sessions for Quran memorization, Tajweed mastery, and Arabic linguistics taught by certified scholars worldwide.",
+        "description": "Interactive, direct live sessions for Quran memorization, Tajweed mastery, and Arabic linguistics taught by certified scholars worldwide.",
         "bookTrial": "Book Your Free Trial",
         "exploreCourses": "Explore Courses",
-        "cardTopTitle": "Live 1-on-1 Session",
+        "cardTopTitle": "Live Session",
         "cardTopSubtitle": "30 mins completely free",
         "cardBottomTitle": "Continuous Evaluation",
         "cardBottomSubtitle": "Weekly progress reports",
@@ -94,14 +94,14 @@
         "description": "Join thousands of learners worldwide. Meet your dedicated certified tutor and assess your level with zero financial commitment.",
         "ctaBtn": "Book Your Free Trial Now",
         "feature1": "No Credit Card Required",
-        "feature2": "1-on-1 Live Session",
+        "feature2": "Live Session",
         "feature3": "Certified Quran Scholars"
     },
     "AboutHero": {
         "badge": "About Nour Academy",
         "mainTitle": "A Global Quranic Academy Teaching Allah's Book as Revealed",
         "leadText": "Nour Academy was established as a trusted educational beacon connecting Muslims worldwide to the Holy Quran, with authentic Sanad and modern pedagogy.",
-        "storyParagraph": "We launched to serve Muslim families and expatriate youth, providing a secure environment that blends Al-Azhar certified scholars licensed in the ten Qira'at with flexible 1-on-1 digital sessions. Our mission extends beyond memorization to instilling genuine love and contemplation of the Quran.",
+        "storyParagraph": "We launched to serve Muslim families and expatriate youth, providing a secure environment that blends Al-Azhar certified scholars licensed in the ten Qira'at with flexible digital sessions. Our mission extends beyond memorization to instilling genuine love and contemplation of the Quran.",
         "stat1Count": "25+",
         "stat1Label": "Countries Served Globally",
         "stat2Count": "100%",
@@ -118,7 +118,7 @@
         "visionDesc": "To be the premier, trusted global destination for learning the Holy Quran, Tajweed, and related sciences, making authentic Sanad accessible worldwide.",
         "missionBadge": "Our Mission",
         "missionTitle": "Conveying the Quran with Utmost Mastery",
-        "missionDesc": "Providing personalized, interactive 1-on-1 sessions led by certified Al-Azhar scholars, instilling love for the Quran and Arabic language.",
+        "missionDesc": "Providing personalized, interactive sessions led by certified Al-Azhar scholars, instilling love for the Quran and Arabic language.",
         "valuesHeading": "Our Core Values"
     },
     "AboutMethodology": {
@@ -129,7 +129,7 @@
         "step1Title": "Strict Scholar Selection & Azhar Accreditation",
         "step1Desc": "Beyond authentic Sanad licenses, tutors undergo comprehensive testing in practical Tajweed, articulation accuracy, and modern child pedagogy.",
         "step2Tag": "Phase Two",
-        "step2Title": "Personalized 1-on-1 Learning Roadmaps",
+        "step2Title": "Personalized Learning Roadmaps",
         "step2Desc": "Initial skill assessment followed by a tailored memorization plan accommodating the student's age, routine, and weekly capacity for steady progress.",
         "step3Tag": "Phase Three",
         "step3Title": "Periodic Assessments & Performance Reports",
@@ -152,7 +152,7 @@
         "titleHighlight": "with Authentic Sanad",
         "desc": "Book your free trial class now, meet your certified Al-Azhar tutor, and assess your current level effortlessly.",
         "button": "Book Your Free Trial Class",
-        "perk1": "Direct 1-on-1 personalized session",
+        "perk1": "Direct personalized session",
         "perk2": "Instant comprehensive level evaluation",
         "perk3": "No credit card or commitment required"
     },
@@ -163,7 +163,7 @@
         "searchPlaceholder": "Search for a course (e.g., Tajweed, Noor Al-Bayan, Memorization)...",
         "searchBtn": "Search",
         "totalCountBadge": "Courses Available",
-        "feature1": "1-on-1 Private Sessions",
+        "feature1": "Private Sessions",
         "feature2": "Accredited Curriculum",
         "feature3": "Flexible Scheduling"
     },
@@ -183,11 +183,156 @@
         "badge": "Start Your Journey Now",
         "titleStart": "Book Your Free Trial Class with",
         "titleHighlight": "Elite Al-Azhar Scholars",
-        "description": "A live 1-on-1 session to assess your level and your children's proficiency, beginning an inspiring Quran and Arabic mastery path.",
+        "description": "A live session to assess your level and your children's proficiency, beginning an inspiring Quran and Arabic mastery path.",
         "ctaBtn": "Book Your Free Trial Class",
-        "feature1": "1-on-1 Placement Session",
+        "feature1": "Placement Session",
         "feature2": "Available for All Ages",
         "feature3": "No Financial Commitment"
+    },
+    "PackagesHero": {
+        "badge": "Pricing & Subscription Plans",
+        "mainTitle": "Flexible Plans Tailored for Your Quran & Arabic Journey",
+        "description": "Choose the best plan for you or your children with structured pricing and private sessions under Al-Azhar certified scholars.",
+        "currencyEgp": "Egyptian Pound (EGP)",
+        "currencyUsd": "US Dollar (USD)",
+        "trust1": "Private Live Sessions",
+        "trust2": "Flexible Rescheduling Policy",
+        "trust3": "Free 1st Assessment Session"
+    },
+    "PackagesGrid": {
+        "currencyLabel": "Currency:",
+        "currencyEgp": "Egyptian Pound (EGP)",
+        "currencyUsd": "US Dollar (USD)",
+        "mostPopular": "Most Popular",
+        "perMonth": "/ month",
+        "sessionsCount": "sessions / mo",
+        "sessionsPerWeekLabel": "sessions / week",
+        "featuresTitle": "Package Features:",
+        "showMore": "View all features",
+        "showLess": "Hide extra features",
+        "applyBtn": "Subscribe to Plan"
+    },
+    "PackagesComparison": {
+        "badge": "Feature Breakdown",
+        "title": "Comprehensive Plans Comparison",
+        "description": "A detailed side-by-side view of all features included in each plan to help you decide.",
+        "featureColumn": "Features & Perks",
+        "planStarter": "Foundation",
+        "planStandard": "Mastery",
+        "planIntensive": "Excellence",
+        "planIjazah": "Sanad & Ijazah",
+        "actionBtn": "Choose"
+    },
+    "PackagesFaq": {
+        "sectionBadge": "Frequently Asked",
+        "sectionTitle": "Subscription & Billing FAQs",
+        "sectionDesc": "Everything you need to know about billing policies, rescheduling, and subscription freeze for a smooth learning path.",
+        "moreQuestionsText": "Have more questions regarding pricing and billing?",
+        "contactSupport": "Contact Support Team"
+    },
+    "PackagesFinalCta": {
+        "badge": "Start Your Free Trial",
+        "titleStart": "Book Your Free Trial Class with",
+        "titleHighlight": "Top Al-Azhar Scholars",
+        "description": "A live placement session to assess your proficiency, find the perfect plan, and begin your Quran & Arabic journey.",
+        "ctaBtn": "Book Your Free Trial Class",
+        "feature1": "Assessment Session",
+        "feature2": "Available for All Ages",
+        "feature3": "No Financial Commitment"
+    },
+    "TeachersHero": {
+        "badge": "Elite Al-Azhar Scholars & Tutors",
+        "mainTitle": "Learn Directly From Certified Sanad Scholars",
+        "description": "Our tutors are handpicked to ensure a unique learning experience combining authentic Azhar methodology with modern interactive teaching for all ages.",
+        "trust1": "Certified & Sanad Tutors",
+        "trust2": "Expert in Tajweed & Qira'at",
+        "trust3": "Personalized Sessions"
+    },
+    "TeachersPage": {
+        "sectionBadge": "Faculty & Tutors",
+        "sectionTitle": "Meet Our Elite Certified Scholars & Tutors",
+        "sectionDesc": "Handpicked Al-Azhar scholars holding high Sanad chains dedicated to teaching the Holy Quran and Arabic language.",
+        "allFilter": "All Specialties",
+        "experienceLabel": "Years Exp",
+        "studentsCount": "Students",
+        "ijazahLabel": "Sanad & License:",
+        "viewProfile": "Profile",
+        "applyNow": "Book Session",
+        "noResults": "No matching teachers found for your selection."
+    },
+    "TeacherCardCommon": {
+        "experienceLabel": "Years Exp",
+        "studentsCount": "Students",
+        "ijazahLabel": "Sanad & License:",
+        "viewProfile": "Profile",
+        "applyNow": "Book Session"
+    },
+    "TeachersStandards": {
+        "badge": "Quality & Excellence Standards",
+        "mainTitle": "Why We Select Our Elite Tutors Rigorously",
+        "description": "We apply the highest accreditation standards to ensure students receive reliable Quranic and Arabic education combining authenticity with modern pedagogy.",
+        "card1Title": "Connected Sanad & High Ijazah",
+        "card1Desc": "All our tutors hold certified licenses and continuous chains of narration (Sanad) back to Prophet Muhammad ﷺ.",
+        "card2Title": "Rigorous Mastery Tests",
+        "card2Desc": "Tutors undergo advanced written and practical evaluations in Tajweed rules, voice quality, and articulation precision.",
+        "card3Title": "Advanced Pedagogical Skills",
+        "card3Desc": "Regular training programs on engaging different age groups effectively, especially children, fostering a love for the Quran."
+    },
+    "TeacherJoinBanner": {
+        "badge": "Join Our Team",
+        "title": "Are You a Qualified Quran or Arabic Tutor With Sanad?",
+        "description": "Join our elite faculty of scholars at Noor Academy and start teaching students worldwide through a flexible work environment and a professional ecosystem.",
+        "joinBtn": "Apply as a Teacher"
+    },
+    "TeachersFinalCta": {
+        "badge": "Start Your Quran Journey Today",
+        "titleStart": "Choose Your Favorite Tutor & Start",
+        "titleHighlight": "Your Free Trial Session",
+        "description": "Join over 2,000 students learning the Holy Quran and Arabic under the guidance of certified Al-Azhar scholars with connected Sanad.",
+        "ctaBtn": "Book Free Trial Now",
+        "feature1": "100% Free Trial Class",
+        "feature2": "Certified Male & Female Azhari Tutors",
+        "feature3": "Flexible Scheduling"
+    },
+    "BlogHero": {
+        "badge": "Noor Academy Blog",
+        "mainTitle": "Articles & Insights on Quran & Arabic Studies",
+        "description": "Your comprehensive guide for mastering recitation, Tajweed, and educational tips for parents by our elite faculty.",
+        "featuredBadge": "Featured Article",
+        "readArticle": "Read Full Article"
+    },
+    "BlogListing": {
+        "searchPlaceholder": "Search articles & insights...",
+        "filterLabel": "Category:",
+        "readMore": "Read Article",
+        "searchResultFor": "Search results for",
+        "articlesFound": "articles found",
+        "clearSearch": "Clear Search",
+        "noResultsTitle": "No Articles Found",
+        "noResultsDesc": "Try different search terms or select another category.",
+        "prevPage": "Previous",
+        "nextPage": "Next"
+    },
+    "BlogFinalCta": {
+        "badge": "Turn Knowledge Into Practice",
+        "titleStart": "Start Your Live Learning Journey With",
+        "titleHighlight": "Your Free Trial Class",
+        "description": "Reading articles is great, but practical 1-on-1 recitation with a certified Al-Azhar tutor is what truly transforms your Quranic journey.",
+        "ctaBtn": "Book Free Trial Now",
+        "feature1": "100% Free Trial Class",
+        "feature2": "Immediate Practical Tajweed",
+        "feature3": "Personalized Learning Plan"
+    },
+    "ArticleHeader": {
+        "home": "Home",
+        "blog": "Blog",
+        "publishedOn": "Published on:"
+    },
+    "ArticleContent": {
+        "writtenBy": "Written by:",
+        "shareArticle": "Share this article:",
+        "copyLink": "Copy Link",
+        "linkCopied": "Link Copied!"
     },
     "Footer": {
         "brandDesc": "Leading online platform specialized in Quranic recitation, practical Tajweed, connected Sanad Ijazah, and Arabic linguistics under certified Al-Azhar scholars.",

@@ -1,0 +1,93 @@
+.teachersGridSection {
+    position: relative;
+    background-color: var(--bg-body);
+    padding-top: 20px;
+    padding-bottom: 0;
+
+    .filterBar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 40px;
+        background-color: #ffffff;
+        border: 1px solid rgba(196, 167, 94, 0.3);
+        border-radius: 16px;
+        padding: 12px 20px;
+        box-shadow: 0 4px 16px rgba(18, 61, 50, 0.03);
+        max-width: 900px;
+        margin-inline: auto;
+
+        .filterIconLabel {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.84rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            padding-inline-end: 8px;
+
+            svg {
+                color: var(--secondary-color);
+            }
+        }
+
+        .filterButtonsWrapper {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+
+            .filterBtn {
+                height: 36px;
+                padding: 0 16px;
+                border-radius: 10px;
+                background-color: transparent;
+                border: 1px solid rgba(196, 167, 94, 0.25);
+                font-size: 0.82rem;
+                font-weight: 700;
+                color: var(--primary-color);
+                cursor: pointer;
+                transition: all 0.15s ease;
+
+                &:hover {
+                    background-color: rgba(18, 61, 50, 0.04);
+                    border-color: var(--secondary-color);
+                }
+
+                &.active {
+                    background-color: var(--primary-color);
+                    color: #ffffff;
+                    border-color: var(--primary-color);
+                    box-shadow: 0 4px 12px rgba(18, 61, 50, 0.12);
+                }
+            }
+        }
+    }
+
+    .teachersGrid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+
+        @media (min-width: 640px) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        @media (min-width: 1024px) {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            align-items: stretch;
+        }
+    }
+
+    .noResults {
+        text-align: center;
+        padding: 40px 0;
+        font-size: 0.95rem;
+        color: var(--text-color);
+        opacity: 0.8;
+    }
+}

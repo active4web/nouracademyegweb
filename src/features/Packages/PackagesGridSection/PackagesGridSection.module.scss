@@ -1,0 +1,71 @@
+.packagesGridSection {
+    position: relative;
+    background-color: var(--bg-body);
+
+    .currencyControlBar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 35px;
+
+        .currencySwitcher {
+            display: inline-flex;
+            align-items: center;
+            background-color: #ffffff;
+            border: 1.5px solid rgba(196, 167, 94, 0.35);
+            border-radius: 14px;
+            padding: 6px;
+            gap: 6px;
+            box-shadow: 0 4px 16px rgba(18, 61, 50, 0.03);
+
+            .switcherIcon {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                padding: 0 10px;
+                color: var(--secondary-color);
+                font-size: 0.84rem;
+                font-weight: 700;
+            }
+
+            .currencyBtn {
+                height: 38px;
+                padding: 0 18px;
+                border-radius: 10px;
+                background-color: transparent;
+                border: none;
+                font-size: 0.86rem;
+                font-weight: 700;
+                color: var(--primary-color);
+                cursor: pointer;
+                transition: all 0.15s ease;
+
+                &:hover {
+                    background-color: rgba(18, 61, 50, 0.04);
+                }
+
+                &.active {
+                    background-color: var(--primary-color);
+                    color: #ffffff;
+                    box-shadow: 0 4px 12px rgba(18, 61, 50, 0.15);
+                }
+            }
+        }
+    }
+
+    .cardsGrid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        align-items: start;
+
+        @media (min-width: 640px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: 1200px) {
+            grid-template-columns: repeat(4, 1fr);
+            align-items: start;
+        }
+    }
+}

@@ -1,11 +1,11 @@
 @keyframes softPulse {
     0% {
         transform: scale(1);
-        opacity: 0.55;
+        opacity: 0.65;
     }
 
     50% {
-        transform: scale(1.28);
+        transform: scale(1.38);
         opacity: 0;
     }
 
@@ -15,11 +15,85 @@
     }
 }
 
+@keyframes attentionGlow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(196, 167, 94, 0.7), 0 6px 20px rgba(18, 61, 50, 0.15);
+    }
+
+    70% {
+        box-shadow: 0 0 0 16px rgba(196, 167, 94, 0), 0 6px 20px rgba(18, 61, 50, 0.15);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(196, 167, 94, 0), 0 6px 20px rgba(18, 61, 50, 0.15);
+    }
+}
+
+.audioFloatingContainer {
+    position: fixed;
+    bottom: 24px;
+    inset-inline-start: 24px;
+    z-index: 99;
+
+    .audioBtn {
+        position: relative;
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        background-color: #ffffff;
+        border: 2px solid var(--secondary-color);
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        animation: attentionGlow 2.2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+        transform: translateZ(0);
+        will-change: transform, box-shadow;
+        transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s ease, color 0.2s ease;
+
+        .audioIcon {
+            position: relative;
+            z-index: 2;
+            transition: transform 0.2s ease;
+        }
+
+        .audioPulseRing {
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            animation: softPulse 2.2s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        &:hover {
+            transform: translateY(-3px) scale(1.08) translateZ(0);
+            color: var(--secondary-color);
+        }
+
+        &.active {
+            background-color: var(--primary-color);
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+
+            .audioIcon {
+                transform: scale(1.15);
+            }
+
+            &:hover {
+                background-color: #0c2b23;
+                color: #ffffff;
+            }
+        }
+    }
+}
+
 .floatingContainer {
     position: fixed;
     bottom: 24px;
-    right: 24px;
-    left: auto;
+    inset-inline-end: 24px;
     z-index: 99;
     display: flex;
     flex-direction: column;

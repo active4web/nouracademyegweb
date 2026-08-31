@@ -85,7 +85,11 @@ export default function Header() {
                     <nav className={styles.desktopNav}>
                         <ul className={styles.navList}>
                             {navLinks.map((link) => {
-                                const isActive = pathname === link.href;
+                                const isActive =
+                                    link.href === "/"
+                                        ? pathname === "/"
+                                        : pathname === link.href || pathname.startsWith(`${link.href}/`);
+
                                 return (
                                     <li key={link.href}>
                                         <Link
@@ -169,7 +173,11 @@ export default function Header() {
                                 <nav className={styles.appMenu}>
                                     {navLinks.map((link) => {
                                         const Icon = link.icon;
-                                        const isActive = pathname === link.href;
+                                        const isActive =
+                                            link.href === "/"
+                                                ? pathname === "/"
+                                                : pathname === link.href || pathname.startsWith(`${link.href}/`);
+
                                         return (
                                             <Link
                                                 key={link.href}

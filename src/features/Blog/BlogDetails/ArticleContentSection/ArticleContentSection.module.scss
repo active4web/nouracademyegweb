@@ -1,0 +1,181 @@
+.contentSection {
+    position: relative;
+    background-color: var(--bg-body);
+    padding-top: 0;
+    padding-bottom: 0;
+
+    .articleWrapper {
+        max-width: 840px;
+        margin: 0 auto;
+
+        .articleBody {
+            font-size: 1.05rem;
+            color: var(--text-color);
+            line-height: 1.9;
+
+            p {
+                margin-bottom: 22px;
+                opacity: 0.9;
+            }
+
+            h2,
+            h3,
+            h4 {
+                color: var(--primary-color);
+                font-weight: 800;
+                margin-top: 36px;
+                margin-bottom: 16px;
+                line-height: 1.4;
+
+                :global(html[lang="ar"]) & {
+                    font-family: var(--font-ruqaa), "Aref Ruqaa", serif;
+                }
+            }
+
+            h2 {
+                font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+            }
+
+            h3 {
+                font-size: clamp(1.2rem, 2vw, 1.5rem);
+            }
+
+            ul,
+            ol {
+                margin-bottom: 24px;
+                padding-inline-start: 24px;
+
+                li {
+                    margin-bottom: 10px;
+                    opacity: 0.9;
+
+                    strong {
+                        color: var(--primary-color);
+                    }
+                }
+            }
+        }
+
+        .shareBar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 40px;
+            padding: 16px 20px;
+            background-color: #ffffff;
+            border: 1px solid rgba(196, 167, 94, 0.35);
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(18, 61, 50, 0.03);
+
+            .shareLabel {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 0.88rem;
+                font-weight: 700;
+                color: var(--primary-color);
+
+                svg {
+                    color: var(--secondary-color);
+                }
+            }
+
+            .shareButtons {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                flex-wrap: wrap;
+
+                .shareBtn {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 6px;
+                    height: 36px;
+                    padding: 0 14px;
+                    border-radius: 10px;
+                    background-color: transparent;
+                    border: 1px solid rgba(196, 167, 94, 0.3);
+                    color: var(--primary-color);
+                    font-size: 0.8rem;
+                    font-weight: 700;
+                    cursor: pointer;
+                    transition: all 0.15s ease;
+
+                    &:hover {
+                        background-color: rgba(18, 61, 50, 0.05);
+                        border-color: var(--secondary-color);
+                    }
+
+                    &.whatsapp {
+                        color: #25d366;
+                        border-color: rgba(37, 211, 102, 0.35);
+
+                        &:hover {
+                            background-color: rgba(37, 211, 102, 0.08);
+                        }
+                    }
+
+                    &.copyBtn {
+                        background-color: rgba(18, 61, 50, 0.04);
+                    }
+                }
+            }
+        }
+
+        .authorCard {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 32px;
+            padding: 24px;
+            background-color: #ffffff;
+            border: 1.5px solid rgba(196, 167, 94, 0.35);
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(18, 61, 50, 0.03);
+
+            .authorAvatarRing {
+                width: 64px;
+                height: 64px;
+                border-radius: 50%;
+                border: 2px solid var(--secondary-color);
+                overflow: hidden;
+                flex-shrink: 0;
+                background-color: rgba(18, 61, 50, 0.04);
+
+                .avatarImg {
+                    object-fit: cover;
+                }
+            }
+
+            .authorInfo {
+                display: flex;
+                flex-direction: column;
+
+                .writtenBy {
+                    font-size: 0.76rem;
+                    color: var(--text-color);
+                    opacity: 0.7;
+                    font-weight: 600;
+                    margin-bottom: 2px;
+                }
+
+                .authorName {
+                    font-size: 1.15rem;
+                    font-weight: 800;
+                    color: var(--primary-color);
+                    margin: 0 0 4px 0;
+                }
+
+                .authorRole {
+                    font-size: 0.84rem;
+                    color: var(--text-color);
+                    opacity: 0.85;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
