@@ -146,6 +146,7 @@ export default function Header() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
+                            transition={{ duration: 0.2 }}
                             onClick={handleClose}
                         />
 
@@ -154,7 +155,7 @@ export default function Header() {
                             initial={{ x: locale === "ar" ? "100%" : "-100%" }}
                             animate={{ x: 0 }}
                             exit={{ x: locale === "ar" ? "100%" : "-100%" }}
-                            transition={{ type: "spring", stiffness: 320, damping: 32 }}
+                            transition={{ type: "tween", duration: 0.25, ease: "easeInOut" }}
                         >
                             <div className={styles.drawerHeader}>
                                 <Image

@@ -1,8 +1,13 @@
 .packagesHeroSection {
     position: relative;
-    padding-top: clamp(140px, 16vh, 175px);
-    padding-bottom: 0;
+    padding-top: 140px;
     background-color: var(--bg-body);
+
+    & {
+        @media (max-width: 767px) {
+            padding-top: 100px;
+        }
+    }
 
     .contentWrapper {
         margin: 0 auto;

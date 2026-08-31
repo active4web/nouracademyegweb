@@ -1,11 +1,15 @@
 .contentSection {
     position: relative;
     background-color: var(--bg-body);
+    width: 100%;
+    overflow-x: hidden;
 
     .gridWrapper {
         display: grid;
         grid-template-columns: 1fr;
         gap: 30px;
+        width: 100%;
+        box-sizing: border-box;
 
         @media (min-width: 992px) {
             grid-template-columns: 1fr 1.4fr;
@@ -13,18 +17,28 @@
         }
 
         .infoColumn {
+            min-width: 0;
+            width: 100%;
+
             .infoCard {
                 background-color: #ffffff;
                 border: 1.5px solid rgba(196, 167, 94, 0.35);
                 border-radius: 22px;
-                padding: clamp(24px, 4vw, 36px);
+                padding: clamp(20px, 4vw, 36px);
                 box-shadow: 0 8px 30px rgba(18, 61, 50, 0.03);
+                width: 100%;
+                box-sizing: border-box;
 
                 .infoTitle {
                     font-size: 1.35rem;
                     font-weight: 800;
                     color: var(--primary-color);
                     margin-bottom: 10px;
+
+                    :global(html[lang="ar"]) & {
+                        font-family: var(--font-ruqaa), "Aref Ruqaa", serif;
+                        font-size: 1.55rem;
+                    }
                 }
 
                 .infoDesc {
@@ -38,7 +52,8 @@
                 .contactItemsList {
                     display: flex;
                     flex-direction: column;
-                    gap: 18px;
+                    gap: 16px;
+                    width: 100%;
 
                     .contactItem {
                         display: flex;
@@ -48,6 +63,9 @@
                         padding: 12px;
                         border-radius: 14px;
                         transition: background-color 0.15s ease;
+                        overflow: hidden;
+                        width: 100%;
+                        box-sizing: border-box;
 
                         &:hover {
                             background-color: rgba(18, 61, 50, 0.04);
@@ -68,6 +86,8 @@
                         .itemText {
                             display: flex;
                             flex-direction: column;
+                            min-width: 0;
+                            flex: 1;
 
                             .label {
                                 font-size: 0.75rem;
@@ -77,11 +97,14 @@
                             }
 
                             .value {
-                                font-size: 0.92rem;
+                                font-size: clamp(0.82rem, 1.5vw, 0.92rem);
                                 font-weight: 700;
                                 color: var(--primary-color);
                                 direction: ltr;
                                 text-align: start;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
 
                                 :global(html[lang="ar"]) & {
                                     text-align: right;
@@ -94,24 +117,35 @@
         }
 
         .formColumn {
+            min-width: 0;
+            width: 100%;
+
             .formCard {
                 background-color: #ffffff;
                 border: 1.5px solid rgba(196, 167, 94, 0.35);
                 border-radius: 22px;
-                padding: clamp(24px, 4vw, 36px);
+                padding: clamp(20px, 4vw, 36px);
                 box-shadow: 0 8px 30px rgba(18, 61, 50, 0.03);
+                width: 100%;
+                box-sizing: border-box;
 
                 .formTitle {
                     font-size: 1.35rem;
                     font-weight: 800;
                     color: var(--primary-color);
                     margin-bottom: 24px;
+
+                    :global(html[lang="ar"]) & {
+                        font-family: var(--font-ruqaa), "Aref Ruqaa", serif;
+                        font-size: 1.55rem;
+                    }
                 }
 
                 .form {
                     display: flex;
                     flex-direction: column;
                     gap: 18px;
+                    width: 100%;
 
                     .rowGroup {
                         display: grid;
@@ -127,6 +161,8 @@
                         display: flex;
                         flex-direction: column;
                         gap: 8px;
+                        width: 100%;
+                        min-width: 0;
 
                         label {
                             font-size: 0.84rem;
@@ -172,6 +208,8 @@
                         select,
                         textarea {
                             width: 100%;
+                            max-width: 100%;
+                            box-sizing: border-box;
                             padding: 12px 16px;
                             border-radius: 12px;
                             border: 1px solid rgba(196, 167, 94, 0.4);
@@ -204,6 +242,7 @@
                         justify-content: center;
                         gap: 8px;
                         height: 48px;
+                        width: 100%;
                         border-radius: 12px;
                         background-color: var(--primary-color);
                         color: #ffffff;
