@@ -1,0 +1,272 @@
+.headerSection {
+    position: relative;
+    background-color: var(--bg-body);
+    padding-top: 140px;
+
+    & {
+        @media (max-width: 767px) {
+            padding-top: 100px;
+        }
+    }
+
+    .breadcrumbs {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 24px;
+        font-size: 0.84rem;
+
+        .breadLink {
+            color: var(--text-color);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: color 0.15s ease, opacity 0.15s ease;
+
+            &:hover {
+                color: var(--primary-color);
+                opacity: 1;
+            }
+        }
+
+        .breadIcon {
+            color: var(--secondary-color);
+            opacity: 0.6;
+        }
+
+        .breadCurrent {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+    }
+
+    .profileCard {
+        background-color: #ffffff;
+        border: 2px solid rgba(196, 167, 94, 0.35);
+        border-radius: 24px;
+        padding: 32px 24px;
+        box-shadow: 0 10px 30px rgba(18, 61, 50, 0.04);
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 32px;
+        align-items: center;
+
+        @media (min-width: 992px) {
+            grid-template-columns: 240px 1fr;
+            padding: 40px 36px;
+            gap: 44px;
+        }
+
+        .imageCol {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+
+            .avatarWrapper {
+                position: relative;
+                width: 170px;
+                height: 170px;
+                border-radius: 50%;
+                overflow: hidden;
+                border: 3px solid var(--secondary-color);
+                box-shadow: 0 8px 24px rgba(18, 61, 50, 0.12);
+                background-color: rgba(18, 61, 50, 0.04);
+
+                @media (min-width: 992px) {
+                    width: 210px;
+                    height: 210px;
+                }
+
+                .avatarImg {
+                    object-fit: cover;
+                }
+            }
+
+            .categoryBadge {
+                background-color: rgba(18, 61, 50, 0.06);
+                border: 1px solid rgba(196, 167, 94, 0.35);
+                color: var(--primary-color);
+                font-size: 0.78rem;
+                font-weight: 700;
+                padding: 4px 14px;
+                border-radius: 20px;
+            }
+        }
+
+        .infoCol {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            .verifiedTag {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                background-color: rgba(196, 167, 94, 0.12);
+                color: var(--secondary-color);
+                font-size: 0.78rem;
+                font-weight: 700;
+                padding: 4px 12px;
+                border-radius: 6px;
+                border: 1px solid rgba(196, 167, 94, 0.25);
+                margin-bottom: 12px;
+            }
+
+            .teacherName {
+                font-size: clamp(1.5rem, 3vw, 2.1rem);
+                font-weight: 800;
+                color: var(--primary-color);
+                margin-bottom: 6px;
+                line-height: 1.35;
+            }
+
+            .teacherRole {
+                font-size: 0.95rem;
+                font-weight: 700;
+                color: var(--secondary-color);
+                margin-bottom: 12px;
+            }
+
+            .teacherBio {
+                font-size: 0.9rem;
+                color: var(--text-color);
+                opacity: 0.82;
+                line-height: 1.65;
+                margin-bottom: 24px;
+                max-width: 720px;
+            }
+
+            .statsRow {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                width: 100%;
+                padding: 16px 0;
+                margin-bottom: 24px;
+                border-top: 1px solid rgba(196, 167, 94, 0.2);
+                border-bottom: 1px solid rgba(196, 167, 94, 0.2);
+
+                @media (max-width: 540px) {
+                    flex-wrap: wrap;
+                    gap: 14px;
+                }
+
+                .statBox {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    .iconCircle {
+                        width: 36px;
+                        height: 36px;
+                        border-radius: 10px;
+                        background-color: rgba(196, 167, 94, 0.12);
+                        color: var(--secondary-color);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .statInfo {
+                        display: flex;
+                        flex-direction: column;
+
+                        .statNum {
+                            font-size: 1rem;
+                            font-weight: 800;
+                            color: var(--primary-color);
+                        }
+
+                        .statLabel {
+                            font-size: 0.72rem;
+                            font-weight: 600;
+                            color: var(--text-color);
+                            opacity: 0.7;
+                        }
+                    }
+                }
+
+                .statDivider {
+                    width: 1px;
+                    height: 28px;
+                    background-color: rgba(196, 167, 94, 0.25);
+
+                    @media (max-width: 540px) {
+                        display: none;
+                    }
+                }
+            }
+
+            .actionsRow {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 14px;
+                width: 100%;
+
+                .bookBtn {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                    height: 46px;
+                    padding: 0 24px;
+                    border-radius: 12px;
+                    background-color: var(--primary-color);
+                    color: #ffffff;
+                    font-size: 0.9rem;
+                    font-weight: 700;
+                    text-decoration: none;
+                    box-shadow: 0 4px 14px rgba(18, 61, 50, 0.15);
+                    transition: background-color 0.15s ease, transform 0.15s ease;
+
+                    .arrowIcon {
+                        transition: transform 0.15s ease;
+
+                        :global(html[lang="ar"]) & {
+                            transform: rotate(180deg);
+                        }
+                    }
+
+                    &:hover {
+                        background-color: #0c2b23;
+                        transform: translateY(-2px);
+
+                        .arrowIcon {
+                            :global(html[lang="ar"]) & {
+                                transform: rotate(180deg) translateX(3px);
+                            }
+
+                            :global(html[lang="en"]) & {
+                                transform: translateX(3px);
+                            }
+                        }
+                    }
+                }
+
+                .whatsappBtn {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                    height: 46px;
+                    padding: 0 20px;
+                    border-radius: 12px;
+                    background-color: transparent;
+                    border: 1.5px solid #25d366;
+                    color: #128c7e;
+                    font-size: 0.86rem;
+                    font-weight: 700;
+                    text-decoration: none;
+                    transition: all 0.15s ease;
+
+                    &:hover {
+                        background-color: #25d366;
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+}

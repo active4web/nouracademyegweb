@@ -177,7 +177,79 @@
         "detailsBtn": "Course Details",
         "applyBtn": "Book Class",
         "durationLabel": "Duration:",
-        "targetLabel": "Target:"
+        "targetLabel": "Target:",
+        "loadMoreBtn": "Load More Courses",
+        "showingCount": "Showing {current} of {total} courses"
+    },
+    "CourseDetails": {
+        "videoBadge": "Course Intro Video",
+        "breadcrumbs": {
+            "home": "Home",
+            "courses": "Courses & Tracks"
+        },
+        "meta": {
+            "level": "Target Level",
+            "hours": "Total Hours",
+            "certificate": "Certificate Type",
+            "language": "Teaching Language"
+        },
+        "outcomesSection": {
+            "badge": "Learning Outcomes",
+            "title": "What Will You Learn & Master in This Course?",
+            "desc": "Precise learning objectives and practical outcomes guaranteed upon completing the program."
+        },
+        "featuresSection": {
+            "badge": "Training Features",
+            "title": "An Integrated Learning Experience for Excellence",
+            "desc": "An interactive educational environment tailored to the highest pedagogical standards."
+        },
+        "curriculumSection": {
+            "badge": "Curriculum",
+            "title": "Detailed Course Study Plan",
+            "desc": "A progressive step-by-step curriculum structured into interactive units and lessons.",
+            "stats": {
+                "units": "Learning Units",
+                "lessons": "Total Lessons",
+                "duration": "Estimated Duration"
+            },
+            "unitLabel": "Unit",
+            "lessonTypes": {
+                "live": "Live Session",
+                "exam": "Assessment Exam",
+                "video": "recorded video"
+            }
+        },
+        "prerequisitesSection": {
+            "badge": "Prerequisites",
+            "title": "What Do You Need to Get Started?",
+            "desc": "Clear prerequisites ensuring student readiness before joining the track.",
+            "guidanceTitle": "Not sure about your current level?",
+            "guidanceDesc": "Our tutors conduct a 15-minute free level assessment during your trial class to tailor the ideal learning roadmap for you."
+        },
+        "sidebarCard": {
+            "badge": "Quick Enrollment",
+            "title": "Start Your Learning Journey Now",
+            "desc": "Book your free trial class and customize your schedule with a verified Al-Azhar tutor.",
+            "bookTrialBtn": "Book Your Free Trial Class",
+            "whatsappBtn": "Chat on WhatsApp",
+            "features": {
+                "guarantee": "100% Free trial with zero financial commitment",
+                "flexibility": "Full flexibility in selecting times and days",
+                "tutors": "Certified male and female Al-Azhar scholars"
+            }
+        },
+        "finalCta": {
+            "badge": "Immediate Opportunity",
+            "title": "Ready to Start Your Learning Journey Today?",
+            "desc": "Join certified Al-Azhar tutors and book your first 100% free evaluation trial with zero financial commitment.",
+            "bookBtn": "Book Your Free Trial Class",
+            "browseCoursesBtn": "Explore Other Courses",
+            "highlights": {
+                "free": "100% Free Trial Class",
+                "azhar": "Certified Al-Azhar Scholars",
+                "customPlan": "Personalized Study Roadmap"
+            }
+        }
     },
     "FinalCtaCourses": {
         "badge": "Start Your Journey Now",
@@ -293,6 +365,52 @@
         "feature1": "100% Free Trial Class",
         "feature2": "Certified Male & Female Azhari Tutors",
         "feature3": "Flexible Scheduling"
+    },
+    "TeacherProfile": {
+        "breadcrumbs": {
+            "home": "Home",
+            "teachers": "Our Teachers"
+        },
+        "verifiedBadge": "Certified Al-Azhar Scholar",
+        "stats": {
+            "experience": "Years Exp.",
+            "students": "Students",
+            "rating": "Overall Rating"
+        },
+        "actions": {
+            "bookTrial": "Book Trial Class with Tutor",
+            "whatsapp": "Chat via WhatsApp"
+        },
+        "aboutSection": {
+            "badge": "Academic Background",
+            "aboutTitle": "About Tutor & Teaching Methodology",
+            "qualificationsTitle": "Qualifications & Degrees",
+            "specialtiesTitle": "Specialties & Focus Areas"
+        },
+        "ijazahsSection": {
+            "badge": "Connected Sanad & Licenses",
+            "title": "Quranic Ijazahs & Certified Texts",
+            "desc": "Authentic Sanad connected to Prophet Muhammad ﷺ and certified Tajweed texts ensuring pristine recitation standards.",
+            "sanadBadge": "Connected Sanad",
+            "noIjazah": "Primary certification verified and accredited by Al-Azhar"
+        },
+        "reviewsSection": {
+            "badge": "Real Feedback",
+            "title": "Student & Parent Reviews",
+            "desc": "Genuine reviews and feedback from students and parents learning with this tutor.",
+            "scoreBadge": "Overall Tutor Rating",
+            "basedOn": "Based on {count} verified reviews",
+            "verifiedStudent": "Verified Student"
+        },
+        "finalCta": {
+            "badge": "1-on-1 Live Class",
+            "titleStart": "Start Your Quranic Journey Directly with",
+            "desc": "Book your free 1-on-1 trial class now and set your learning goals directly with the tutor.",
+            "bookBtn": "Book Free Trial Class",
+            "feature1": "100% Private 1-on-1 Class",
+            "feature2": "Free Level Assessment & Plan",
+            "feature3": "Flexible Scheduling Options"
+        }
     },
     "BlogHero": {
         "badge": "Noor Academy Blog",

@@ -1,0 +1,154 @@
+.outcomesFeaturesSection {
+    position: relative;
+    background-color: var(--bg-body);
+
+    .sectionHeader {
+        text-align: center;
+        max-width: 680px;
+        margin: 0 auto 36px;
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: rgba(196, 167, 94, 0.12);
+            color: var(--secondary-color);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            border: 1px solid rgba(196, 167, 94, 0.25);
+        }
+
+        .title {
+            font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            line-height: 1.35;
+        }
+
+        .desc {
+            font-size: 0.92rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+    }
+
+    // 1. شبكة مخرجات التعلم
+    .outcomesWrapper {
+        margin-bottom: 60px;
+
+        .outcomesGrid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+
+            @media (min-width: 640px) {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 18px;
+            }
+
+            .outcomeCard {
+                background-color: #ffffff;
+                border: 1px solid rgba(196, 167, 94, 0.3);
+                border-radius: 16px;
+                padding: 18px 20px;
+                display: flex;
+                align-items: flex-start;
+                gap: 14px;
+                box-shadow: 0 4px 14px rgba(18, 61, 50, 0.02);
+                transition: transform 0.2s ease, border-color 0.2s ease;
+
+                &:hover {
+                    transform: translateY(-2px);
+                    border-color: var(--secondary-color);
+                }
+
+                .checkIconWrapper {
+                    color: var(--secondary-color);
+                    flex-shrink: 0;
+                    margin-top: 2px;
+                }
+
+                .outcomeText {
+                    font-size: 0.92rem;
+                    font-weight: 600;
+                    color: var(--primary-color);
+                    line-height: 1.6;
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    // 2. بطاقات مميزات الدورة
+    .featuresWrapper {
+        padding-top: 20px;
+
+        .featuresGrid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+
+            @media (min-width: 640px) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media (min-width: 1024px) {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .featureCard {
+                background-color: #ffffff;
+                border: 1.5px solid rgba(196, 167, 94, 0.25);
+                border-radius: 18px;
+                padding: 24px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+                box-shadow: 0 6px 18px rgba(18, 61, 50, 0.03);
+                transition: all 0.2s ease;
+
+                &:hover {
+                    border-color: var(--secondary-color);
+                    transform: translateY(-3px);
+                    box-shadow: 0 8px 24px rgba(18, 61, 50, 0.06);
+                }
+
+                .featureIcon {
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 12px;
+                    background-color: rgba(18, 61, 50, 0.05);
+                    border: 1px solid rgba(196, 167, 94, 0.3);
+                    color: var(--primary-color);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .featureContent {
+                    .featureTitle {
+                        font-size: 1.05rem;
+                        font-weight: 800;
+                        color: var(--primary-color);
+                        margin-bottom: 8px;
+                        line-height: 1.4;
+                    }
+
+                    .featureDesc {
+                        font-size: 0.88rem;
+                        color: var(--text-color);
+                        opacity: 0.82;
+                        line-height: 1.65;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}

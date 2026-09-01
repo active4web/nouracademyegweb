@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
     Menu,
     X,
@@ -33,7 +33,7 @@ export default function Header() {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20);
         };
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
@@ -138,84 +138,74 @@ export default function Header() {
                 </div>
             </div>
 
-            <AnimatePresence>
-                {isOpen && (
-                    <>
-                        <motion.div
-                            className={styles.backdrop}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.2 }}
-                            onClick={handleClose}
-                        />
+            {/* Backdrop بتقنية CSS Transitions */}
+            <div
+                className={`${styles.backdrop} ${isOpen ? styles.backdropOpen : ""}`}
+                onClick={handleClose}
+                aria-hidden="true"
+            />
 
-                        <motion.div
-                            className={styles.mobileDrawer}
-                            initial={{ x: locale === "ar" ? "100%" : "-100%" }}
-                            animate={{ x: 0 }}
-                            exit={{ x: locale === "ar" ? "100%" : "-100%" }}
-                            transition={{ type: "tween", duration: 0.25, ease: "easeInOut" }}
-                        >
-                            <div className={styles.drawerHeader}>
-                                <Image
-                                    src="/logo.png"
-                                    alt="Nour Academy"
-                                    width={62}
-                                    height={62}
-                                    className={styles.drawerLogo}
-                                />
-                                <button className={styles.closeBtn} onClick={handleClose}>
-                                    <X size={18} />
-                                </button>
-                            </div>
+            {/* Mobile Drawer بتقنية CSS Transforms المباشرة على كارت الشاشة */}
+            <aside
+                className={`${styles.mobileDrawer} ${isOpen ? styles.drawerOpen : ""}`}
+                aria-hidden={!isOpen}
+            >
+                <div className={styles.drawerHeader}>
+                    <Image
+                        src="/logo.png"
+                        alt="Nour Academy"
+                        width={62}
+                        height={62}
+                        className={styles.drawerLogo}
+                    />
+                    <button className={styles.closeBtn} onClick={handleClose} aria-label="Close menu">
+                        <X size={18} />
+                    </button>
+                </div>
 
-                            <div className={styles.drawerContent}>
-                                <nav className={styles.appMenu}>
-                                    {navLinks.map((link) => {
-                                        const Icon = link.icon;
-                                        const isActive =
-                                            link.href === "/"
-                                                ? pathname === "/"
-                                                : pathname === link.href || pathname.startsWith(`${link.href}/`);
+                <div className={styles.drawerContent}>
+                    <nav className={styles.appMenu}>
+                        {navLinks.map((link) => {
+                            const Icon = link.icon;
+                            const isActive =
+                                link.href === "/"
+                                    ? pathname === "/"
+                                    : pathname === link.href || pathname.startsWith(`${link.href}/`);
 
-                                        return (
-                                            <Link
-                                                key={link.href}
-                                                href={link.href}
-                                                onClick={handleClose}
-                                                className={`${styles.appMenuItem} ${isActive ? styles.activeItem : ""
-                                                    }`}
-                                            >
-                                                <div className={styles.itemIcon}>
-                                                    <Icon size={16} />
-                                                </div>
-                                                <span className={styles.itemLabel}>{link.label}</span>
-                                            </Link>
-                                        );
-                                    })}
-                                </nav>
-                            </div>
-
-                            <div className={styles.drawerFooter}>
-                                <button onClick={toggleLanguage} className={styles.drawerActionBtn}>
-                                    <Globe size={16} />
-                                    <span>{t("switchLang")}</span>
-                                </button>
-
+                            return (
                                 <Link
-                                    href="/login"
+                                    key={link.href}
+                                    href={link.href}
                                     onClick={handleClose}
-                                    className={`${styles.drawerActionBtn} ${styles.drawerLoginBtn}`}
+                                    className={`${styles.appMenuItem} ${isActive ? styles.activeItem : ""
+                                        }`}
                                 >
-                                    <LogIn size={16} />
-                                    <span>{t("login")}</span>
+                                    <div className={styles.itemIcon}>
+                                        <Icon size={16} />
+                                    </div>
+                                    <span className={styles.itemLabel}>{link.label}</span>
                                 </Link>
-                            </div>
-                        </motion.div>
-                    </>
-                )}
-            </AnimatePresence>
+                            );
+                        })}
+                    </nav>
+                </div>
+
+                <div className={styles.drawerFooter}>
+                    <button onClick={toggleLanguage} className={styles.drawerActionBtn}>
+                        <Globe size={16} />
+                        <span>{t("switchLang")}</span>
+                    </button>
+
+                    <Link
+                        href="/login"
+                        onClick={handleClose}
+                        className={`${styles.drawerActionBtn} ${styles.drawerLoginBtn}`}
+                    >
+                        <LogIn size={16} />
+                        <span>{t("login")}</span>
+                    </Link>
+                </div>
+            </aside>
         </header>
     );
 }

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Clock, Users, ArrowRight, BookOpen } from "lucide-react";
+import { Clock, Users, BookOpen } from "lucide-react";
 import { type Course } from "@/data/courses.data";
 import styles from "./CourseCard.module.scss";
 
@@ -49,12 +49,8 @@ export default function CourseCard({ course }: CourseCardProps) {
                 </div>
 
                 <div className={styles.actionsRow}>
-                    <Link href={``} className={styles.detailsBtn}>
+                    <Link href={`/courses/${course.id}`} className={styles.detailsBtn}>
                         <span>{t("detailsBtn")}</span>
-                    </Link>
-                    <Link href={``} className={styles.applyBtn}>
-                        <span>{t("applyBtn")}</span>
-                        <ArrowRight size={15} className={styles.arrowIcon} />
                     </Link>
                 </div>
             </div>

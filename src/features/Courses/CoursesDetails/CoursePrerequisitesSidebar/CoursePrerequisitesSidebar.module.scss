@@ -1,0 +1,255 @@
+.prerequisitesBookingSection {
+    position: relative;
+    background-color: var(--bg-body);
+
+    .sectionLayoutGrid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        align-items: flex-start;
+
+        @media (min-width: 992px) {
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 48px;
+        }
+
+        // 1. المتطلبات
+        .prerequisitesCol {
+            display: flex;
+            flex-direction: column;
+
+            .sectionHeader {
+                margin-bottom: 24px;
+
+                .badge {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 6px;
+                    background-color: rgba(196, 167, 94, 0.12);
+                    color: var(--secondary-color);
+                    padding: 5px 14px;
+                    border-radius: 20px;
+                    font-size: 0.8rem;
+                    font-weight: 700;
+                    margin-bottom: 12px;
+                    border: 1px solid rgba(196, 167, 94, 0.25);
+                }
+
+                .title {
+                    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+                    font-weight: 800;
+                    color: var(--primary-color);
+                    margin-bottom: 8px;
+                    line-height: 1.35;
+                }
+
+                .desc {
+                    font-size: 0.9rem;
+                    color: var(--text-color);
+                    opacity: 0.8;
+                    line-height: 1.6;
+                }
+            }
+
+            .prerequisitesList {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                margin-bottom: 28px;
+
+                .prerequisiteItem {
+                    background-color: #ffffff;
+                    border: 1px solid rgba(196, 167, 94, 0.25);
+                    border-radius: 14px;
+                    padding: 16px 18px;
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    box-shadow: 0 4px 12px rgba(18, 61, 50, 0.02);
+
+                    .iconCircle {
+                        color: var(--secondary-color);
+                        flex-shrink: 0;
+                        display: flex;
+                    }
+
+                    .prerequisiteText {
+                        font-size: 0.92rem;
+                        font-weight: 700;
+                        color: var(--primary-color);
+                        line-height: 1.5;
+                    }
+                }
+            }
+
+            .guidanceBox {
+                background-color: rgba(18, 61, 50, 0.03);
+                border: 1px dashed rgba(196, 167, 94, 0.5);
+                border-radius: 16px;
+                padding: 18px 20px;
+                display: flex;
+                align-items: flex-start;
+                gap: 14px;
+
+                .sparkleIcon {
+                    color: var(--secondary-color);
+                    flex-shrink: 0;
+                    margin-top: 2px;
+                }
+
+                .guidanceContent {
+                    h4 {
+                        font-size: 0.94rem;
+                        font-weight: 800;
+                        color: var(--primary-color);
+                        margin-bottom: 4px;
+                    }
+
+                    p {
+                        font-size: 0.84rem;
+                        color: var(--text-color);
+                        opacity: 0.8;
+                        line-height: 1.6;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+
+        // 2. بطاقة الحجز العائمة (Sticky Sidebar)
+        .sidebarCol {
+            position: sticky;
+            top: 100px;
+
+            .stickyBookingCard {
+                background-color: #ffffff;
+                border: 2px solid rgba(196, 167, 94, 0.35);
+                border-radius: 20px;
+                padding: 28px 24px;
+                box-shadow: 0 10px 30px rgba(18, 61, 50, 0.06);
+
+                .cardHeader {
+                    margin-bottom: 20px;
+
+                    .cardBadge {
+                        display: inline-block;
+                        background-color: rgba(18, 61, 50, 0.08);
+                        color: var(--primary-color);
+                        font-size: 0.74rem;
+                        font-weight: 800;
+                        padding: 4px 10px;
+                        border-radius: 6px;
+                        margin-bottom: 10px;
+                    }
+
+                    .cardTitle {
+                        font-size: 1.25rem;
+                        font-weight: 800;
+                        color: var(--primary-color);
+                        margin-bottom: 8px;
+                        line-height: 1.35;
+                    }
+
+                    .cardDesc {
+                        font-size: 0.86rem;
+                        color: var(--text-color);
+                        opacity: 0.8;
+                        line-height: 1.6;
+                        margin: 0;
+                    }
+                }
+
+                .trustHighlights {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    padding: 16px 0;
+                    margin-bottom: 24px;
+                    border-top: 1px solid rgba(196, 167, 94, 0.2);
+                    border-bottom: 1px solid rgba(196, 167, 94, 0.2);
+
+                    .highlightItem {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        font-size: 0.82rem;
+                        font-weight: 600;
+                        color: var(--primary-color);
+
+                        svg {
+                            color: var(--secondary-color);
+                            flex-shrink: 0;
+                        }
+                    }
+                }
+
+                .actionButtons {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+
+                    .primaryApplyBtn {
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 8px;
+                        height: 48px;
+                        border-radius: 12px;
+                        background-color: var(--primary-color);
+                        color: #ffffff;
+                        font-size: 0.92rem;
+                        font-weight: 700;
+                        text-decoration: none;
+                        box-shadow: 0 4px 16px rgba(18, 61, 50, 0.15);
+                        transition: background-color 0.15s ease, transform 0.15s ease;
+
+                        .arrowIcon {
+                            transition: transform 0.15s ease;
+
+                            :global(html[lang="ar"]) & {
+                                transform: rotate(180deg);
+                            }
+                        }
+
+                        &:hover {
+                            background-color: #0c2b23;
+                            transform: translateY(-2px);
+
+                            .arrowIcon {
+                                :global(html[lang="ar"]) & {
+                                    transform: rotate(180deg) translateX(3px);
+                                }
+
+                                :global(html[lang="en"]) & {
+                                    transform: translateX(3px);
+                                }
+                            }
+                        }
+                    }
+
+                    .whatsappBtn {
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 8px;
+                        height: 46px;
+                        border-radius: 12px;
+                        background-color: transparent;
+                        border: 1.5px solid #25d366;
+                        color: #128c7e;
+                        font-size: 0.88rem;
+                        font-weight: 700;
+                        text-decoration: none;
+                        transition: all 0.15s ease;
+
+                        &:hover {
+                            background-color: #25d366;
+                            color: #ffffff;
+                            box-shadow: 0 4px 14px rgba(37, 211, 102, 0.2);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

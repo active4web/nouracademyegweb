@@ -54,11 +54,6 @@
             font-weight: 800;
             color: var(--primary-color);
             margin-bottom: 8px;
-
-            :global(html[lang="ar"]) & {
-                font-family: var(--font-ruqaa), "Aref Ruqaa", serif;
-                font-size: 1.35rem;
-            }
         }
 
         .packageDesc {

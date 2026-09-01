@@ -1,0 +1,257 @@
+.ijazahsSection {
+    position: relative;
+    background-color: var(--bg-body);
+
+    .sectionHeader {
+        text-align: center;
+        max-width: 680px;
+        margin: 0 auto 36px;
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: rgba(196, 167, 94, 0.12);
+            color: var(--secondary-color);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            border: 1px solid rgba(196, 167, 94, 0.25);
+        }
+
+        .title {
+            font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            line-height: 1.35;
+        }
+
+        .desc {
+            font-size: 0.92rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+    }
+
+    .ijazahsGrid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+
+        @media (min-width: 640px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: 1024px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .ijazahCard {
+            background-color: #ffffff;
+            border: 1.5px solid rgba(196, 167, 94, 0.28);
+            border-radius: 18px;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 16px;
+            box-shadow: 0 4px 14px rgba(18, 61, 50, 0.02);
+            transition: all 0.2s ease;
+
+            &:hover {
+                border-color: var(--secondary-color);
+                transform: translateY(-3px);
+                box-shadow: 0 8px 22px rgba(18, 61, 50, 0.06);
+            }
+
+            .cardTop {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 10px;
+
+                .iconCircle {
+                    width: 42px;
+                    height: 42px;
+                    border-radius: 12px;
+                    background-color: rgba(18, 61, 50, 0.05);
+                    border: 1px solid rgba(196, 167, 94, 0.3);
+                    color: var(--primary-color);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .sanadBadge {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 4px;
+                    background-color: rgba(196, 167, 94, 0.12);
+                    color: var(--secondary-color);
+                    font-size: 0.74rem;
+                    font-weight: 700;
+                    padding: 3px 10px;
+                    border-radius: 6px;
+                    border: 1px solid rgba(196, 167, 94, 0.25);
+                }
+            }
+
+            .cardContent {
+                .ijazahTitle {
+                    font-size: 0.98rem;
+                    font-weight: 700;
+                    color: var(--primary-color);
+                    line-height: 1.55;
+                    margin: 0;
+                }
+            }
+
+            .cardFooter {
+                border-top: 1px solid rgba(196, 167, 94, 0.15);
+                padding-top: 12px;
+
+                .verifiedMark {
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    font-size: 0.78rem;
+                    font-weight: 600;
+                    color: var(--secondary-color);
+                }
+            }
+        }
+    }
+}
+
+.ijazahsSection {
+    position: relative;
+    background-color: var(--bg-body);
+
+    .sectionHeader {
+        text-align: center;
+        max-width: 680px;
+        margin: 0 auto 36px;
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: rgba(196, 167, 94, 0.12);
+            color: var(--secondary-color);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            border: 1px solid rgba(196, 167, 94, 0.25);
+        }
+
+        .title {
+            font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            line-height: 1.35;
+        }
+
+        .desc {
+            font-size: 0.92rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+    }
+
+    .ijazahsGrid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+
+        @media (min-width: 640px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: 1024px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .ijazahCard {
+            background-color: #ffffff;
+            border: 1.5px solid rgba(196, 167, 94, 0.28);
+            border-radius: 18px;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 16px;
+            box-shadow: 0 4px 14px rgba(18, 61, 50, 0.02);
+            transition: all 0.2s ease;
+
+            &:hover {
+                border-color: var(--secondary-color);
+                transform: translateY(-3px);
+                box-shadow: 0 8px 22px rgba(18, 61, 50, 0.06);
+            }
+
+            .cardTop {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 10px;
+
+                .iconCircle {
+                    width: 42px;
+                    height: 42px;
+                    border-radius: 12px;
+                    background-color: rgba(18, 61, 50, 0.05);
+                    border: 1px solid rgba(196, 167, 94, 0.3);
+                    color: var(--primary-color);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .sanadBadge {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 4px;
+                    background-color: rgba(196, 167, 94, 0.12);
+                    color: var(--secondary-color);
+                    font-size: 0.74rem;
+                    font-weight: 700;
+                    padding: 3px 10px;
+                    border-radius: 6px;
+                    border: 1px solid rgba(196, 167, 94, 0.25);
+                }
+            }
+
+            .cardContent {
+                .ijazahTitle {
+                    font-size: 0.98rem;
+                    font-weight: 700;
+                    color: var(--primary-color);
+                    line-height: 1.55;
+                    margin: 0;
+                }
+            }
+
+            .cardFooter {
+                border-top: 1px solid rgba(196, 167, 94, 0.15);
+                padding-top: 12px;
+
+                .verifiedMark {
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    font-size: 0.78rem;
+                    font-weight: 600;
+                    color: var(--secondary-color);
+                }
+            }
+        }
+    }
+}

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Award, Users, Briefcase, Calendar } from "lucide-react";
+import { Award, Users, Briefcase } from "lucide-react";
 import { type Teacher } from "@/data/teachers.data";
 import styles from "./TeacherCard.module.scss";
 
@@ -71,16 +71,6 @@ export default function TeacherCard({ teacher, showApplyBtn = false }: TeacherCa
                     >
                         <span>{tCommon("viewProfile")}</span>
                     </Link>
-
-                    {showApplyBtn && (
-                        <Link
-                            href={`/teachers/${teacher.id}/apply`}
-                            className={styles.applyBtn}
-                        >
-                            <Calendar size={14} />
-                            <span>{tCommon("applyNow")}</span>
-                        </Link>
-                    )}
                 </div>
             </div>
         </div>
