@@ -26,19 +26,25 @@ export default function FloatingActions() {
     };
 
     const toggleAudio = () => {
-        if (!audioRef.current) return;
+        const audio = audioRef.current;
+        if (!audio) return;
 
         if (isPlaying) {
-            audioRef.current.pause();
-            audioRef.current.currentTime = 0;
+            audio.pause();
+            audio.currentTime = 0;
             setIsPlaying(false);
         } else {
-            audioRef.current.currentTime = 0;
-            audioRef.current.play().then(() => {
-                setIsPlaying(true);
-            }).catch(() => {
-                setIsPlaying(false);
-            });
+            // تشغيل فوري مع معالجة الـ Promise
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise
+                    .then(() => {
+                        setIsPlaying(true);
+                    })
+                    .catch(() => {
+                        setIsPlaying(false);
+                    });
+            }
         }
     };
 
@@ -51,10 +57,11 @@ export default function FloatingActions() {
 
     return (
         <>
+            {/* تم تغيير preload إلى auto للتحميل المسبق والاستجابة الفورية */}
             <audio
                 ref={audioRef}
                 src="/audio/quran.mp3"
-                preload="none"
+                preload="auto"
                 onEnded={handleAudioEnded}
             />
 

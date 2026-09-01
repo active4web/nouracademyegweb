@@ -49,13 +49,14 @@
         cursor: pointer;
         animation: attentionGlow 2.2s infinite cubic-bezier(0.4, 0, 0.6, 1);
         transform: translateZ(0);
-        will-change: transform, box-shadow;
-        transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s ease, color 0.2s ease;
+        will-change: box-shadow;
+        // بدون حركات أو انتقالات هوفر
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
 
         .audioIcon {
             position: relative;
             z-index: 2;
-            transition: transform 0.2s ease;
         }
 
         .audioPulseRing {
@@ -68,24 +69,10 @@
             pointer-events: none;
         }
 
-        &:hover {
-            transform: translateY(-3px) scale(1.08) translateZ(0);
-            color: var(--secondary-color);
-        }
-
         &.active {
             background-color: var(--primary-color);
             border-color: var(--secondary-color);
             color: var(--secondary-color);
-
-            .audioIcon {
-                transform: scale(1.15);
-            }
-
-            &:hover {
-                background-color: #0c2b23;
-                color: #ffffff;
-            }
         }
     }
 }
