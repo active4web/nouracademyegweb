@@ -1,7 +1,7 @@
 export interface CourseLesson {
     title: { ar: string; en: string };
     duration: { ar: string; en: string };
-    type: "video" | "interactive" | "exam";
+    type: "video" | "live" | "interactive" | "exam";
 }
 
 export interface CourseCurriculumUnit {
@@ -72,7 +72,7 @@ export const allCoursesData: Course[] = [
         language: { ar: "العربية / الإنجليزية", en: "Arabic / English" },
         certificate: { ar: "شهادة إتمام معتمدة", en: "Accredited Completion Certificate" },
         image: "https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&w=700&q=80",
-        introVideoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        introVideoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
         featured: true,
         learningOutcomes: {
             ar: [
@@ -162,7 +162,7 @@ export const allCoursesData: Course[] = [
         language: { ar: "العربية / الإنجليزية", en: "Arabic / English" },
         certificate: { ar: "إجازة دراية بشهادة معتمدة", en: "Certified Tajweed Diploma" },
         image: "https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=700&q=80",
-        introVideoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        introVideoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
         featured: true,
         learningOutcomes: {
             ar: [
@@ -239,7 +239,7 @@ export const allCoursesData: Course[] = [
         language: { ar: "العربية / الإنجليزية", en: "Arabic / English" },
         certificate: { ar: "شهادة إتقان أجزاء / حفظ كامل", en: "Hifz Completion Certificate" },
         image: "https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=700&q=80",
-        introVideoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        introVideoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
         featured: true,
         learningOutcomes: {
             ar: [
@@ -305,7 +305,7 @@ export const allCoursesData: Course[] = [
         language: { ar: "العربية", en: "Arabic" },
         certificate: { ar: "شهادة إتمام معتمدة في النحو", en: "Certified Arabic Grammar Certificate" },
         image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=700&q=80",
-        introVideoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        introVideoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
         featured: true,
         learningOutcomes: {
             ar: [
@@ -367,7 +367,7 @@ export const allCoursesData: Course[] = [
         language: { ar: "العربية", en: "Arabic" },
         certificate: { ar: "إجازة بالسند المتصل إلى النبي ﷺ", en: "Continuous Sanad Ijazah to Prophet ﷺ" },
         image: "https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=700&q=80",
-        introVideoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        introVideoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
         featured: true,
         learningOutcomes: {
             ar: [
@@ -433,7 +433,7 @@ export const allCoursesData: Course[] = [
         language: { ar: "العربية / الإنجليزية", en: "Arabic / English" },
         certificate: { ar: "شهادة إتمام معتمدة", en: "Completion Certificate" },
         image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=700&q=80",
-        introVideoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        introVideoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyBlazes.mp4",
         featured: true,
         learningOutcomes: {
             ar: [

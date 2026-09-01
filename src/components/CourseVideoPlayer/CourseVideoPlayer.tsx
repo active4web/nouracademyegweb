@@ -1,12 +1,25 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, type ComponentType } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { Play } from "lucide-react";
 import styles from "./CourseVideoPlayer.module.scss";
 
-const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
+// تعريف الـ Props لتجنب مشاكل TypeScript مع dynamic import
+interface ReactPlayerCustomProps {
+    url: string;
+    width?: string | number;
+    height?: string | number;
+    playing?: boolean;
+    controls?: boolean;
+    className?: string;
+}
+
+const ReactPlayer = dynamic(
+    () => import("react-player"),
+    { ssr: false }
+) as ComponentType<ReactPlayerCustomProps>;
 
 interface CourseVideoPlayerProps {
     videoUrl: string;
@@ -22,11 +35,6 @@ export default function CourseVideoPlayer({
     badgeText = "مقدمة الدورة التعريفية"
 }: CourseVideoPlayerProps) {
     const [isPlaying, setIsPlaying] = useState(false);
-    const [isMounted, setIsMounted] = useState(false);
-
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);
 
     return (
         <div className={styles.videoPlayerWrapper}>
@@ -34,6 +42,11 @@ export default function CourseVideoPlayer({
                 <div
                     className={styles.posterWrapper}
                     onClick={() => setIsPlaying(true)}
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                            setIsPlaying(true);
+                        }
+                    }}
                     role="button"
                     tabIndex={0}
                     aria-label={`تشغيل فيديو ${title}`}
@@ -59,16 +72,14 @@ export default function CourseVideoPlayer({
                 </div>
             ) : (
                 <div className={styles.playerContainer}>
-                    {isMounted && (
-                        <ReactPlayer
-                            url={videoUrl}
-                            width="100%"
-                            height="100%"
-                            playing={isPlaying}
-                            controls={true}
-                            className={styles.reactPlayer}
-                        />
-                    )}
+                    <ReactPlayer
+                        url={videoUrl}
+                        width="100%"
+                        height="100%"
+                        playing={true}
+                        controls={true}
+                        className={styles.player}
+                    />
                 </div>
             )}
         </div>
