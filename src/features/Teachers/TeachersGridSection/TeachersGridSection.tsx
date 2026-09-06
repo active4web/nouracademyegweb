@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { Filter } from "lucide-react";
-import { featuredTeachers } from "@/data/teachers.data";
+import { allTeachersData } from "@/data/teachers.data";
 import TeacherCard from "@/components/TeacherCard/TeacherCard";
 import styles from "./TeachersGridSection.module.scss";
 
@@ -18,12 +18,13 @@ export default function TeachersGridSection() {
         { id: "قرآن وقراءات", label: { ar: "قرآن وقراءات", en: "Quran & Qira'at" } },
         { id: "تجويد وتأسيس", label: { ar: "تجويد وتأسيس", en: "Tajweed & Foundation" } },
         { id: "لغة عربية ونحو", label: { ar: "لغة عربية ونحو", en: "Arabic & Grammar" } },
+        { id: "حفظ ومراجعة", label: { ar: "حفظ ومراجعة", en: "Memorization" } },
         { id: "حفظ وإقراء", label: { ar: "حفظ وإقراء", en: "Memorization & Sanad" } }
     ];
 
     const filteredTeachers = selectedCategory === "all"
-        ? featuredTeachers
-        : featuredTeachers.filter((tr) => tr.category.ar === selectedCategory);
+        ? allTeachersData
+        : allTeachersData.filter((tr) => tr.category.ar === selectedCategory);
 
     return (
         <section className={styles.teachersGridSection}>

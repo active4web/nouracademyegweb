@@ -27,259 +27,550 @@ export interface Teacher {
     bio: { ar: string; en: string };
     about: { ar: string; en: string };
     image: string;
+    featured?: boolean;
     qualifications: TeacherQualification[];
     specialties: { ar: string; en: string }[];
     reviews: TeacherReview[];
 }
 
-export const featuredTeachers: Teacher[] = [
+export const allTeachersData: Teacher[] = [
     {
-        id: "sheikh-ahmed-mansour",
-        name: { ar: "الشيخ أحمد منصور", en: "Sheikh Ahmed Mansour" },
-        role: { ar: "مقرئ بالقراءات العشر الصغرى والكبرى", en: "Scholar of 10 Minor & Major Qira'at" },
+        id: "hazem-ramadan",
+        name: { ar: "حازم رمضان", en: "Hazem Ramadan" },
+        role: { ar: "معلم قرآن وقراءات ومجاز بالسند المتصل", en: "Quran & Recitation Scholar" },
         category: { ar: "قرآن وقراءات", en: "Quran & Qira'at" },
-        experienceYears: 12,
-        studentsCount: 420,
-        rating: 4.9,
-        reviewsCount: 128,
-        ijazah: {
-            ar: "إجازة بالسند المتصل برواية حفص وشعبة وعاصم",
-            en: "Connected Sanad in Hafs, Shu'bah & Asim"
-        },
-        fullIjazahList: [
-            {
-                ar: "إجازة بالسند المتصل إلى النبي ﷺ برواية حفص عن عاصم من طريق الشاطبية",
-                en: "Connected Sanad in Hafs from Asim via Shatibiyyah"
-            },
-            {
-                ar: "إجازة في قراءة الإمام عاصم براوييه (شعبة وحفص)",
-                en: "License in the recitation of Imam Asim (Shu'bah & Hafs)"
-            },
-            {
-                ar: "إجازة وضبط متني تحفة الأطفال والمقدمة الجزرية",
-                en: "Certified in Tuhfat Al-Atfal and Al-Jazariyyah texts"
-            }
-        ],
-        bio: {
-            ar: "خريج كلية القرآن الكريم بطنطا، باحث في علوم القراءات والتجويد التطبيقي.",
-            en: "Graduate of the Faculty of Quranic Studies, researcher in applied Tajweed."
-        },
-        about: {
-            ar: "باحث متخصص ومقرئ بالأزهر الشريف، أمتلك خبرة تتجاوز 12 عاماً في تعليم وتدريس أحكام التجويد للناطقين بالعربية والمغتربين مع التركيز على التصحيح الدقيق لمخارج الحروف والتدرج في منح الإجازات القرآنية بالسند المتصل.",
-            en: "Specialized Al-Azhar scholar with over 12 years of experience in teaching Tajweed for native and non-native speakers, focusing on precise articulation and authentic Sanad certifications."
-        },
-        image: "/image-default.png",
-        qualifications: [
-            {
-                title: { ar: "ليسانس علوم القرآن والقراءات", en: "Bachelor of Quranic Studies & Recitations" },
-                institution: { ar: "جامعة الأزهر الشريف - كلية القرآن الكريم", en: "Al-Azhar University" },
-                year: "2014"
-            },
-            {
-                title: { ar: "دبلوم الدراسات العليا في التجويد والقراءات", en: "Postgraduate Diploma in Tajweed" },
-                institution: { ar: "جامعة الأزهر", en: "Al-Azhar University" },
-                year: "2017"
-            }
-        ],
-        specialties: [
-            { ar: "الإقراء ومنح الإجازات بالسند", en: "Sanad Certification & Recitation" },
-            { ar: "تصحيح التلاوة والمخارج الدقيقة", en: "Articulation & Recitation Correction" },
-            { ar: "شرح متون التجويد (الجزرية والتحفة)", en: "Tajweed Texts Explanation" }
-        ],
-        reviews: [
-            {
-                id: "rev-1",
-                studentName: { ar: "عمر الفاروق", en: "Omar Al-Farooq" },
-                country: { ar: "المملكة المتحدة", en: "United Kingdom" },
-                rating: 5,
-                date: "2026-07-15",
-                comment: {
-                    ar: "الشيخ صبور جداً ودقيق في مخارج الحروف، استفدت منه كثيراً في تصحيح تلاوة سورة البقرة.",
-                    en: "The Sheikh is extremely patient and precise in articulation. Highly recommended!"
-                }
-            },
-            {
-                id: "rev-2",
-                studentName: { ar: "أحمد عبد الله", en: "Ahmed Abdullah" },
-                country: { ar: "كندا", en: "Canada" },
-                rating: 5,
-                date: "2026-06-20",
-                comment: {
-                    ar: "منهجية واضحة ومتابعة مستمرة، حصلت معه على إجازة تحفة الأطفال بفضل الله.",
-                    en: "Structured methodology and continuous follow-up. Completed my Tuhfah license with him."
-                }
-            }
-        ]
-    },
-    {
-        id: "sheikha-fatima-hassan",
-        name: { ar: "أ. فاطمة حسن الأزهري", en: "Ustatha Fatima Hassan" },
-        role: { ar: "معلمة تجويد وتأسيس أطفال وناطقين بغير العربية", en: "Tajweed & Non-Arabic Specialist" },
-        category: { ar: "تجويد وتأسيس", en: "Tajweed & Foundation" },
-        experienceYears: 9,
-        studentsCount: 360,
+        experienceYears: 8,
+        studentsCount: 280,
         rating: 4.95,
-        reviewsCount: 94,
+        reviewsCount: 74,
         ijazah: {
-            ar: "إجازة في تحفة الأطفال والمقدمة الجزرية",
-            en: "Licensed in Tuhfat Al-Atfal & Al-Jazariyyah"
+            ar: "إجازة بالسند المتصل برواية حفص عن عاصم",
+            en: "Connected Sanad in Hafs from Asim"
         },
         fullIjazahList: [
             {
-                ar: "إجازة في متني التحفة والجزرية بالسند",
-                en: "Licensed in Tuhfah & Jazariyyah with Sanad"
+                ar: "إجازة بالسند المتصل برواية حفص عن عاصم من طريق الشاطبية",
+                en: "Connected Sanad in Hafs via Shatibiyyah"
             },
             {
-                ar: "شهادة اعتماد تدريس القاعدة النورانية",
-                en: "Certified Noorani Qaida Instructor"
+                ar: "إجازة في متن تحفة الأطفال للمبتدئين",
+                en: "Certified in Tuhfat Al-Atfal"
             }
         ],
         bio: {
-            ar: "معلمة معتمدة لتعليم القاعدة النورانية وتأسيس الحروف بدقة وصبر عاليين.",
-            en: "Certified Noorani Qaida tutor with deep experience in children's articulation."
+            ar: "خريج جامعة الأزهر، متخصص في تدريب الطلاب على إتقان التلاوة وتصحيح مخارج الحروف.",
+            en: "Al-Azhar graduate specializing in recitation precision and articulation points."
         },
         about: {
-            ar: "معلمة متخصصة في تأسيس الأطفال والناطقين بغير العربية من الصفر عبر أساليب تعليمية تفاعلية حديثة تحبب النشء في تلاوة كتاب الله.",
-            en: "Specialist tutor focusing on foundational Quran learning for kids and non-Arabic speakers through engaging interactive methods."
+            ar: "معلم بالأزهر الشريف أركز على تصحيح التلاوة خطوة بخطوة مع الطلاب ومساعدتهم على تطبيق أحكام التجويد عملياً بيسر وسهولة.",
+            en: "Al-Azhar tutor focusing on step-by-step recitation correction and accessible Tajweed application."
         },
         image: "/image-default.png",
+        featured: true,
         qualifications: [
             {
                 title: { ar: "ليسانس الدراسات الإسلامية والعربية", en: "Bachelor of Islamic & Arabic Studies" },
                 institution: { ar: "جامعة الأزهر", en: "Al-Azhar University" },
+                year: "2018"
+            }
+        ],
+        specialties: [
+            { ar: "تصحيح التلاوة والمخارج", en: "Recitation & Articulation" },
+            { ar: "تجويد عملي للمبتدئين", en: "Practical Tajweed" }
+        ],
+        reviews: [
+            {
+                id: "rev-hr-1",
+                studentName: { ar: "أحمد منصور", en: "Ahmed Mansour" },
+                country: { ar: "السعودية", en: "Saudi Arabia" },
+                rating: 5,
+                date: "2026-07-12",
+                comment: {
+                    ar: "أسلوب المعلم هادئ وصبور جداً في تصحيح مخارج الحروف.",
+                    en: "Very patient and clear in correcting pronunciation."
+                }
+            }
+        ]
+    },
+    {
+        id: "yasmin-ahmed-salah",
+        name: { ar: "ياسمين أحمد صلاح", en: "Yasmin Ahmed Salah" },
+        role: { ar: "معلمة تجويد وتأسيس أطفال وقاعدة نورانية", en: "Noorani Qaida & Kids Tutor" },
+        category: { ar: "تجويد وتأسيس", en: "Tajweed & Foundation" },
+        experienceYears: 6,
+        studentsCount: 220,
+        rating: 4.9,
+        reviewsCount: 62,
+        ijazah: {
+            ar: "إجازة في القاعدة النورانية وتحفة الأطفال",
+            en: "Certified in Noorani Qaida & Tuhfat Al-Atfal"
+        },
+        fullIjazahList: [
+            {
+                ar: "شهادة معتمدة في تدريس القاعدة النورانية المطورة",
+                en: "Certified in Noorani Qaida Methodology"
+            }
+        ],
+        bio: {
+            ar: "متخصصة في تعليم الأطفال القراءة السليمة من المصحف بأساليب تفاعلية مشجعة.",
+            en: "Specialist in interactive foundational Quran reading for young learners."
+        },
+        about: {
+            ar: "أعتمد على تبسيط القراءة بالحركات والمخارج للأطفال والمبتدئين وبناء حب تلاوة القرآن في نفوسهم.",
+            en: "Dedicated to simplifying Arabic vowels and articulation for children with positive encouragement."
+        },
+        image: "/image-default.png",
+        qualifications: [
+            {
+                title: { ar: "ليسانس لغات وترجمة - دراسات إسلامية", en: "Bachelor of Islamic Studies" },
+                institution: { ar: "جامعة الأزهر", en: "Al-Azhar University" },
+                year: "2020"
+            }
+        ],
+        specialties: [
+            { ar: "تأسيس القاعدة النورانية", en: "Noorani Qaida Foundation" },
+            { ar: "تحفيظ قصار السور للأطفال", en: "Short Surahs for Kids" }
+        ],
+        reviews: [
+            {
+                id: "rev-ys-1",
+                studentName: { ar: "سارة إبراهيم (ولي أمر)", en: "Sarah Ibrahim (Parent)" },
+                country: { ar: "الإمارات", en: "UAE" },
+                rating: 5,
+                date: "2026-08-05",
+                comment: {
+                    ar: "ابني أصبح يتهجى الكلمات ويقرأ في المصحف بمفرده بفضل الله ثم المعلمة.",
+                    en: "My son can now read directly from the Mushaf with confidence."
+                }
+            }
+        ]
+    },
+    {
+        id: "ola-ismail-elbeshbishi",
+        name: { ar: "علا إسماعيل البشبيشي", en: "Ola El-Beshbishi" },
+        role: { ar: "معلمة قرآن وتجويد للناطقين بغير العربية", en: "Quran & Tajweed for Non-Arabs" },
+        category: { ar: "تجويد وتأسيس", en: "Tajweed & Foundation" },
+        experienceYears: 7,
+        studentsCount: 250,
+        rating: 4.92,
+        reviewsCount: 58,
+        ijazah: {
+            ar: "إجازة برواية حفص عن عاصم من الشاطبية",
+            en: "Ijazah in Hafs from Asim"
+        },
+        bio: {
+            ar: "خبرة واسعة في تدريس التجويد النظري والتطبيقي باللغتين العربية والإنجليزية.",
+            en: "Extensive background in bilingual Tajweed instruction."
+        },
+        about: {
+            ar: "أساعد الطالبات والناطقين بغير العربية على نطق الحروف العربية بصورة سليمة وفهم أحكام التجويد بسلاسة.",
+            en: "Helping sisters and non-native speakers master Arabic phonetics and Tajweed seamlessly."
+        },
+        image: "/image-default.png",
+        qualifications: [
+            {
+                title: { ar: "ليسانس دراسات إسلامية باللغة الإنجليزية", en: "BA in Islamic Studies in English" },
+                institution: { ar: "جامعة الأزهر", en: "Al-Azhar University" },
+                year: "2019"
+            }
+        ],
+        specialties: [
+            { ar: "تعليم الناطقين بغير العربية", en: "Non-Arabic Speakers" },
+            { ar: "شرح أحكام التجويد", en: "Applied Tajweed" }
+        ],
+        reviews: [
+            {
+                id: "rev-oe-1",
+                studentName: { ar: "زينب خان", en: "Zainab Khan" },
+                country: { ar: "المملكة المتحدة", en: "UK" },
+                rating: 5,
+                date: "2026-07-28",
+                comment: {
+                    ar: "معلمة ممتازة وتشرح بالإنجليزية بطريقة واضحة جداً وميسرة.",
+                    en: "Excellent teacher with very clear English explanations."
+                }
+            }
+        ]
+    },
+    {
+        id: "asmaa-younis-elmoqadem",
+        name: { ar: "أسماء يونس المقدم", en: "Asmaa El-Moqadem" },
+        role: { ar: "مشرفة تحفيظ وتثبيت القرآن الكريم", en: "Quran Memorization Specialist" },
+        category: { ar: "حفظ ومراجعة", en: "Memorization" },
+        experienceYears: 9,
+        studentsCount: 310,
+        rating: 4.88,
+        reviewsCount: 82,
+        ijazah: {
+            ar: "إجازة في حفظ القرآن الكريم كاملاً بالسند",
+            en: "Sanad Ijazah in Full Quran Retention"
+        },
+        bio: {
+            ar: "متخصصة في وضع جداول الحفظ والمراجعة الدورية وتثبيت الأجزاء وضبط المتشابهات.",
+            en: "Specialist in retention roadmaps, periodic revision, and Mutashabihat."
+        },
+        about: {
+            ar: "أهتم بمتابعة الحفظ اليومي وتثبيت ما تم حفظه حتى لا يتفلت، مع التركيز على فهم معاني الآيات.",
+            en: "Focusing on consistent daily retention and understanding verse meanings to avoid forgetfulness."
+        },
+        image: "/image-default.png",
+        featured: true,
+        qualifications: [
+            {
+                title: { ar: "ليسانس كلية القرآن الكريم للقراءات", en: "Bachelor of Quranic Studies" },
+                institution: { ar: "جامعة الأزهر", en: "Al-Azhar University" },
                 year: "2017"
             }
         ],
         specialties: [
-            { ar: "تأسيس الأطفال بالقاعدة النورانية", en: "Noorani Qaida for Children" },
-            { ar: "تجويد للمبتدئين والمغتربين", en: "Beginners & Non-Arabic Tajweed" },
-            { ar: "تحفيظ جزء عمّ والأذكار", en: "Juz Amma Memorization" }
+            { ar: "حفظ وتثبيت القرآن", en: "Quran Retention" },
+            { ar: "مراجعة المتشابهات اللفظية", en: "Similar Verses Revision" }
         ],
         reviews: [
             {
-                id: "rev-3",
-                studentName: { ar: "مريم العتيبي (ولي أمر)", en: "Maryam (Parent)" },
+                id: "rev-ay-1",
+                studentName: { ar: "نادية محمود", en: "Nadia Mahmoud" },
+                country: { ar: "مصر", en: "Egypt" },
+                rating: 5,
+                date: "2026-08-11",
+                comment: {
+                    ar: "نظام المراجعة مع المعلمة ساعدني جداً في تثبيت سورتي البقرة وآل عمران.",
+                    en: "Her revision system solidified my memorization of long Surahs."
+                }
+            }
+        ]
+    },
+    {
+        id: "mai-farag-mohamed",
+        name: { ar: "مي فراج محمد", en: "Mai Farag Mohamed" },
+        role: { ar: "معلمة تجويد وقراءة وتأسيس", en: "Tajweed & Reading Instructor" },
+        category: { ar: "تجويد وتأسيس", en: "Tajweed & Foundation" },
+        experienceYears: 5,
+        studentsCount: 190,
+        rating: 4.9,
+        reviewsCount: 45,
+        ijazah: {
+            ar: "إجازة في متن المقدمة الجزرية",
+            en: "Certified in Al-Jazariyyah Text"
+        },
+        bio: {
+            ar: "شرح مبسط لأحكام النون والميم الساكنة والمدود مع التدريب العملي المباشر.",
+            en: "Simplified breakdown of Noon/Meem Sakinah and practical recitation."
+        },
+        about: {
+            ar: "هدفي هو إتقان الطالب لقراءة القرآن الكريم بالشكل الصحيح دون صعوبة أو تعقيد.",
+            en: "My goal is empowering students to recite the Holy Quran with clarity and ease."
+        },
+        image: "/image-default.png",
+        qualifications: [
+            {
+                title: { ar: "ليسانس دراسات إسلامية", en: "BA in Islamic Studies" },
+                institution: { ar: "جامعة الأزهر", en: "Al-Azhar University" },
+                year: "2021"
+            }
+        ],
+        specialties: [
+            { ar: "تجويد عملي", en: "Practical Tajweed" },
+            { ar: "تصحيح القراءة", en: "Reading Correction" }
+        ],
+        reviews: [
+            {
+                id: "rev-mf-1",
+                studentName: { ar: "هدى خالد", en: "Hoda Khaled" },
                 country: { ar: "الكويت", en: "Kuwait" },
+                rating: 5,
+                date: "2026-06-30",
+                comment: {
+                    ar: "شرح الأحكام واضح جداً ومناسب للمبتدئين.",
+                    en: "Very straightforward and beginner-friendly explanations."
+                }
+            }
+        ]
+    },
+    {
+        id: "shaimaa-mohamed",
+        name: { ar: "شيماء محمد", en: "Shaimaa Mohamed" },
+        role: { ar: "معلمة قرآن كريم وأخلاق إسلامية للأطفال", en: "Kids Quran & Ethics Tutor" },
+        category: { ar: "تجويد وتأسيس", en: "Tajweed & Foundation" },
+        experienceYears: 6,
+        studentsCount: 210,
+        rating: 4.94,
+        reviewsCount: 52,
+        ijazah: {
+            ar: "إجازة في تحفة الأطفال وتلقي القرآن",
+            en: "Certified in Tuhfat Al-Atfal"
+        },
+        bio: {
+            ar: "متخصصة في غرس حب القرآن والآداب الإسلامية لدى البراعم عبر حصص تفاعلية.",
+            en: "Specializing in Quranic manners and child-friendly recitation sessions."
+        },
+        about: {
+            ar: "أركز على التلقين السليم والتحفيظ بأسلوب التكرار المحبب والمتابعة اليومية مع أولياء الأمور.",
+            en: "Focusing on repetitive retention techniques and regular parental follow-ups."
+        },
+        image: "/image-default.png",
+        qualifications: [
+            {
+                title: { ar: "ليسانس تربية ودراسات إسلامية", en: "Bachelor of Education & Islamic Studies" },
+                institution: { ar: "جامعة الأزهر", en: "Al-Azhar University" },
+                year: "2020"
+            }
+        ],
+        specialties: [
+            { ar: "تلقين الأطفال وتحفيظهم", en: "Child Memorization" },
+            { ar: "الأذكار والآداب اليومية", en: "Daily Islamic Manners" }
+        ],
+        reviews: [
+            {
+                id: "rev-sm-1",
+                studentName: { ar: "منى عبد العزيز (ولي أمر)", en: "Mona Abdelaziz (Parent)" },
+                country: { ar: "قطر", en: "Qatar" },
+                rating: 5,
+                date: "2026-08-14",
+                comment: {
+                    ar: "ابنتي تحب الحصة جداً بفضل تعامل المعلمة اللطيف وتشجيعها المستمر.",
+                    en: "My daughter loves every class thanks to her kind and encouraging approach."
+                }
+            }
+        ]
+    },
+    {
+        id: "ashraqat-ali",
+        name: { ar: "أشرقت علي", en: "Ashraqat Ali" },
+        role: { ar: "معلمة لغة عربية وقراءة وقرآن", en: "Arabic & Quran Tutor" },
+        category: { ar: "لغة عربية ونحو", en: "Arabic & Grammar" },
+        experienceYears: 5,
+        studentsCount: 175,
+        rating: 4.89,
+        reviewsCount: 39,
+        ijazah: {
+            ar: "إجازة برواية حفص عن عاصم",
+            en: "License in Hafs from Asim"
+        },
+        bio: {
+            ar: "تعليم التهجي السليم وتراكيب الجمل العربية وتصحيح نطق الآيات القرآنية.",
+            en: "Teaching sound Arabic spelling and Quranic pronunciation."
+        },
+        about: {
+            ar: "أهتم بالربط بين فهم قواعد اللغة العربية وجمال قراءة القرآن الكريم بطريقة تطبيقية سهلة.",
+            en: "Bridging the gap between foundational Arabic and Quranic recitation in an applicable way."
+        },
+        image: "/image-default.png",
+        qualifications: [
+            {
+                title: { ar: "ليسانس اللغة العربية والعلوم الإسلامية", en: "Bachelor of Arabic Language" },
+                institution: { ar: "جامعة القاهرة - دار العلوم", en: "Cairo University" },
+                year: "2021"
+            }
+        ],
+        specialties: [
+            { ar: "تأسيس القراءة والكتابة", en: "Reading & Writing Foundation" },
+            { ar: "تصحيح تلاوة القرآن", en: "Recitation Correction" }
+        ],
+        reviews: [
+            {
+                id: "rev-aa-1",
+                studentName: { ar: "ياسمين الشريف", en: "Yasmin El-Sherif" },
+                country: { ar: "مصر", en: "Egypt" },
+                rating: 5,
+                date: "2026-07-09",
+                comment: {
+                    ar: "طريقة متميزة في التبسيط والتطبيق العملي للقراءة.",
+                    en: "Great approach to simplifying practical reading."
+                }
+            }
+        ]
+    },
+    {
+        id: "mohamed-ahmed-saeed",
+        name: { ar: "محمد أحمد سعيد", en: "Mohamed Ahmed Saeed" },
+        role: { ar: "مقرئ ومجاز بالقراءات السبع", en: "Seven Qira'at Scholar" },
+        category: { ar: "قرآن وقراءات", en: "Quran & Qira'at" },
+        experienceYears: 10,
+        studentsCount: 340,
+        rating: 4.96,
+        reviewsCount: 95,
+        ijazah: {
+            ar: "إجازة بالسند المتصل في القراءات السبع من الشاطبية",
+            en: "Connected Sanad in 7 Qira'at via Shatibiyyah"
+        },
+        bio: {
+            ar: "إقراء بالسند المتصل وتدريب متقدم على أصول وفرش القراءات القرآنية.",
+            en: "Sanad recitation and advanced training in Quranic recitations."
+        },
+        about: {
+            ar: "متفرغ للإقراء ومنح الإجازات القرآنية بالسند المتصل إلى رسول الله ﷺ للطلاب المتقنين والخاتمين.",
+            en: "Dedicated to granting connected Sanad Ijazahs for advanced students and Huffaz."
+        },
+        image: "/image-default.png",
+        featured: true,
+        qualifications: [
+            {
+                title: { ar: "ليسانس القراءات وعلوم القرآن", en: "Bachelor of Recitation Studies" },
+                institution: { ar: "جامعة الأزهر", en: "Al-Azhar University" },
+                year: "2016"
+            }
+        ],
+        specialties: [
+            { ar: "الإقراء ومنح الإجازات", en: "Sanad Recitation" },
+            { ar: "علم القراءات والتجويد", en: "Qira'at Studies" }
+        ],
+        reviews: [
+            {
+                id: "rev-ms-1",
+                studentName: { ar: "إبراهيم الدسوقي", en: "Ibrahim El-Desouky" },
+                country: { ar: "السعودية", en: "Saudi Arabia" },
                 rating: 5,
                 date: "2026-08-01",
                 comment: {
-                    ar: "أسلوب المعلمة رائع جداً مع ابنتي، أصبحت تحب الحصة وتنتظرها بشغف.",
-                    en: "Wonderful teaching style with my daughter. She now eagerly looks forward to each session."
+                    ar: "معلم متقن ومتمكن جداً في ضبط أوجه القراءات والتجويد.",
+                    en: "Master scholar in reciting and tuning Qira'at variations."
                 }
             }
         ]
     },
     {
-        id: "dr-mahmoud-abdelaziz",
-        name: { ar: "د. محمود عبد العزيز", en: "Dr. Mahmoud Abdelaziz" },
-        role: { ar: "أستاذ النحو واللغة العربية بجامعة الأزهر", en: "Arabic Syntax & Linguistics Professor" },
-        category: { ar: "لغة عربية ونحو", en: "Arabic & Grammar" },
-        experienceYears: 15,
-        studentsCount: 510,
-        rating: 4.88,
-        reviewsCount: 142,
-        ijazah: {
-            ar: "دكتوراه في اللغويات والتراكيب القرآنية",
-            en: "Ph.D. in Quranic Syntax & Linguistics"
-        },
-        fullIjazahList: [
-            {
-                ar: "إجازة في شرح الآجرومية وقطر الندى",
-                en: "Certified in Ajrumiyyah & Qatr Al-Nada"
-            }
-        ],
-        bio: {
-            ar: "خبرة واسعة في تدريس النحو التطبيقي، الإعراب، وتذوق البلاغة القرآنية.",
-            en: "Extensive background in applied Arabic grammar, syntax analysis, and rhetoric."
-        },
-        about: {
-            ar: "دكتور في اللغويات بجامعة الأزهر الشريف، أساعد الطلاب على فهم تراكيب لغة القرآن وتذوق جماليات البلاغة والنحو بطرق ميسرة وتطبيقية.",
-            en: "Ph.D. scholar in Arabic Linguistics at Al-Azhar University, helping students grasp Quranic grammar and rhetoric through simplified practical methods."
-        },
-        image: "/image-default.png",
-        qualifications: [
-            {
-                title: { ar: "دكتوراه في اللغويات العربية", en: "Ph.D. in Arabic Linguistics" },
-                institution: { ar: "جامعة الأزهر", en: "Al-Azhar University" },
-                year: "2016"
-            },
-            {
-                title: { ar: "ماجستير في النحو والصرف", en: "Master in Arabic Syntax & Morphology" },
-                institution: { ar: "جامعة الأزهر", en: "Al-Azhar University" },
-                year: "2012"
-            }
-        ],
-        specialties: [
-            { ar: "النحو التطبيقي وإعراب القرآن", en: "Applied Grammar & Quranic Syntax" },
-            { ar: "البلاغة والبيان القرآني", en: "Quranic Rhetoric" },
-            { ar: "المحادثة الفصحى لغير الناطقين", en: "Classical Arabic Conversation" }
-        ],
-        reviews: [
-            {
-                id: "rev-4",
-                studentName: { ar: "يوسف المهدي", en: "Youssef El-Mahdy" },
-                country: { ar: "ألمانيا", en: "Germany" },
-                rating: 5,
-                date: "2026-07-22",
-                comment: {
-                    ar: "شرح عميق ومبسط جداً لقواعد النحو، فتح لي آفاقاً واسعة في فهم آيات القرآن.",
-                    en: "Insightful and simplified explanation of Arabic grammar. Greatly enhanced my Quranic understanding."
-                }
-            }
-        ]
-    },
-    {
-        id: "sheikh-khalid-ibrahim",
-        name: { ar: "الشيخ خالد إبراهيم", en: "Sheikh Khalid Ibrahim" },
-        role: { ar: "مشرف مسار الحفظ والتثبيت والإقراء", en: "Head of Quran Memorization Track" },
+        id: "amr-abdelhamid-saber",
+        name: { ar: "عمرو عبد الحميد صابر", en: "Amr Abdelhamid Saber" },
+        role: { ar: "معلم تحفيظ وتثبيت القرآن الكريم", en: "Quran Memorization Tutor" },
         category: { ar: "حفظ وإقراء", en: "Memorization & Sanad" },
-        experienceYears: 11,
-        studentsCount: 390,
-        rating: 4.92,
-        reviewsCount: 110,
+        experienceYears: 8,
+        studentsCount: 290,
+        rating: 4.91,
+        reviewsCount: 71,
         ijazah: {
-            ar: "إجازة بروايتي قالون وورش عن نافع",
-            en: "Licensed in Qalun & Warsh 'an Nafi'"
+            ar: "إجازة برواية حفص عن عاصم من طريق الشاطبية",
+            en: "Ijazah in Hafs from Asim"
         },
-        fullIjazahList: [
-            {
-                ar: "إجازة بالسند المتصل بروايتي قالون وورش عن نافع المدني",
-                en: "Connected Sanad in Qalun & Warsh from Nafi'"
-            }
-        ],
         bio: {
-            ar: "متخصص في نظم مراجعة المتون وتثبيت حفظ الأجزاء بجلسات إقراء فردية.",
-            en: "Specialist in Matn retention and rigorous individual recitation monitoring."
+            ar: "متابعة فردية مكثفة للطلاب لمساعدتهم على حفظ ومراجعة القرآن الكريم بانتظام.",
+            en: "Structured 1-on-1 memorization and disciplined revision sessions."
         },
         about: {
-            ar: "مشرف تحفيظ وإقراء بالأزهر، أعتمد على خطط مدروسة للتثبيت طويل المدى وتصحيح المتشابهات اللفظية للطلاب الخاتمين والمتقدمين.",
-            en: "Quran memorization supervisor at Al-Azhar, applying structured long-term retention roadmaps and Mutashabihat mastery for advanced students."
+            ar: "أعمل مع الطالب على خطة أسبوعية تتناسب مع وقته لضمان إتمام الحفظ مع المراجعة المستمرة دون تراكم.",
+            en: "Customizing practical weekly quotas matching each student's availability to ensure retention."
         },
         image: "/image-default.png",
         qualifications: [
             {
-                title: { ar: "ليسانس أصول الدين والدعوة", en: "Bachelor of Islamic Theology & Da'wah" },
+                title: { ar: "ليسانس أصول الدين والدعوة", en: "BA in Theology & Da'wah" },
                 institution: { ar: "جامعة الأزهر", en: "Al-Azhar University" },
-                year: "2015"
+                year: "2018"
             }
         ],
         specialties: [
-            { ar: "تثبيت وضبط المتشابهات اللفظية", en: "Mutashabihat & Quranic Retention" },
-            { ar: "الإقراء بروايتي ورش وقالون", en: "Warsh & Qalun Recitation" },
-            { ar: "جلسات المراجعة المكثفة للخاتمين", en: "Intensive Memorization Review" }
+            { ar: "حفظ القرآن الكريم", en: "Quran Memorization" },
+            { ar: "خطط المراجعة الدورية", en: "Systematic Review" }
         ],
         reviews: [
             {
-                id: "rev-5",
-                studentName: { ar: "سعد الدين المصري", en: "Saad El-Din" },
-                country: { ar: "قطر", en: "Qatar" },
+                id: "rev-as-1",
+                studentName: { ar: "خالد بن فهد", en: "Khaled Bin Fahad" },
+                country: { ar: "عمان", en: "Oman" },
                 rating: 5,
-                date: "2026-08-10",
+                date: "2026-07-19",
                 comment: {
-                    ar: "متابعة دقيقة ونظام مراجعة ساعدني على ضبط الحفظ والتخلص من التردد تماماً.",
-                    en: "Meticulous follow-up system that helped me eliminate hesitation in my recitation."
+                    ar: "متابعة مستمرة وجدول واضح ساعدني على تنظيم وردي اليومي.",
+                    en: "Consistent follow-up and a practical daily routine."
+                }
+            }
+        ]
+    },
+    {
+        id: "ammar-sameh-badr",
+        name: { ar: "عمار سامح بدر", en: "Ammar Sameh Badr" },
+        role: { ar: "معلم تجويد وتأسيس لغة عربية", en: "Tajweed & Arabic Instructor" },
+        category: { ar: "لغة عربية ونحو", en: "Arabic & Grammar" },
+        experienceYears: 6,
+        studentsCount: 230,
+        rating: 4.93,
+        reviewsCount: 54,
+        ijazah: {
+            ar: "إجازة في متن تحفة الأطفال والجزرية",
+            en: "Certified in Tuhfah & Jazariyyah"
+        },
+        bio: {
+            ar: "متخصص في تأسيس القراءة الصحيحة وشرح مبادئ النحو العربي والتجويد التطبيقي.",
+            en: "Specialist in reading foundations, basic Arabic syntax, and applied Tajweed."
+        },
+        about: {
+            ar: "أركز على تبسيط قواعد التجويد والنحو وتطبيقها العملي مباشرة على الآيات القرآنية بأسلوب سهل.",
+            en: "Simplifying Tajweed and grammar rules with instant application on Quranic verses."
+        },
+        image: "/image-default.png",
+        qualifications: [
+            {
+                title: { ar: "ليسانس اللغة العربية وآدابها", en: "Bachelor of Arabic Language" },
+                institution: { ar: "جامعة الأزهر", en: "Al-Azhar University" },
+                year: "2020"
+            }
+        ],
+        specialties: [
+            { ar: "النحو التطبيقي", en: "Applied Arabic Grammar" },
+            { ar: "أحكام التجويد", en: "Tajweed Rules" }
+        ],
+        reviews: [
+            {
+                id: "rev-ab-1",
+                studentName: { ar: "ماجد العتيبي", en: "Majed Al-Otaibi" },
+                country: { ar: "السعودية", en: "Saudi Arabia" },
+                rating: 5,
+                date: "2026-08-08",
+                comment: {
+                    ar: "طريقة ممتازة في شرح أحكام التجويد وربطها باللغة.",
+                    en: "Terrific explanation connecting Tajweed with Arabic structure."
+                }
+            }
+        ]
+    },
+    {
+        id: "abdelrahman-abdelazim",
+        name: { ar: "عبد الرحمن عبد العظيم", en: "Abdelrahman Abdelazim" },
+        role: { ar: "مقرئ بالأزهر الشريف ومجاز برواية ورش وحفص", en: "Scholar in Warsh & Hafs Recitations" },
+        category: { ar: "حفظ وإقراء", en: "Memorization & Sanad" },
+        experienceYears: 9,
+        studentsCount: 310,
+        rating: 4.94,
+        reviewsCount: 78,
+        ijazah: {
+            ar: "إجازة بالسند المتصل بروايتي حفص عن عاصم وورش عن نافع",
+            en: "Connected Sanad in Hafs & Warsh"
+        },
+        bio: {
+            ar: "خبرة واسعة في جلسات الإقراء الفردية وتصحيح التلاوة بدقة وفق الروايات المعتمدة.",
+            en: "Specialized in 1-on-1 recitation correction across authorized narrations."
+        },
+        about: {
+            ar: "أساعد الطلاب على الوصول لأعلى درجات الضبط والخشوع في التلاوة مع الإجازة بالسند المتصل لمن أتم الختمة.",
+            en: "Guiding students toward optimal recitation mastery and awarding Sanad to those completing the Khatmah."
+        },
+        image: "/image-default.png",
+        featured: true,
+        qualifications: [
+            {
+                title: { ar: "ليسانس كلية القرآن الكريم بطنطا", en: "Faculty of Quranic Studies" },
+                institution: { ar: "جامعة الأزهر", en: "Al-Azhar University" },
+                year: "2017"
+            }
+        ],
+        specialties: [
+            { ar: "الإقراء بروايتي حفص وورش", en: "Hafs & Warsh Recitation" },
+            { ar: "تصحيح وضبط التلاوة", en: "Recitation Precision" }
+        ],
+        reviews: [
+            {
+                id: "rev-ra-1",
+                studentName: { ar: "عبد الله البلوشي", en: "Abdullah Al-Balushi" },
+                country: { ar: "الإمارات", en: "UAE" },
+                rating: 5,
+                date: "2026-07-25",
+                comment: {
+                    ar: "المعلم دقيق جداً في التوجيه والصوت خاشع ومريح.",
+                    en: "Very precise guidance with a serene recitation atmosphere."
                 }
             }
         ]
     }
 ];
+
+export const featuredTeachers: Teacher[] = allTeachersData.filter((t) => t.featured);
