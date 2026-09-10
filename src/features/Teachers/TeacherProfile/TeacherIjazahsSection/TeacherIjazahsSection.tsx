@@ -14,10 +14,11 @@ export default function TeacherIjazahsSection({ teacher }: TeacherIjazahsSection
     const t = useTranslations("TeacherProfile.ijazahsSection");
     const locale = useLocale() as "ar" | "en";
 
-    const ijazahList =
-        teacher.fullIjazahList && teacher.fullIjazahList.length > 0
-            ? teacher.fullIjazahList
-            : [teacher.ijazah];
+    const ijazahList = teacher.fullIjazahList ?? [];
+
+    if (ijazahList.length === 0) {
+        return null;
+    }
 
     return (
         <section className={styles.ijazahsSection}>
