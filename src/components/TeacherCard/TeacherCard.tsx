@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Award, Users, Briefcase } from "lucide-react";
+import { Users, Briefcase } from "lucide-react";
 import { type Teacher } from "@/data/teachers.data";
 import styles from "./TeacherCard.module.scss";
 
@@ -52,16 +52,6 @@ export default function TeacherCard({ teacher, showApplyBtn = false }: TeacherCa
                             {teacher.studentsCount}+ {tCommon("studentsCount")}
                         </span>
                     </div>
-                </div>
-
-                <div className={styles.ijazahBox}>
-                    <div className={styles.ijazahHeader}>
-                        <Award size={15} />
-                        <span>{tCommon("ijazahLabel")}</span>
-                    </div>
-                    <p className={styles.ijazahText}>
-                        {teacher.ijazah[locale] || teacher.ijazah.ar}
-                    </p>
                 </div>
 
                 <div className={`${styles.cardFooter} ${showApplyBtn ? styles.dualActions : ""}`}>

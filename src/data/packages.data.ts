@@ -9,6 +9,7 @@ export interface PackagePlan {
     price: {
         EGP: number;
         USD: number;
+        GBP?: number;
     };
     features: { ar: string; en: string }[];
     extendedFeatures?: { ar: string; en: string }[];
@@ -29,238 +30,374 @@ export interface PackageFaqItem {
 }
 
 export const featuredPackages: PackagePlan[] = [
+    // --- باقات 30 دقيقة ---
     {
-        id: "starter-foundation",
+        id: "plan-30m-8classes",
         isPopular: false,
         name: {
-            ar: "باقة التأسيس الأسبوعية",
-            en: "Weekly Foundation Plan"
+            ar: "باقة 8 حصص (30 دقيقة)",
+            en: "8 Classes Plan (30 Mins)"
         },
         desc: {
-            ar: "مناسبة للأطفال المبتدئين أو لمن يبحث عن وتيرة تعلم هادئة ومستمرة.",
-            en: "Ideal for beginners or those seeking a steady, low-intensity pace."
-        },
-        sessionsPerWeek: 1,
-        monthlySessions: 4,
-        sessionDuration: { ar: "30 دقيقة للحصة", en: "30 mins / session" },
-        price: {
-            EGP: 450,
-            USD: 25
-        },
-        features: [
-            { ar: "حصة فردية مباشرة 1-on-1", en: "1-on-1 live private class" },
-            { ar: "معلم مجاز ومعتمد", en: "Certified Al-Azhar tutor" },
-            { ar: "تقرير تقييم شهري", en: "Monthly performance report" },
-            { ar: "مرونة في تعديل الموعد مسبقاً", en: "Advance rescheduling option" }
-        ],
-        extendedFeatures: [
-            { ar: "تأسيس الحروف والمخارج ونور البيان", en: "Noor Al-Bayan & phonetics foundation" },
-            { ar: "تحفيظ قصار السور مع التكرار التفاعلي", en: "Short Surahs memorization with repetition" },
-            { ar: "حصة تعويضية واحدة شهرياً عند الإخطار", en: "1 monthly make-up session with notice" },
-            { ar: "متابعة دورية عبر واتساب مع الإدارة", en: "Periodic WhatsApp admin follow-up" }
-        ]
-    },
-    {
-        id: "standard-mastery",
-        isPopular: true,
-        name: {
-            ar: "باقة الإتقان القياسية",
-            en: "Standard Mastery Plan"
-        },
-        desc: {
-            ar: "الخيار الأمثل والمتوازن لإتقان التجويد وتثبيت القراءة بوتيرة ممتازة.",
-            en: "The balanced sweet spot for steady Tajweed progress and retention."
+            ar: "خطة فردية شهرية بمعدل حصتين أسبوعياً لتعلم القرآن والعلوم الشرعية واللغة العربية.",
+            en: "Monthly private 1-on-1 plan (2 classes/week) covering Quran, Islamic Studies & Arabic."
         },
         sessionsPerWeek: 2,
         monthlySessions: 8,
-        sessionDuration: { ar: "45 دقيقة للحصة", en: "45 mins / session" },
+        sessionDuration: { ar: "30 دقيقة للحصة", en: "30 mins / session" },
         price: {
-            EGP: 850,
-            USD: 45
+            GBP: 40,
+            USD: 52,
+            EGP: 2500
         },
         features: [
-            { ar: "حصتان فرديتان أسبوعياً", en: "2 private 1-on-1 classes / week" },
-            { ar: "متابعة أسبوعية مباشرة", en: "Weekly progress follow-up" },
-            { ar: "تسجيلات وملاحظات الحصص", en: "Session notes and audio reviews" },
-            { ar: "أولوية اختيار المواعيد", en: "Priority slot booking" }
+            {
+                ar: "القرآن الكريم: حفظ ومراجعة وتلاوة صحيحة",
+                en: "Quran: Memorization + Revision + Recitation"
+            },
+            {
+                ar: "التفسير: شرح معاني الآيات التي تم حفظها",
+                en: "Tafseer: Explanation of the verses memorized"
+            },
+            {
+                ar: "دراسات إسلامية: سيرة وفقه وعقيدة حسب السن والمستوى",
+                en: "Islamic Studies: Seerah, Fiqh & Aqeedah tailored to age & level"
+            },
+            {
+                ar: "اللغة العربية: تأسيس القراءة والكتابة والنطق السليم",
+                en: "Arabic Language: Reading & Writing foundations"
+            }
         ],
         extendedFeatures: [
-            { ar: "شرح وتطبيق أحكام التجويد عملياً", en: "Practical Tajweed rules application" },
-            { ar: "خطة مراجعة تثبيت للحفظ القديم", en: "Systematic retention revision plan" },
-            { ar: "إمكانية تعويض حصتين شهرياً", en: "Up to 2 make-up classes monthly" },
-            { ar: "تقرير تفصيلي لولي الأمر نهاية كل شهر", en: "Comprehensive end-of-month report" }
+            { ar: "حصص فردية مباشرة 100% (شخص لشخص)", en: "100% Individual One-to-One live classes" },
+            { ar: "معلمون للبنين ومعلمات للبنات", en: "Male teachers for boys & female teachers for girls" },
+            { ar: "حصة تجريبية مجانية لتقييم المستوى", en: "Free Trial Class to assess the level" },
+            { ar: "تقارير أسبوعية مفصلة لولي الأمر", en: "Detailed weekly progress reports for parents" }
         ]
     },
     {
-        id: "intensive-excellence",
+        id: "plan-30m-16classes",
         isPopular: false,
         name: {
-            ar: "باقة التميز والتكثيف",
-            en: "Intensive Excellence Plan"
+            ar: "باقة 16 حصة (30 دقيقة)",
+            en: "16 Classes Plan (30 Mins)"
         },
         desc: {
-            ar: "مسار مكثف للراغبين في الإنجاز السريع لحفظ أجزاء القرآن وتطبيق التجويد.",
-            en: "Fast-track intensive track designed for rapid Quran memorization."
+            ar: "وتيرة متابعة أسرع بمعدل 4 حصص أسبوعياً لضمان تثبيت الحفظ وتطبيق القواعد بانتظام.",
+            en: "Fast-track plan with 4 classes/week for steady retention and regular practice."
         },
-        sessionsPerWeek: 3,
-        monthlySessions: 12,
-        sessionDuration: { ar: "45 دقيقة للحصة", en: "45 mins / session" },
+        sessionsPerWeek: 4,
+        monthlySessions: 16,
+        sessionDuration: { ar: "30 دقيقة للحصة", en: "30 mins / session" },
         price: {
-            EGP: 1200,
-            USD: 65
+            GBP: 80,
+            USD: 105,
+            EGP: 5000
         },
         features: [
-            { ar: "3 حصص أسبوعية مباشرة", en: "3 private 1-on-1 classes / week" },
-            { ar: "خطة مراجعة وحفظ متقدمة", en: "Advanced retention & review system" },
-            { ar: "تقارير مباشرة لولي الأمر", en: "Direct parent progress portal" },
-            { ar: "شهادة إتمام معتمدة لكل مرحلة", en: "Accredited completion certificate" }
+            {
+                ar: "القرآن الكريم: حفظ جديد ومراجعة قوية مستمرة",
+                en: "Quran: New Memorization + Strong Revision"
+            },
+            {
+                ar: "التفسير: شرح مبسط لمعاني الآيات واستخراج العبر الحياتية",
+                en: "Tafseer: Simple explanation of memorized verses & life lessons"
+            },
+            {
+                ar: "دراسات إسلامية: سيرة وفقه وتفسير مخصص لمستوى الطالب",
+                en: "Islamic Studies: Seerah, Fiqh & Tafseer tailored to age & level"
+            },
+            {
+                ar: "اللغة العربية: طلاقة القراءة وقواعد أساسية وكتابة",
+                en: "Arabic Language: Reading fluency + Grammar basics + Writing"
+            }
         ],
         extendedFeatures: [
-            { ar: "حفظ جزء إلى جزء ونصف شهرياً", en: "1 to 1.5 Juz memorization target monthly" },
-            { ar: "متابعة وتصحيح يومي عبر الرسائل الصوتية", en: "Daily voice notes review & correction" },
-            { ar: "مرونة كاملة في تعويض الحصص المعتذر عنها", en: "Flexible make-up classes upon advance notice" },
-            { ar: "اختبارات إتقان بعد كل 3 أجزاء", en: "Retention milestone tests every 3 Juz" }
+            { ar: "حصص فردية مباشرة 100% (شخص لشخص)", en: "100% Individual One-to-One live classes" },
+            { ar: "معلمون للبنين ومعلمات للبنات", en: "Male teachers for boys & female teachers for girls" },
+            { ar: "حصة تجريبية مجانية لتقييم المستوى", en: "Free Trial Class to assess the level" },
+            { ar: "تقارير أسبوعية مفصلة لولي الأمر", en: "Detailed weekly progress reports for parents" }
         ]
     },
     {
-        id: "ijazah-advanced",
-        isPopular: false,
+        id: "plan-30m-20classes",
+        isPopular: true,
         name: {
-            ar: "باقة الحفظ والإجازة بالسند",
-            en: "Sanad & Ijazah Pathway"
+            ar: "باقة 20 حصة (30 دقيقة)",
+            en: "20 Classes Plan (30 Mins)"
         },
         desc: {
-            ar: "مخصصة لخاتمي القرآن الكريم والقراء الساعين لنيل الإجازة بالسند المتصل.",
-            en: "Dedicated for advanced memorizers seeking continuous chain Sanad."
+            ar: "الباقة الأكثر طلباً وإنجازاً بمعدل 5 حصص أسبوعياً للحفظ المكثف وتأسيس كامل.",
+            en: "Most Popular! Intensive 5 classes/week plan for maximum retention and full foundation."
+        },
+        sessionsPerWeek: 5,
+        monthlySessions: 20,
+        sessionDuration: { ar: "30 دقيقة للحصة", en: "30 mins / session" },
+        price: {
+            GBP: 100,
+            USD: 130,
+            EGP: 6200
+        },
+        features: [
+            {
+                ar: "القرآن الكريم: حفظ مكثف مع مراجعة شاملة وتثبيت كامل",
+                en: "Quran: Intensive Memorization + Full Revision"
+            },
+            {
+                ar: "التفسير: شرح وتدبر عميق للآيات القرآنية المحفوظة",
+                en: "Tafseer: In-depth explanation & Tadabbur of memorized verses"
+            },
+            {
+                ar: "دراسات إسلامية شاملة: عقيدة وفقه وسيرة نبوية وحديث شريف",
+                en: "Islamic Studies: Complete Aqeedah, Fiqh, Seerah & Hadith"
+            },
+            {
+                ar: "اللغة العربية: قراءة متقدمة وقواعد وتعبير وتأسيس لغوي شامل",
+                en: "Arabic Language: Advanced Reading + Grammar + Expression + Full Foundation"
+            }
+        ],
+        extendedFeatures: [
+            { ar: "حصص فردية مباشرة 100% (شخص لشخص)", en: "100% Individual One-to-One live classes" },
+            { ar: "معلمون للبنين ومعلمات للبنات", en: "Male teachers for boys & female teachers for girls" },
+            { ar: "حصة تجريبية مجانية لتقييم المستوى", en: "Free Trial Class to assess the level" },
+            { ar: "تقارير أسبوعية مفصلة لولي الأمر", en: "Detailed weekly progress reports for parents" }
+        ]
+    },
+
+    // --- باقات 60 دقيقة ---
+    {
+        id: "plan-60m-8classes",
+        isPopular: false,
+        name: {
+            ar: "باقة 8 حصص (60 دقيقة)",
+            en: "8 Classes Plan (60 Mins)"
+        },
+        desc: {
+            ar: "ساعة تدريبية كاملة لحصتين أسبوعياً تتيح وقتاً متكافئاً لحفظ القرآن ودراسة العربية والإسلاميك.",
+            en: "Full 60-minute classes (2 classes/week) providing ample time for Quran, Arabic and Islamic studies."
+        },
+        sessionsPerWeek: 2,
+        monthlySessions: 8,
+        sessionDuration: { ar: "60 دقيقة للحصة", en: "60 mins / session" },
+        price: {
+            GBP: 80,
+            USD: 105,
+            EGP: 5000
+        },
+        features: [
+            {
+                ar: "القرآن الكريم: حفظ ومراجعة وتلاوة متأنية مع تصحيح المخارج",
+                en: "Quran: Memorization + Revision + Recitation"
+            },
+            {
+                ar: "التفسير: شرح معاني الآيات التي تم حفظها",
+                en: "Tafseer: Explanation of the verses memorized"
+            },
+            {
+                ar: "دراسات إسلامية: سيرة وفقه وعقيدة حسب السن والمستوى",
+                en: "Islamic Studies: Seerah, Fiqh & Aqeedah tailored to age & level"
+            },
+            {
+                ar: "اللغة العربية: تأسيس مهارات القراءة والكتابة والتهجي",
+                en: "Arabic Language: Reading & Writing foundations"
+            }
+        ],
+        extendedFeatures: [
+            { ar: "حصص فردية مباشرة 100% (شخص لشخص)", en: "100% Individual One-to-One live classes" },
+            { ar: "معلمون للبنين ومعلمات للبنات", en: "Male teachers for boys & female teachers for girls" },
+            { ar: "حصة تجريبية مجانية لتقييم المستوى", en: "Free Trial Class to assess the level" },
+            { ar: "تقارير أسبوعية مفصلة لولي الأمر", en: "Detailed weekly progress reports for parents" }
+        ]
+    },
+    {
+        id: "plan-60m-16classes",
+        isPopular: false,
+        name: {
+            ar: "باقة 16 حصة (60 دقيقة)",
+            en: "16 Classes Plan (60 Mins)"
+        },
+        desc: {
+            ar: "خطة متقدمة بمعدل 4 حصص أسبوعياً مدة كل منها ساعة لإتقان القراءة واللغة العربية وحفظ السور.",
+            en: "Advanced progress plan (4 classes/week, 60 mins each) for intensive language and memorization."
         },
         sessionsPerWeek: 4,
         monthlySessions: 16,
         sessionDuration: { ar: "60 دقيقة للحصة", en: "60 mins / session" },
         price: {
-            EGP: 1800,
-            USD: 95
+            GBP: 150,
+            USD: 195,
+            EGP: 9300
         },
         features: [
-            { ar: "جلسات ختم وإقراء فردية", en: "Direct Ijazah recitation sittings" },
-            { ar: "معلمون ومقرئون ذوو أسانيد عالية", en: "Top Al-Azhar Sanad scholars" },
-            { ar: "اختبارات إتقان دورية للأحكام", en: "Rigorous Matn and rule tests" },
-            { ar: "منح السند والإجازة عند الإتمام", en: "Official Ijazah award upon completion" }
+            {
+                ar: "القرآن الكريم: حفظ جديد ومراجعة قوية مستمرة للمحفوظ السابق",
+                en: "Quran: New Memorization + Strong Revision"
+            },
+            {
+                ar: "التفسير: شرح مبسط لمعاني الآيات وتدبر الدروس المستفادة",
+                en: "Tafseer: Simple explanation of memorized verses & life lessons"
+            },
+            {
+                ar: "دراسات إسلامية: سيرة وفقه وتفسير مخصص لمستوى الطالب",
+                en: "Islamic Studies: Seerah, Fiqh & Tafseer tailored to age & level"
+            },
+            {
+                ar: "اللغة العربية: طلاقة القراءة وقواعد أساسية وكتابة ومحادثة",
+                en: "Arabic Language: Reading fluency + Grammar basics + Writing"
+            }
         ],
         extendedFeatures: [
-            { ar: "قراءة القرآن كاملاً غيباً بالسند المتصل", en: "Full Quran recitation from memory with Sanad" },
-            { ar: "دراسة وضبط متون التجويد (تحفة / جزرية)", en: "Detailed study of Tuhfah & Jazariyyah texts" },
-            { ar: "جدول مواعيد خاص ومرونة كاملة للتنسيق", en: "Dedicated premium slot flexibility" },
-            { ar: "شهادة وسند معتمد وموثق بالسند للنبي ﷺ", en: "Authenticated continuous chain Sanad to Prophet ﷺ" }
+            { ar: "حصص فردية مباشرة 100% (شخص لشخص)", en: "100% Individual One-to-One live classes" },
+            { ar: "معلمون للبنين ومعلمات للبنات", en: "Male teachers for boys & female teachers for girls" },
+            { ar: "حصة تجريبية مجانية لتقييم المستوى", en: "Free Trial Class to assess the level" },
+            { ar: "تقارير أسبوعية مفصلة لولي الأمر", en: "Detailed weekly progress reports for parents" }
+        ]
+    },
+    {
+        id: "plan-60m-20classes",
+        isPopular: false,
+        name: {
+            ar: "باقة 20 حصة (60 دقيقة)",
+            en: "20 Classes Plan (60 Mins)"
+        },
+        desc: {
+            ar: "البرنامج الأقوى والشامل بمعدل 5 حصص أسبوعياً (ساعة كاملة) لتحقيق أعلى معدلات الحفظ والإتقان.",
+            en: "The ultimate comprehensive package (5 hours/week) for accelerated memorization and full mastery."
+        },
+        sessionsPerWeek: 5,
+        monthlySessions: 20,
+        sessionDuration: { ar: "60 دقيقة للحصة", en: "60 mins / session" },
+        price: {
+            GBP: 200,
+            USD: 260,
+            EGP: 12500
+        },
+        features: [
+            {
+                ar: "القرآن الكريم: حفظ مكثف مع مراجعة شاملة وتثبيت كامل للأجزاء",
+                en: "Quran: Intensive Memorization + Full Revision"
+            },
+            {
+                ar: "التفسير: شرح معمق وتدبر شامل لمعاني الآيات ودلالاتها",
+                en: "Tafseer: In-depth explanation & Tadabbur of memorized verses"
+            },
+            {
+                ar: "دراسات إسلامية متكاملة: عقيدة وفقه وسيرة نبوية وحديث شريف",
+                en: "Islamic Studies: Complete Islamic Studies: Aqeedah, Fiqh, Seerah & Hadith"
+            },
+            {
+                ar: "اللغة العربية: قراءة متقدمة وقواعد وتعبير وتأسيس لغوي كامل",
+                en: "Arabic Language: Advanced Reading + Grammar + Expression + Full Foundation"
+            }
+        ],
+        extendedFeatures: [
+            { ar: "حصص فردية مباشرة 100% (شخص لشخص)", en: "100% Individual One-to-One live classes" },
+            { ar: "معلمون للبنين ومعلمات للبنات", en: "Male teachers for boys & female teachers for girls" },
+            { ar: "حصة تجريبية مجانية لتقييم المستوى", en: "Free Trial Class to assess the level" },
+            { ar: "تقارير أسبوعية مفصلة لولي الأمر", en: "Detailed weekly progress reports for parents" }
         ]
     }
 ];
 
 export const packagesComparisonData: ComparisonRow[] = [
     {
-        featureTitle: { ar: "عدد الحصص الشهرية", en: "Monthly Sessions" },
-        starter: { ar: "4 حصص (حصة/أسبوع)", en: "4 classes (1/week)" },
-        standard: { ar: "8 حصص (حصتان/أسبوع)", en: "8 classes (2/week)" },
-        intensive: { ar: "12 حصة (3 حصص/أسبوع)", en: "12 classes (3/week)" },
-        ijazah: { ar: "16 حصة (4 حصص/أسبوع)", en: "16 classes (4/week)" }
+        featureTitle: { ar: "عدد الحصص الشهرية", en: "Monthly Classes" },
+        starter: { ar: "8 حصص (حصتان/أسبوع)", en: "8 classes (2/week)" },
+        standard: { ar: "16 حصة (4 حصص/أسبوع)", en: "16 classes (4/week)" },
+        intensive: { ar: "20 حصة (5 حصص/أسبوع)", en: "20 classes (5/week)" },
+        ijazah: { ar: "تخصيص كامل", en: "Custom Schedule" }
     },
     {
-        featureTitle: { ar: "زمن الجلسة الفردية", en: "Class Duration" },
-        starter: { ar: "30 دقيقة", en: "30 Mins" },
-        standard: { ar: "45 دقيقة", en: "45 Mins" },
-        intensive: { ar: "45 دقيقة", en: "45 Mins" },
-        ijazah: { ar: "60 دقيقة", en: "60 Mins" }
+        featureTitle: { ar: "نظام التدريس", en: "Teaching System" },
+        starter: { ar: "فردي 100% (1-on-1)", en: "100% 1-on-1 Private" },
+        standard: { ar: "فردي 100% (1-on-1)", en: "100% 1-on-1 Private" },
+        intensive: { ar: "فردي 100% (1-on-1)", en: "100% 1-on-1 Private" },
+        ijazah: { ar: "فردي 100% (1-on-1)", en: "100% 1-on-1 Private" }
     },
     {
-        featureTitle: { ar: "مستوى وتخصص المعلم", en: "Instructor Level" },
-        starter: { ar: "معلم معتمد ومجاز", en: "Certified Tutor" },
-        standard: { ar: "معلم أزهري متخصص", en: "Azhar Specialist" },
-        intensive: { ar: "نخبة مقرئي الأزهر", en: "Elite Azhar Reciters" },
-        ijazah: { ar: "مقرئ مجاز بأسانيد عالية", en: "High-Sanad Scholar" }
+        featureTitle: { ar: "المعلمون والمعلمات", en: "Tutor Gender" },
+        starter: { ar: "معلم للبنين / معلمة للبنات", en: "Male for boys / Female for girls" },
+        standard: { ar: "معلم للبنين / معلمة للبنات", en: "Male for boys / Female for girls" },
+        intensive: { ar: "معلم للبنين / معلمة للبنات", en: "Male for boys / Female for girls" },
+        ijazah: { ar: "مقرئون معتمدون ومجازون", en: "Certified Sanad Scholars" }
+    },
+    {
+        featureTitle: { ar: "المحتوى المشمول", en: "Included Curriculum" },
+        starter: { ar: "قرآن + تفسير + إسلاميك + لغة عربية", en: "Quran + Tafseer + Islamic + Arabic" },
+        standard: { ar: "قرآن + تفسير + إسلاميك + لغة عربية", en: "Quran + Tafseer + Islamic + Arabic" },
+        intensive: { ar: "برنامج مكثف لكافة المواد", en: "Intensive Full Program" },
+        ijazah: { ar: "ختم القرآن وتدبر وإجازة بالسند", en: "Full Khatmah & Sanad Pathway" }
     },
     {
         featureTitle: { ar: "تقارير المتابعة لولي الأمر", en: "Progress Reports" },
-        starter: { ar: "تقرير شهري ملخص", en: "Monthly Summary" },
-        standard: { ar: "تقرير شهري تفصيلي", en: "Detailed Monthly Report" },
-        intensive: { ar: "متابعة أسبوعية + شهري", en: "Weekly + Monthly Reports" },
-        ijazah: { ar: "تقييم مباشر لكل ربع ختمة", en: "Continuous Evaluation" }
+        starter: { ar: "تقارير متابعة أسبوعية", en: "Weekly Progress Reports" },
+        standard: { ar: "تقارير متابعة أسبوعية", en: "Weekly Progress Reports" },
+        intensive: { ar: "متابعة أسبوعية وتقييم دوري", en: "Weekly & Periodic Assessments" },
+        ijazah: { ar: "تقييم مستمر لكل ربع ختمة", en: "Continuous Evaluation" }
     },
     {
-        featureTitle: { ar: "إمكانية تعويض الحصص", en: "Reschedule Policy" },
-        starter: { ar: "حصة واحدة شهرياً", en: "1 Class / Month" },
-        standard: { ar: "حصتان شهرياً", en: "2 Classes / Month" },
-        intensive: { ar: "مرونة كاملة بإشعار مسبق", en: "Full Flexibility" },
-        ijazah: { ar: "جدولة خاصة ومرنة", en: "Custom Scheduling" }
-    },
-    {
-        featureTitle: { ar: "التسجيلات والملاحظات الصوتية", en: "Audio Reviews & Notes" },
-        starter: { ar: "غير مشمولة", en: "Not Included" },
-        standard: { ar: "ملاحظات وتصحيحات صوتية", en: "Included" },
-        intensive: { ar: "متابعة وتسجيل يومي", en: "Daily Voice Review" },
-        ijazah: { ar: "تسجيل جلسات الختم كاملة", en: "Full Session Recordings" }
-    },
-    {
-        featureTitle: { ar: "الشهادات والإجازات", en: "Certificates & Ijazah" },
-        starter: { ar: "شهادة إتمام مرحلة", en: "Milestone Certificate" },
-        standard: { ar: "شهادة إتمام مرحلة", en: "Milestone Certificate" },
-        intensive: { ar: "شهادة إتقان معتمدة", en: "Mastery Certificate" },
-        ijazah: { ar: "إجازة وسند متصل بالنبي ﷺ", en: "Official Sanad & Ijazah" }
+        featureTitle: { ar: "حصة تقييم تجريبية", en: "Free Trial Class" },
+        starter: { ar: "مجانية بالكامل لتقييم المستوى", en: "100% Free Trial Class" },
+        standard: { ar: "مجانية بالكامل لتقييم المستوى", en: "100% Free Trial Class" },
+        intensive: { ar: "مجانية بالكامل لتقييم المستوى", en: "100% Free Trial Class" },
+        ijazah: { ar: "جلسة تحديد مستوى وتلاوة", en: "Initial Level Assessment Sitting" }
     }
 ];
 
 export const packagesFaqData: PackageFaqItem[] = [
     {
-        id: "payment-methods",
+        id: "trial-session",
         question: {
-            ar: "ما هي وسائل الدفع الإلكترونية المتاحة للاشتراك؟",
-            en: "What payment methods are supported for subscription?"
+            ar: "كيف يمكنني حجز الحصة التجريبية المجانية؟",
+            en: "How can I book the free trial class?"
         },
         answer: {
-            ar: "نوفر وسائل دفع آمنة تشمل البطاقات البنكية (Visa / MasterCard)، فودافون كاش والمحافظ الإلكترونية، InstaPay داخل مصر، بالإضافة إلى التحويلات البنكية الدولية وPayPal للمشتركين خارج مصر.",
-            en: "We accept Credit/Debit Cards (Visa/MasterCard), Vodafone Cash, InstaPay (within Egypt), as well as international bank transfers and PayPal for students abroad."
+            ar: "يمكنك الضغط على زر 'احجز حصتك التجريبية المجانية' وملء بيانات الطالب، وسيقوم المشرف بالتواصل معك عبر واتساب لتحديد موعد مناسب واختيار المعلم أو المعلمة لتقييم المستوى بدون أي تكلفة.",
+            en: "Click 'Book Your Free Trial Class', fill in the student details, and our coordinator will contact you via WhatsApp to arrange a suitable time with a male or female teacher to assess the level for free."
         }
     },
     {
-        id: "rescheduling-policy",
+        id: "one-on-one",
         question: {
-            ar: "كيف يتم التعامل مع الحصص في حالة الاعتذار أو الرغبة في تعويضها؟",
-            en: "What is the policy for rescheduling missed classes?"
+            ar: "هل الحصص تكون جماعية أم فردية؟",
+            en: "Are the classes group-based or individual?"
         },
         answer: {
-            ar: "يمكنك إخطار الإدارة أو المعلم قبل موعد الحصة بـ 4 ساعات على الأقل ليتم إعادة جدولة الحصة في موعد بديل مناسب دون احتسابها كحصة ملغاة، وذلك وفق سعة التعويض المحددة في باقتك.",
-            en: "You can notify the administration or tutor at least 4 hours prior to class time to reschedule into a convenient slot, in accordance with your package's compensation limit."
+            ar: "جميع حصص أكاديمية نور فردية بالكامل (100% One-to-One) لضمان تركيز المعلم التام مع الطالب والتقدم بحسب سرعته وقدرته الاستيعابية.",
+            en: "All classes at Noor Academy are 100% individual one-on-one sessions, ensuring full instructor attention tailored to the student's personal pace."
         }
     },
     {
-        id: "freeze-subscription",
+        id: "tutors-selection",
         question: {
-            ar: "هل يمكنني تجميد الاشتراك مؤقتاً أثناء الامتحانات أو السفر؟",
-            en: "Can I temporarily freeze my active subscription?"
+            ar: "هل يمكن اختيار معلمة للطالبات ومعلم للبنين؟",
+            en: "Can we request female teachers for girls and male teachers for boys?"
         },
         answer: {
-            ar: "نعم، نتيح ميزة تجميد الاشتراك لمدة تصل إلى 14 يوماً متواصلة خلال فترة الامتحانات أو الظروف الطارئة دون فقدان رصيدك من الحصص المتبقية أو تغيير المعلم.",
-            en: "Yes, you can pause your subscription for up to 14 consecutive days during travel or exam seasons without losing your remaining sessions or dedicated tutor."
+            ar: "نعم، نلتزم في الأكاديمية بتوفير معلمات متخصصات للبنات ومعلمين متخصصين للبنين، وجميعهم معتمدون وذوو خبرة عالية في التدريس للأطفال والكبار.",
+            en: "Yes, we assign dedicated female teachers for girls and male teachers for boys. All instructors are certified and highly experienced in teaching youth and adults."
         }
     },
     {
-        id: "change-instructor",
+        id: "duration-choice",
         question: {
-            ar: "هل يحق لي تغيير المعلم أو تعديل مواعيد الجلسات بعد البدء؟",
-            en: "Can I request a different instructor or change timings later?"
+            ar: "كيف أختار بين حصة 30 دقيقة وحصة 60 دقيقة؟",
+            en: "How do I choose between 30-minute and 60-minute classes?"
         },
         answer: {
-            ar: "بكل تأكيد. يمكنك التواصل مع المشرف التعليمي الخاص بك في أي وقت لتغيير المعلم (معلم/معلمة) أو تنسيق جدول مواعيد جديد يتناسب مع جدولك اليومي بكل مرونة.",
-            en: "Absolutely. You may reach out to your academic supervisor at any time to switch tutors (male/female) or adjust your weekly schedule to fit your lifestyle."
+            ar: "حصة 30 دقيقة مثالية للأطفال الأصغر سناً للمحافظة على تركيزهم، بينما حصة 60 دقيقة تناسب الطلاب الأكبر سناً أو من يريد تقسيم الوقت بين القرآن والعربية والإسلاميك في نفس الحصة.",
+            en: "The 30-minute class is optimal for younger children to maintain focus, while the 60-minute class is ideal for older students combining Quran, Arabic, and Islamic Studies in one sitting."
         }
     },
     {
-        id: "refund-guarantee",
+        id: "reports-followup",
         question: {
-            ar: "ما هي سياسة الاسترجاع والضمان المالي في أكاديمية نور؟",
-            en: "What is your refund and satisfaction guarantee policy?"
+            ar: "كيف يتابع ولي الأمر تقدم ابنه في الحفظ والدراسة؟",
+            en: "How do parents track their child's progress?"
         },
         answer: {
-            ar: "بعد الحصة التجريبية المجانية، وفي حال اشتركت ولم ترغب في الاستمرار خلال أول أسبوعين، يمكنك استرداد كامل المبلغ المتبقي عن الحصص غير المستهلكة دون أي تعقيدات.",
-            en: "After the free trial, if you subscribe and decide not to continue within the first 14 days, you are eligible for a prompt refund of all unused sessions."
+            ar: "يحصل ولي الأمر على تقرير أسبوعي منتظم يوضح ما تم إنجازه من حفظ ومراجعة وواجبات، بالإضافة إلى ملاحظات المعلم حول التفاعل والأداء.",
+            en: "Parents receive regular weekly reports detailing covered verses, revision, homework, and tutor feedback on engagement and progress."
         }
     }
 ];

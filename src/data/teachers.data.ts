@@ -22,7 +22,6 @@ export interface Teacher {
     studentsCount: number;
     rating: number;
     reviewsCount: number;
-    ijazah: { ar: string; en: string };
     fullIjazahList?: { ar: string; en: string }[];
     bio: { ar: string; en: string };
     about: { ar: string; en: string };
@@ -43,10 +42,6 @@ export const allTeachersData: Teacher[] = [
         studentsCount: 280,
         rating: 4.95,
         reviewsCount: 74,
-        ijazah: {
-            ar: "إجازة بالسند المتصل برواية حفص عن عاصم",
-            en: "Connected Sanad in Hafs from Asim"
-        },
         fullIjazahList: [
             {
                 ar: "إجازة بالسند المتصل برواية حفص عن عاصم من طريق الشاطبية",
@@ -101,10 +96,6 @@ export const allTeachersData: Teacher[] = [
         studentsCount: 220,
         rating: 4.9,
         reviewsCount: 62,
-        ijazah: {
-            ar: "إجازة في القاعدة النورانية وتحفة الأطفال",
-            en: "Certified in Noorani Qaida & Tuhfat Al-Atfal"
-        },
         fullIjazahList: [
             {
                 ar: "شهادة معتمدة في تدريس القاعدة النورانية المطورة",
@@ -154,10 +145,6 @@ export const allTeachersData: Teacher[] = [
         studentsCount: 250,
         rating: 4.92,
         reviewsCount: 58,
-        ijazah: {
-            ar: "إجازة برواية حفص عن عاصم من الشاطبية",
-            en: "Ijazah in Hafs from Asim"
-        },
         bio: {
             ar: "خبرة واسعة في تدريس التجويد النظري والتطبيقي باللغتين العربية والإنجليزية.",
             en: "Extensive background in bilingual Tajweed instruction."
@@ -201,10 +188,6 @@ export const allTeachersData: Teacher[] = [
         studentsCount: 310,
         rating: 4.88,
         reviewsCount: 82,
-        ijazah: {
-            ar: "إجازة في حفظ القرآن الكريم كاملاً بالسند",
-            en: "Sanad Ijazah in Full Quran Retention"
-        },
         bio: {
             ar: "متخصصة في وضع جداول الحفظ والمراجعة الدورية وتثبيت الأجزاء وضبط المتشابهات.",
             en: "Specialist in retention roadmaps, periodic revision, and Mutashabihat."
@@ -249,10 +232,6 @@ export const allTeachersData: Teacher[] = [
         studentsCount: 190,
         rating: 4.9,
         reviewsCount: 45,
-        ijazah: {
-            ar: "إجازة في متن المقدمة الجزرية",
-            en: "Certified in Al-Jazariyyah Text"
-        },
         bio: {
             ar: "شرح مبسط لأحكام النون والميم الساكنة والمدود مع التدريب العملي المباشر.",
             en: "Simplified breakdown of Noon/Meem Sakinah and practical recitation."
@@ -296,10 +275,6 @@ export const allTeachersData: Teacher[] = [
         studentsCount: 210,
         rating: 4.94,
         reviewsCount: 52,
-        ijazah: {
-            ar: "إجازة في تحفة الأطفال وتلقي القرآن",
-            en: "Certified in Tuhfat Al-Atfal"
-        },
         bio: {
             ar: "متخصصة في غرس حب القرآن والآداب الإسلامية لدى البراعم عبر حصص تفاعلية.",
             en: "Specializing in Quranic manners and child-friendly recitation sessions."
@@ -343,10 +318,6 @@ export const allTeachersData: Teacher[] = [
         studentsCount: 175,
         rating: 4.89,
         reviewsCount: 39,
-        ijazah: {
-            ar: "إجازة برواية حفص عن عاصم",
-            en: "License in Hafs from Asim"
-        },
         bio: {
             ar: "تعليم التهجي السليم وتراكيب الجمل العربية وتصحيح نطق الآيات القرآنية.",
             en: "Teaching sound Arabic spelling and Quranic pronunciation."
@@ -390,10 +361,6 @@ export const allTeachersData: Teacher[] = [
         studentsCount: 340,
         rating: 4.96,
         reviewsCount: 95,
-        ijazah: {
-            ar: "إجازة بالسند المتصل في القراءات السبع من الشاطبية",
-            en: "Connected Sanad in 7 Qira'at via Shatibiyyah"
-        },
         bio: {
             ar: "إقراء بالسند المتصل وتدريب متقدم على أصول وفرش القراءات القرآنية.",
             en: "Sanad recitation and advanced training in Quranic recitations."
@@ -438,10 +405,6 @@ export const allTeachersData: Teacher[] = [
         studentsCount: 290,
         rating: 4.91,
         reviewsCount: 71,
-        ijazah: {
-            ar: "إجازة برواية حفص عن عاصم من طريق الشاطبية",
-            en: "Ijazah in Hafs from Asim"
-        },
         bio: {
             ar: "متابعة فردية مكثفة للطلاب لمساعدتهم على حفظ ومراجعة القرآن الكريم بانتظام.",
             en: "Structured 1-on-1 memorization and disciplined revision sessions."
@@ -485,10 +448,6 @@ export const allTeachersData: Teacher[] = [
         studentsCount: 230,
         rating: 4.93,
         reviewsCount: 54,
-        ijazah: {
-            ar: "إجازة في متن تحفة الأطفال والجزرية",
-            en: "Certified in Tuhfah & Jazariyyah"
-        },
         bio: {
             ar: "متخصص في تأسيس القراءة الصحيحة وشرح مبادئ النحو العربي والتجويد التطبيقي.",
             en: "Specialist in reading foundations, basic Arabic syntax, and applied Tajweed."
@@ -532,10 +491,6 @@ export const allTeachersData: Teacher[] = [
         studentsCount: 310,
         rating: 4.94,
         reviewsCount: 78,
-        ijazah: {
-            ar: "إجازة بالسند المتصل بروايتي حفص عن عاصم وورش عن نافع",
-            en: "Connected Sanad in Hafs & Warsh"
-        },
         bio: {
             ar: "خبرة واسعة في جلسات الإقراء الفردية وتصحيح التلاوة بدقة وفق الروايات المعتمدة.",
             en: "Specialized in 1-on-1 recitation correction across authorized narrations."
