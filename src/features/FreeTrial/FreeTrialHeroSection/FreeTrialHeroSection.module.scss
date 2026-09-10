@@ -1,0 +1,89 @@
+.heroSection {
+    position: relative;
+    padding-top: 130px;
+    background-color: var(--bg-body, #faf8f5);
+
+    @media (max-width: 767px) {
+        padding-top: 95px;
+    }
+
+    .breadcrumbs {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 24px;
+        font-size: 0.86rem;
+
+        .breadLink {
+            color: var(--text-color, #142721);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.2s ease, color 0.2s ease;
+
+            &:hover {
+                opacity: 1;
+                color: var(--primary-color, #123d32);
+            }
+        }
+
+        .breadIcon {
+            color: var(--secondary-color, #c4a75e);
+            opacity: 0.8;
+        }
+
+        .breadCurrent {
+            color: var(--primary-color, #123d32);
+            font-weight: 700;
+        }
+    }
+
+    .headerWrapper {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: 30px;
+            background-color: #ffffff;
+            border: 1px solid rgba(196, 167, 94, 0.4);
+            color: var(--primary-color, #123d32);
+            font-size: 0.84rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+
+            svg {
+                color: var(--secondary-color, #c4a75e);
+            }
+        }
+
+        .mainTitle {
+            font-size: clamp(1.95rem, 4.2vw, 3.1rem);
+            font-weight: 800;
+            color: var(--primary-color, #123d32);
+            line-height: 1.35;
+            margin-bottom: 16px;
+
+            :global(html[lang="ar"]) & {
+                font-family: var(--font-ruqaa), "Aref Ruqaa", serif;
+                font-size: clamp(2.2rem, 4.6vw, 3.5rem);
+                line-height: 1.45;
+            }
+        }
+
+        .leadDesc {
+            font-size: clamp(0.92rem, 1.6vw, 1.05rem);
+            color: var(--text-color, #142721);
+            opacity: 0.85;
+            line-height: 1.8;
+            max-width: 700px;
+        }
+    }
+}

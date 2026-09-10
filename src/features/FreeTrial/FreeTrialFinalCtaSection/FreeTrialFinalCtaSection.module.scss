@@ -1,0 +1,173 @@
+.finalCtaSection {
+    position: relative;
+    padding-top: 0;
+    padding-bottom: clamp(65px, 9vh, 95px);
+    background-color: var(--bg-body, #faf8f5);
+    overflow: hidden;
+
+    .bannerCard {
+        position: relative;
+        background-color: #f8f6f0;
+        border: 1.5px solid rgba(196, 167, 94, 0.45);
+        border-radius: 24px;
+        padding: clamp(38px, 6vw, 60px) clamp(20px, 4vw, 36px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(18, 61, 50, 0.04);
+        transform: translateZ(0);
+
+        .calligraphyPattern {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+            user-select: none;
+
+            .letterFloating {
+                position: absolute;
+                font-family: var(--font-ruqaa), "Aref Ruqaa", serif;
+                color: var(--primary-color, #123d32);
+                opacity: 0.07;
+                font-weight: 700;
+                line-height: 1;
+
+                &:nth-child(1) {
+                    font-size: 5.2rem;
+                    top: 8px;
+                    inset-inline-start: 4%;
+                    transform: rotate(-8deg);
+                }
+
+                &:nth-child(2) {
+                    font-size: 4.8rem;
+                    bottom: 12px;
+                    inset-inline-start: 6%;
+                    transform: rotate(10deg);
+                }
+
+                &:nth-child(3) {
+                    font-size: 4rem;
+                    top: 18%;
+                    inset-inline-start: 35%;
+                    transform: rotate(-6deg);
+                }
+
+                &:nth-child(4) {
+                    font-size: 4.6rem;
+                    bottom: 14%;
+                    inset-inline-start: 45%;
+                    transform: rotate(7deg);
+                }
+
+                &:nth-child(5) {
+                    font-size: 5rem;
+                    top: 10px;
+                    inset-inline-end: 5%;
+                    transform: rotate(-10deg);
+                }
+
+                &:nth-child(6) {
+                    font-size: 4.5rem;
+                    bottom: 16px;
+                    inset-inline-end: 7%;
+                    transform: rotate(8deg);
+                }
+
+                &:nth-child(7) {
+                    font-size: 4.2rem;
+                    top: 40%;
+                    inset-inline-end: 22%;
+                    transform: rotate(-5deg);
+                }
+            }
+        }
+
+        .badgeWrapper {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 16px;
+
+            .badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                padding: 6px 16px;
+                border-radius: 20px;
+                background-color: #ffffff;
+                border: 1px solid rgba(196, 167, 94, 0.45);
+                color: var(--primary-color, #123d32);
+                font-size: 0.82rem;
+                font-weight: 700;
+
+                svg {
+                    color: var(--secondary-color, #c4a75e);
+                }
+            }
+        }
+
+        .bannerTitle {
+            position: relative;
+            z-index: 1;
+            font-size: clamp(1.85rem, 3.8vw, 2.75rem);
+            font-weight: 800;
+            color: var(--primary-color, #123d32);
+            line-height: 1.3;
+            max-width: 780px;
+            margin-bottom: 14px;
+
+            :global(html[lang="ar"]) & {
+                font-family: var(--font-ruqaa), "Aref Ruqaa", serif;
+                font-size: clamp(2.1rem, 4.2vw, 3.2rem);
+            }
+
+            .highlightText {
+                color: var(--secondary-color, #c4a75e);
+                display: inline-block;
+
+                :global(html[lang="ar"]) & {
+                    font-family: var(--font-ruqaa), "Aref Ruqaa", serif;
+                }
+            }
+        }
+
+        .bannerDesc {
+            position: relative;
+            z-index: 1;
+            font-size: clamp(0.92rem, 1.7vw, 1.05rem);
+            color: var(--primary-color, #123d32);
+            opacity: 0.85;
+            line-height: 1.75;
+            max-width: 620px;
+            margin-bottom: 28px;
+        }
+
+        .guaranteesRow {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px 24px;
+            flex-wrap: wrap;
+
+            .guaranteeItem {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                color: var(--primary-color, #123d32);
+                opacity: 0.85;
+                font-size: 0.84rem;
+                font-weight: 600;
+
+                svg {
+                    color: var(--secondary-color, #c4a75e);
+                    flex-shrink: 0;
+                }
+            }
+        }
+    }
+}

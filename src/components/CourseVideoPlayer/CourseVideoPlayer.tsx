@@ -28,6 +28,38 @@ interface CourseVideoPlayerProps {
     badgeText?: string;
 }
 
+function getEmbedInfo(url: string) {
+    if (!url) return { type: "unknown", embedUrl: "" };
+
+    const ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+    if (ytMatch && ytMatch[1]) {
+        return {
+            type: "youtube",
+            embedUrl: `https://www.youtube.com/embed/${ytMatch[1]}?autoplay=1&rel=0`
+        };
+    }
+
+    const vimeoMatch = url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+    if (vimeoMatch && vimeoMatch[1]) {
+        return {
+            type: "vimeo",
+            embedUrl: `https://player.vimeo.com/video/${vimeoMatch[1]}?autoplay=1`
+        };
+    }
+
+    const isDirect =
+        /\.(mp4|webm|ogg|ogv|mov|m4v)(\?.*)?$/i.test(url) ||
+        url.includes("zencdn.net") ||
+        url.includes("plyr.io") ||
+        url.includes("commondatastorage.googleapis.com");
+
+    if (isDirect) {
+        return { type: "direct", embedUrl: url };
+    }
+
+    return { type: "other", embedUrl: url };
+}
+
 export default function CourseVideoPlayer({
     videoUrl,
     posterImage,
@@ -35,6 +67,8 @@ export default function CourseVideoPlayer({
     badgeText = "مقدمة الدورة التعريفية"
 }: CourseVideoPlayerProps) {
     const [isPlaying, setIsPlaying] = useState(false);
+
+    const videoInfo = getEmbedInfo(videoUrl);
 
     return (
         <div className={styles.videoPlayerWrapper}>
@@ -72,14 +106,37 @@ export default function CourseVideoPlayer({
                 </div>
             ) : (
                 <div className={styles.playerContainer}>
-                    <ReactPlayer
-                        url={videoUrl}
-                        width="100%"
-                        height="100%"
-                        playing={true}
-                        controls={true}
-                        className={styles.player}
-                    />
+                    {videoInfo.type === "youtube" || videoInfo.type === "vimeo" ? (
+                        <iframe
+                            src={videoInfo.embedUrl}
+                            title={title}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            style={{ width: "100%", height: "100%", border: "none" }}
+                        />
+                    ) : videoInfo.type === "direct" ? (
+                        <video
+                            src={videoUrl}
+                            poster={posterImage}
+                            controls
+                            autoPlay
+                            playsInline
+                            className={styles.player}
+                            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                        >
+                            <track kind="captions" />
+                            متصفحك لا يدعم تشغيل هذا الفيديو.
+                        </video>
+                    ) : (
+                        <ReactPlayer
+                            url={videoUrl}
+                            width="100%"
+                            height="100%"
+                            playing={true}
+                            controls={true}
+                            className={styles.player}
+                        />
+                    )}
                 </div>
             )}
         </div>

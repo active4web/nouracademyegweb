@@ -124,7 +124,7 @@ export default function HeroSection() {
                         </p>
 
                         <div className={styles.actions}>
-                            <Link href="" className={styles.primaryCta}>
+                            <Link href="/free-trial" className={styles.primaryCta}>
                                 <Video size={17} />
                                 <span>{t("bookTrial")}</span>
                             </Link>
