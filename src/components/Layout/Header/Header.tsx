@@ -122,7 +122,7 @@ export default function Header() {
                             <span>{t("switchLang")}</span>
                         </button>
 
-                        <Link href="/login" className={`${styles.actionBtn} ${styles.loginBtn}`}>
+                        <Link href="" className={`${styles.actionBtn} ${styles.loginBtn}`}>
                             <LogIn size={17} />
                             <span>{t("login")}</span>
                         </Link>
@@ -197,7 +197,7 @@ export default function Header() {
                     </button>
 
                     <Link
-                        href="/login"
+                        href=""
                         onClick={handleClose}
                         className={`${styles.drawerActionBtn} ${styles.drawerLoginBtn}`}
                     >

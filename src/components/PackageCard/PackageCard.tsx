@@ -114,7 +114,7 @@ export default function PackageCard({ packageItem, currency }: PackageCardProps)
             </div>
 
             <div className={styles.cardActions}>
-                <Link href={`/packages/${packageItem.id}/apply`} className={styles.applyBtn}>
+                <Link href={`/packages/${packageItem.id}/apply?currency=${currency}`} className={styles.applyBtn}>
                     <span>{t("applyBtn")}</span>
                     <ArrowRight size={15} className={styles.arrowIcon} />
                 </Link>
