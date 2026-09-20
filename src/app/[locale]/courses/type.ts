@@ -12,7 +12,7 @@ export interface ApiCourseFeature {
 }
 
 export interface ApiCourse {
-  id: number;
+  id: number | string;
   title: string;
   description: string;
   video: string | null;

@@ -6,7 +6,7 @@ export interface ApiTeacherCategory {
 }
 
 export interface ApiTeacher {
-  id: number;
+  id: number | string;
   display_name: string;
   role: string;
   image: string | null;
