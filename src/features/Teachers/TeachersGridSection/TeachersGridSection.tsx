@@ -1,90 +1,108 @@
 "use client";
 
-import { useState } from "react";
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
-import { Filter } from "lucide-react";
-import { allTeachersData } from "@/data/teachers.data";
+import { ReactNode } from "react";
+import { ChevronDown } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 import TeacherCard from "@/components/TeacherCard/TeacherCard";
+import { ApiTeacher, TeachersPagination } from "@/app/[locale]/teachers/type";
 import styles from "./TeachersGridSection.module.scss";
 
-export default function TeachersGridSection() {
-    const t = useTranslations("TeachersPage");
-    const locale = useLocale() as "ar" | "en";
-    const [selectedCategory, setSelectedCategory] = useState<string>("all");
+const LOAD_MORE_STEP = 4;
+const BASE_PATH = "/teachers";
 
-    const categories = [
-        { id: "all", label: { ar: t("allFilter"), en: "All Specialties" } },
-        { id: "قرآن وقراءات", label: { ar: "قرآن وقراءات", en: "Quran & Qira'at" } },
-        { id: "تجويد وتأسيس", label: { ar: "تجويد وتأسيس", en: "Tajweed & Foundation" } },
-        { id: "لغة عربية ونحو", label: { ar: "لغة عربية ونحو", en: "Arabic & Grammar" } },
-        { id: "حفظ ومراجعة", label: { ar: "حفظ ومراجعة", en: "Memorization" } },
-        { id: "حفظ وإقراء", label: { ar: "حفظ وإقراء", en: "Memorization & Sanad" } }
-    ];
+interface TeachersGridSectionProps {
+  selectedCategory: string;
+  teachers: ApiTeacher[];
+  pagination: TeachersPagination;
+  perPage: number;
+  categoryFilter: ReactNode;
+}
 
-    const filteredTeachers = selectedCategory === "all"
-        ? allTeachersData
-        : allTeachersData.filter((tr) => tr.category.ar === selectedCategory);
+export default function TeachersGridSection({
+  selectedCategory,
+  teachers,
+  pagination,
+  perPage,
+  categoryFilter,
+}: TeachersGridSectionProps) {
+  const t = useTranslations("TeachersPage");
 
-    return (
-        <section className={styles.teachersGridSection}>
-            <div className="container">
-                {/* Filter Bar */}
-                <div className={styles.filterBar}>
-                    <div className={styles.filterIconLabel}>
-                        <Filter size={16} />
-                        <span>التصنيف:</span>
-                    </div>
-                    <div className={styles.filterButtonsWrapper}>
-                        {categories.map((cat) => (
-                            <button
-                                key={cat.id}
-                                type="button"
-                                className={`${styles.filterBtn} ${selectedCategory === cat.id ? styles.active : ""}`}
-                                onClick={() => setSelectedCategory(cat.id)}
-                            >
-                                {cat.label[locale] || cat.label.ar}
-                            </button>
-                        ))}
-                    </div>
+  const buildHref = (overrides: { per_page?: number }) => {
+    const params = new URLSearchParams();
+    if (selectedCategory !== "all") params.set("category", selectedCategory);
+
+    const pp = overrides.per_page ?? perPage;
+    params.set("per_page", String(pp));
+
+    return `${BASE_PATH}?${params.toString()}`;
+  };
+
+  const loadMoreHref = buildHref({ per_page: perPage + LOAD_MORE_STEP });
+
+  const hasMore =
+    pagination.current_page < pagination.last_page ||
+    teachers.length < pagination.total;
+
+  return (
+    <section className={styles.teachersGridSection}>
+      <div className="container">
+        {categoryFilter}
+
+        <AnimatePresence mode="wait">
+          {teachers.length > 0 ? (
+            <div className={styles.resultsContainer}>
+              <motion.div
+                key={selectedCategory}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.25, ease: "easeInOut" }}
+                className={styles.teachersGrid}
+              >
+                {teachers.map((teacher) => (
+                  <motion.div
+                    key={teacher.id}
+                    layout
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.2 }}
+                    className={styles.gridItem}
+                  >
+                    <TeacherCard teacher={teacher} showApplyBtn={true} />
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              {hasMore && (
+                <div className={styles.loadMoreWrapper}>
+                  <Link href={loadMoreHref} className={styles.loadMoreBtn}>
+                    <span>{t("loadMoreBtn")}</span>
+                    <ChevronDown size={18} />
+                  </Link>
+                  <span className={styles.loadMoreInfo}>
+                    {t("showingCount", {
+                      current: teachers.length,
+                      total: pagination.total,
+                    })}
+                  </span>
                 </div>
-
-                <AnimatePresence mode="wait">
-                    {filteredTeachers.length > 0 ? (
-                        <motion.div
-                            key={selectedCategory}
-                            initial={{ opacity: 0, y: 15 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -15 }}
-                            transition={{ duration: 0.25, ease: "easeInOut" }}
-                            className={styles.teachersGrid}
-                        >
-                            {filteredTeachers.map((teacher) => (
-                                <motion.div
-                                    key={teacher.id}
-                                    layout
-                                    initial={{ opacity: 0, scale: 0.95 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    transition={{ duration: 0.2 }}
-                                    className={styles.gridItem}
-                                >
-                                    <TeacherCard teacher={teacher} showApplyBtn={true} />
-                                </motion.div>
-                            ))}
-                        </motion.div>
-                    ) : (
-                        <motion.div
-                            key="no-results"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            className={styles.noResults}
-                        >
-                            <p>{t("noResults")}</p>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
+              )}
             </div>
-        </section>
-    );
+          ) : (
+            <motion.div
+              key="no-results"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className={styles.noResults}
+            >
+              <p>{t("noResults")}</p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </section>
+  );
 }

@@ -1,185 +1,136 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import { useSearchParams } from "next/navigation";
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, X, RotateCcw, Filter, ChevronDown } from "lucide-react";
-import { allCoursesData, courseCategories } from "@/data/courses.data";
+import { Search, X, RotateCcw, ChevronDown } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 import CourseCard from "../../../components/CourseCard/CourseCard";
+import { ApiCourse, CoursesPagination } from "@/app/[locale]/courses/type";
 import styles from "./CoursesListingSection.module.scss";
 
-const INITIAL_COUNT = 6;
 const LOAD_MORE_STEP = 3;
+const BASE_PATH = "/courses";
 
-export default function CoursesListingSection() {
-    const t = useTranslations("CoursesListing");
-    const locale = useLocale() as "ar" | "en";
-    const searchParams = useSearchParams();
+interface CoursesListingSectionProps {
+  selectedCategory: string;
+  searchQuery: string;
+  courses: ApiCourse[];
+  pagination: CoursesPagination;
+  perPage: number;
+  categoryFilter: React.ReactNode;
+}
 
-    const [selectedCategory, setSelectedCategory] = useState<string>("all");
-    const [addedCount, setAddedCount] = useState<number>(0);
+export default function CoursesListingSection({
+  selectedCategory,
+  searchQuery,
+  courses,
+  pagination,
+  perPage,
+  categoryFilter,
+}: CoursesListingSectionProps) {
+  const t = useTranslations("CoursesListing");
 
-    const searchQuery = searchParams.get("q") || "";
+  const buildHref = (overrides: { per_page?: number; q?: string | null }) => {
+    const params = new URLSearchParams();
+    if (selectedCategory !== "all") params.set("category", selectedCategory);
 
-    // تصفية البيانات
-    const filteredCourses = useMemo(() => {
-        return allCoursesData.filter((course) => {
-            const matchesCategory =
-                selectedCategory === "all" || course.categoryKey === selectedCategory;
+    const q = overrides.q !== undefined ? overrides.q : searchQuery;
+    if (q) params.set("q", q);
 
-            const query = searchQuery.toLowerCase().trim();
-            const matchesSearch =
-                !query ||
-                course.title.ar.toLowerCase().includes(query) ||
-                course.title.en.toLowerCase().includes(query) ||
-                course.desc.ar.toLowerCase().includes(query) ||
-                course.desc.en.toLowerCase().includes(query);
+    const pp = overrides.per_page ?? perPage;
+    params.set("per_page", String(pp));
 
-            return matchesCategory && matchesSearch;
-        });
-    }, [selectedCategory, searchQuery]);
+    return `${BASE_PATH}?${params.toString()}`;
+  };
 
-    // تغيير الفئة وإعادة ضبط العداد الإضافي مباشرة في الـ Handler
-    const handleCategoryChange = (key: string) => {
-        setSelectedCategory(key);
-        setAddedCount(0);
-    };
+  const loadMoreHref = buildHref({ per_page: perPage + LOAD_MORE_STEP });
+  const clearSearchHref = buildHref({ q: null });
 
-    const handleLoadMore = () => {
-        setAddedCount((prev) => prev + LOAD_MORE_STEP);
-    };
+  const hasMore =
+    pagination.current_page < pagination.last_page ||
+    courses.length < pagination.total;
 
-    const handleReset = () => {
-        setSelectedCategory("all");
-        setAddedCount(0);
-        window.history.replaceState({}, "", window.location.pathname);
-    };
+  return (
+    <section id="courses-grid" className={styles.listingSection}>
+      <div className="container">
+        {categoryFilter}
 
-    // حساب عدد الكروت المعروضة حالياً
-    const visibleLimit = INITIAL_COUNT + addedCount;
-    const displayedCourses = useMemo(() => {
-        return filteredCourses.slice(0, visibleLimit);
-    }, [filteredCourses, visibleLimit]);
-
-    return (
-        <section id="courses-grid" className={styles.listingSection}>
-            <div className="container">
-                {/* Filter Bar */}
-                <div className={styles.filterBar}>
-                    <div className={styles.filterIconLabel}>
-                        <Filter size={16} />
-                        <span>التصنيف:</span>
-                    </div>
-                    <div className={styles.filterButtonsWrapper}>
-                        {courseCategories.map((cat) => {
-                            const isActive = selectedCategory === cat.key;
-                            return (
-                                <button
-                                    key={cat.key}
-                                    type="button"
-                                    className={`${styles.filterBtn} ${isActive ? styles.active : ""}`}
-                                    onClick={() => handleCategoryChange(cat.key)}
-                                >
-                                    <span className={styles.btnText}>
-                                        {cat.label[locale] || cat.label.ar}
-                                    </span>
-                                    {isActive && (
-                                        <motion.span
-                                            layoutId="courseFilterPill"
-                                            className={styles.activePill}
-                                            transition={{ type: "spring", stiffness: 350, damping: 28 }}
-                                        />
-                                    )}
-                                </button>
-                            );
-                        })}
-                    </div>
-                </div>
-
-                {/* Active Search Notification Bar */}
-                {searchQuery && (
-                    <div className={styles.searchAlertBar}>
-                        <div className={styles.alertInfo}>
-                            <Search size={16} />
-                            <span>
-                                {t("searchResultFor")} &quot;<strong>{searchQuery}</strong>&quot; ({filteredCourses.length} {t("coursesFound")})
-                            </span>
-                        </div>
-                        <button type="button" className={styles.clearSearchBtn} onClick={handleReset}>
-                            <X size={15} />
-                            <span>{t("clearSearch")}</span>
-                        </button>
-                    </div>
-                )}
-
-                {/* Courses Grid or Empty State */}
-                <AnimatePresence mode="wait">
-                    {filteredCourses.length > 0 ? (
-                        <div className={styles.resultsContainer}>
-                            <motion.div
-                                key={selectedCategory + searchQuery}
-                                initial={{ opacity: 0, y: 15 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -15 }}
-                                transition={{ duration: 0.25, ease: "easeInOut" }}
-                                className={styles.coursesGrid}
-                            >
-                                {displayedCourses.map((course) => (
-                                    <motion.div
-                                        key={course.id}
-                                        layout
-                                        initial={{ opacity: 0, scale: 0.96 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        transition={{ duration: 0.2 }}
-                                        className={styles.gridItem}
-                                    >
-                                        <CourseCard course={course} />
-                                    </motion.div>
-                                ))}
-                            </motion.div>
-
-                            {/* Load More Button */}
-                            {visibleLimit < filteredCourses.length && (
-                                <div className={styles.loadMoreWrapper}>
-                                    <button
-                                        type="button"
-                                        className={styles.loadMoreBtn}
-                                        onClick={handleLoadMore}
-                                    >
-                                        <span>{t("loadMoreBtn")}</span>
-                                        <ChevronDown size={18} />
-                                    </button>
-                                    <span className={styles.loadMoreInfo}>
-                                        {t("showingCount", {
-                                            current: displayedCourses.length,
-                                            total: filteredCourses.length
-                                        })}
-                                    </span>
-                                </div>
-                            )}
-                        </div>
-                    ) : (
-                        <motion.div
-                            key="empty-state"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            className={styles.emptyState}
-                        >
-                            <div className={styles.emptyIconCircle}>
-                                <Search size={32} />
-                            </div>
-                            <h3 className={styles.emptyTitle}>{t("noResultsTitle")}</h3>
-                            <p className={styles.emptyDesc}>{t("noResultsDesc")}</p>
-                            <button type="button" className={styles.resetBtn} onClick={handleReset}>
-                                <RotateCcw size={16} />
-                                <span>{t("clearSearch")}</span>
-                            </button>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
+        {searchQuery && (
+          <div className={styles.searchAlertBar}>
+            <div className={styles.alertInfo}>
+              <Search size={16} />
+              <span>
+                {t("searchResultFor")} &quot;<strong>{searchQuery}</strong>&quot; ({pagination.total} {t("coursesFound")})
+              </span>
             </div>
-        </section>
-    );
+            <Link href={clearSearchHref} className={styles.clearSearchBtn}>
+              <X size={15} />
+              <span>{t("clearSearch")}</span>
+            </Link>
+          </div>
+        )}
+
+        <AnimatePresence mode="wait">
+          {courses.length > 0 ? (
+            <div className={styles.resultsContainer}>
+              <motion.div
+                key={selectedCategory + searchQuery}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.25, ease: "easeInOut" }}
+                className={styles.coursesGrid}
+              >
+                {courses.map((course) => (
+                  <motion.div
+                    key={course.id}
+                    layout
+                    initial={{ opacity: 0, scale: 0.96 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.2 }}
+                    className={styles.gridItem}
+                  >
+                    <CourseCard course={course} />
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              {hasMore && (
+                <div className={styles.loadMoreWrapper}>
+                  <Link href={loadMoreHref} className={styles.loadMoreBtn}>
+                    <span>{t("loadMoreBtn")}</span>
+                    <ChevronDown size={18} />
+                  </Link>
+                  <span className={styles.loadMoreInfo}>
+                    {t("showingCount", {
+                      current: courses.length,
+                      total: pagination.total,
+                    })}
+                  </span>
+                </div>
+              )}
+            </div>
+          ) : (
+            <motion.div
+              key="empty-state"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className={styles.emptyState}
+            >
+              <div className={styles.emptyIconCircle}>
+                <Search size={32} />
+              </div>
+              <h3 className={styles.emptyTitle}>{t("noResultsTitle")}</h3>
+              <p className={styles.emptyDesc}>{t("noResultsDesc")}</p>
+              <Link href={BASE_PATH} className={styles.resetBtn}>
+                <RotateCcw size={16} />
+                <span>{t("clearSearch")}</span>
+              </Link>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </section>
+  );
 }

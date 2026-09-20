@@ -1,0 +1,65 @@
+.filterBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
+  background-color: #ffffff;
+  border: 1px solid rgba(196, 167, 94, 0.3);
+  border-radius: 16px;
+  padding: 12px 20px;
+  box-shadow: 0 4px 16px rgba(18, 61, 50, 0.03);
+  max-width: 900px;
+  margin-inline: auto;
+
+  .filterIconLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    padding-inline-end: 8px;
+
+    svg {
+      color: var(--secondary-color);
+    }
+  }
+
+  .filterButtonsWrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    .filterBtn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 36px;
+      padding: 0 16px;
+      border-radius: 10px;
+      background-color: transparent;
+      border: 1px solid rgba(196, 167, 94, 0.25);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+
+      &:hover {
+        background-color: rgba(18, 61, 50, 0.04);
+        border-color: var(--secondary-color);
+      }
+
+      &.active {
+        background-color: var(--primary-color);
+        color: #ffffff;
+        border-color: var(--primary-color);
+        box-shadow: 0 4px 12px rgba(18, 61, 50, 0.12);
+      }
+    }
+  }
+}

@@ -1,50 +1,75 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Coins } from "lucide-react";
-import { featuredPackages } from "@/data/packages.data";
-import styles from "./PackagesGridSection.module.scss";
 import PackageCard from "@/components/PackageCard/PackageCard";
+import { ApiPackage, ApiCurrency } from "@/app/[locale]/packages/type";
+import styles from "./PackagesGridSection.module.scss";
 
-export default function PackagesGridSection() {
-    const t = useTranslations("PackagesGrid");
-    const [currency, setCurrency] = useState<"EGP" | "USD">("EGP");
+interface PackagesGridSectionProps {
+  packages: ApiPackage[];
+  currencies: ApiCurrency[];
+}
 
-    return (
-        <section className={styles.packagesGridSection}>
-            <div className="container">
-                {/* Currency Switcher */}
-                <div className={styles.currencyControlBar}>
-                    <div className={styles.currencySwitcher}>
-                        <div className={styles.switcherIcon}>
-                            <Coins size={16} />
-                            <span>{t("currencyLabel")}</span>
-                        </div>
-                        <button
-                            type="button"
-                            className={`${styles.currencyBtn} ${currency === "EGP" ? styles.active : ""}`}
-                            onClick={() => setCurrency("EGP")}
-                        >
-                            {t("currencyEgp")}
-                        </button>
-                        <button
-                            type="button"
-                            className={`${styles.currencyBtn} ${currency === "USD" ? styles.active : ""}`}
-                            onClick={() => setCurrency("USD")}
-                        >
-                            {t("currencyUsd")}
-                        </button>
-                    </div>
-                </div>
+export default function PackagesGridSection({
+  packages,
+  currencies,
+}: PackagesGridSectionProps) {
+  const t = useTranslations("PackagesGrid");
 
-                {/* Cards Grid (4 Columns) */}
-                <div className={styles.cardsGrid}>
-                    {featuredPackages.map((pkg) => (
-                        <PackageCard key={pkg.id} packageItem={pkg} currency={currency} />
-                    ))}
-                </div>
+  const [currencyCode, setCurrencyCode] = useState<string>(
+    currencies[0]?.code ?? "EGP",
+  );
+
+  const activeCurrency = useMemo(
+    () => currencies.find((c) => c.code === currencyCode) ?? null,
+    [currencies, currencyCode],
+  );
+
+  const rate = activeCurrency?.rate || 1;
+
+  const convertPrice = (value: string | null): number | null => {
+    if (value === null) return null;
+    const numeric = Number(value);
+    if (Number.isNaN(numeric)) return null;
+    return numeric / rate;
+  };
+
+  return (
+    <section className={styles.packagesGridSection}>
+      <div className="container">
+        <div className={styles.currencyControlBar}>
+          <div className={styles.currencySwitcher}>
+            <div className={styles.switcherIcon}>
+              <Coins size={16} />
+              <span>{t("currencyLabel")}</span>
             </div>
-        </section>
-    );
+            {currencies.map((c) => (
+              <button
+                key={c.id}
+                type="button"
+                className={`${styles.currencyBtn} ${currencyCode === c.code ? styles.active : ""}`}
+                onClick={() => setCurrencyCode(c.code)}
+              >
+                {c.name} {c.code}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.cardsGrid}>
+          {packages.map((pkg) => (
+            <PackageCard
+              key={pkg.id}
+              packageItem={pkg}
+              currencyCode={activeCurrency?.code ?? currencyCode}
+              price={convertPrice(pkg.price)}
+              discountPrice={convertPrice(pkg.discount_price)}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
