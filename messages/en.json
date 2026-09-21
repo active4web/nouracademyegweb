@@ -22,7 +22,6 @@
     "parentEmailPlaceholder": "guardian@example.com",
     "registerBtn": "Create Account",
     "sendingBtn": "Sending...",
-    "submitSuccessMsg": "Your account has been created successfully",
     "submitErrorMsg": "An error occurred, please try again"
   },
   "Login": {
@@ -391,7 +390,7 @@
     "notesPlaceholder": "Any preferred teacher profile, free times, or special requests...",
     "sendRequestBtn": "Send Registration Request",
     "sendingBtn": "Sending...",
-    "submitSuccessMsg": "Your request has been sent successfully, we'll contact you soon",
+    "submitSuccessMsg": "Your request has been sent successfully, and the details will be sent to your email shortly",
     "submitErrorMsg": "Something went wrong, please try again",
     "waMsgHeader": "*New Subscription Request* 🌿",
     "waMsgPkgDetails": "*Package Details:*",

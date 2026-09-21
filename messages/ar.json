@@ -22,7 +22,7 @@
     "parentEmailPlaceholder": "guardian@example.com",
     "registerBtn": "إنشاء الحساب",
     "sendingBtn": "جاري الإرسال...",
-    "submitSuccessMsg": "تم إنشاء حسابك بنجاح",
+    "submitSuccessMsg": "تم إنشاء حسابك بنجاح، وسيتم إرسال بياناتك إلى بريدك الإلكتروني قريباً",
     "submitErrorMsg": "حصل خطأ، برجاء المحاولة مرة أخرى"
   },
   "Login": {
@@ -391,7 +391,6 @@
     "notesPlaceholder": "أي متطلبات خاصة بالمعلم أو أوقات الفراغ المناسبة لك...",
     "sendRequestBtn": "إرسال طلب التسجيل",
     "sendingBtn": "جاري الإرسال...",
-    "submitSuccessMsg": "تم إرسال طلبك بنجاح، سيتم التواصل معك قريباً",
     "submitErrorMsg": "حصل خطأ، برجاء المحاولة مرة أخرى",
     "waMsgHeader": "*طلب اشتراك جديد في باقة تعليمية* 🌿",
     "waMsgPkgDetails": "*تفاصيل الباقة:*",
