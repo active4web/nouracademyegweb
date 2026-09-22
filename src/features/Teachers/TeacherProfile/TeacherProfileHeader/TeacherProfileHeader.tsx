@@ -5,8 +5,6 @@ import {
   ChevronLeft,
   ChevronRight,
   Briefcase,
-  Users,
-  Star,
   CheckCircle2,
 } from "lucide-react";
 import { ApiTeacherProfile } from "@/app/[locale]/teachers/[id]/type";
