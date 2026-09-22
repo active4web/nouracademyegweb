@@ -394,7 +394,7 @@ export default function PackageApplyFormSection({
               )}
               {submitSuccess && (
                 <p className={styles.submitSuccessText}>
-                  {t("submitSuccessMsg")}
+                  {t("applySuccessMsg")}
                 </p>
               )}
             </form>

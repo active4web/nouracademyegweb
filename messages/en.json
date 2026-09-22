@@ -8,27 +8,28 @@
     "namePlaceholder": "e.g. Omar Khaled Al-Mansouri",
     "country": "Country of Residence *",
     "countryPlaceholder": "e.g. Egypt, Saudi Arabia, UAE...",
-    "phone": "Phone Number *",
+    "phone": "Phone Number (optional)",
     "phonePlaceholder": "+20 100 000 0000",
-    "whatsapp": "WhatsApp Number *",
+    "whatsapp": "WhatsApp Number (optional)",
     "whatsappPlaceholder": "+20 100 000 0000",
-    "email": "Email *",
+    "email": "Email (optional)",
     "emailPlaceholder": "student@example.com",
     "parentPhone": "Guardian's Phone Number *",
     "parentPhonePlaceholder": "+20 100 000 0000",
-    "parentWhatsapp": "Guardian's WhatsApp Number *",
+    "parentWhatsapp": "Guardian's WhatsApp Number (optional)",
     "parentWhatsappPlaceholder": "+20 100 000 0000",
-    "parentEmail": "Guardian's Email (optional)",
+    "parentEmail": "Guardian's Email *",
     "parentEmailPlaceholder": "guardian@example.com",
     "registerBtn": "Create Account",
     "sendingBtn": "Sending...",
+    "submitSuccessMsg": "Your account has been created successfully, your details will be sent to your guardian's email shortly",
     "submitErrorMsg": "An error occurred, please try again"
   },
   "Login": {
     "formTitle": "Login",
-    "formDesc": "Enter your email or phone number and password",
-    "identifier": "Email or Phone Number *",
-    "identifierPlaceholder": "example@domain.com",
+    "formDesc": "Enter your student code and password",
+    "identifier": "Student Code *",
+    "identifierPlaceholder": "e.g. STU1234",
     "password": "Password *",
     "passwordPlaceholder": "••••••••",
     "showPassword": "Show Password",
@@ -38,6 +39,43 @@
     "submitErrorMsg": "Invalid login credentials, please try again",
     "noAccountText": "Don't have an account?",
     "registerLink": "Create a new account"
+  },
+  "UserProfile": {
+    "loading": "Loading your profile...",
+    "errorMsg": "Something went wrong loading your profile, please try again",
+    "verifiedBadge": "Verified account",
+    "studentLabel": "Student",
+    "breadcrumbs": {
+      "home": "Home",
+      "profile": "Profile"
+    },
+    "stats": {
+      "country": "Country",
+      "memberSince": "Member since",
+      "subscriptions": "Subscriptions"
+    },
+    "contactSection": {
+      "title": "Account Information",
+      "code": "Student Code",
+      "email": "Email",
+      "phone": "Phone Number",
+      "whatsapp": "WhatsApp Number",
+      "country": "Country"
+    },
+    "guardianSection": {
+      "title": "Guardian Information",
+      "parentPhone": "Guardian's Phone Number",
+      "parentWhatsapp": "Guardian's WhatsApp Number",
+      "parentEmail": "Guardian's Email"
+    },
+    "subscriptionsSection": {
+      "badge": "My Subscriptions",
+      "title": "Packages & Subscriptions",
+      "emptyText": "You don't have any active subscriptions yet",
+      "browsePackages": "Browse Packages",
+      "subscriptionFallback": "Subscription Package",
+      "packageFallbackPrefix": "Package"
+    }
   },
   "Header": {
     "home": "Home",
@@ -52,7 +90,8 @@
     "loggingOut": "Logging out...",
     "menu": "Menu",
     "close": "Close",
-    "switchLang": "العربية"
+    "switchLang": "العربية",
+    "profile": "Profile"
   },
   "Hero": {
     "badge": "Accredited Quran & Arabic Academy",
@@ -408,7 +447,8 @@
     "waMsgGuardianPhone": "• *Guardian Phone:*",
     "waMsgGuardianWhatsapp": "• *Guardian WhatsApp:*",
     "waMsgGuardianEmail": "• *Guardian Email:*",
-    "waMsgNotes": "• *Additional Notes:*"
+    "waMsgNotes": "• *Additional Notes:*",
+    "applySuccessMsg": "Your subscription request has been sent successfully."
   },
   "PackageApplyFinalCta": {
     "badge": "Your Journey Starts Now",

@@ -120,7 +120,6 @@ export default function RegisterPage() {
                   type="tel"
                   id="phone"
                   name="phone"
-                  required
                   placeholder={t("phonePlaceholder")}
                   value={formData.phone}
                   onChange={handleChange}
@@ -133,7 +132,6 @@ export default function RegisterPage() {
                   type="tel"
                   id="whatsapp"
                   name="whatsapp"
-                  required
                   placeholder={t("whatsappPlaceholder")}
                   value={formData.whatsapp}
                   onChange={handleChange}
@@ -146,7 +144,6 @@ export default function RegisterPage() {
                   type="email"
                   id="email"
                   name="email"
-                  required
                   placeholder={t("emailPlaceholder")}
                   value={formData.email}
                   onChange={handleChange}
@@ -167,6 +164,7 @@ export default function RegisterPage() {
                   type="tel"
                   id="parentPhone"
                   name="parentPhone"
+                  required
                   placeholder={t("parentPhonePlaceholder")}
                   value={formData.parentPhone}
                   onChange={handleChange}
@@ -191,6 +189,7 @@ export default function RegisterPage() {
                   type="email"
                   id="parentEmail"
                   name="parentEmail"
+                  required
                   placeholder={t("parentEmailPlaceholder")}
                   value={formData.parentEmail}
                   onChange={handleChange}

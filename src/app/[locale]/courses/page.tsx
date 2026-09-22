@@ -1,4 +1,5 @@
 import { getLocale } from "next-intl/server";
+import { Metadata } from "next";
 import CoursesFinalCtaSection from "@/features/Courses/CoursesFinalCtaSection/CoursesFinalCtaSection";
 import CoursesHeroSection from "@/features/Courses/CoursesHeroSection/CoursesHeroSection";
 import CoursesListingSection from "@/features/Courses/CoursesListingSection/CoursesListingSection";
@@ -14,7 +15,35 @@ interface CoursesPageProps {
   }>;
 }
 
+interface ApiSeoEntry {
+  id: number;
+  title: string;
+  description: string;
+  keywords: string;
+}
+
+interface SeoApiResponse {
+  status: string;
+  message?: string;
+  data: ApiSeoEntry | null;
+}
+
 const DEFAULT_PER_PAGE = 6;
+
+async function getCoursesSeo(lang: string): Promise<ApiSeoEntry | null> {
+  try {
+    const base = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const url = `${base}website/seo/courses?lang=${lang}`;
+
+    const res = await fetch(url, { cache: "no-store" });
+    if (!res.ok) return null;
+
+    const json: SeoApiResponse = await res.json();
+    return json.data ?? null;
+  } catch {
+    return null;
+  }
+}
 
 async function getCourses(
   lang: string,
@@ -28,7 +57,7 @@ async function getCourses(
     const categoryParam = categoryId && categoryId !== "all" ? categoryId : "";
     const url = `${base}website/courses?category_id=${categoryParam}&per_page=${perPage}&page=${page}&lang=${lang}&search=${encodeURIComponent(search)}`;
 
-    const res = await fetch(url, { next: { revalidate: 3600 } });
+    const res = await fetch(url, { cache: "no-store" });
 
     if (!res.ok) {
       throw new Error("Failed to fetch courses");
@@ -41,10 +70,68 @@ async function getCourses(
       message: "error",
       data: {
         data: [],
-        pagination: { total: 0, per_page: perPage, current_page: 1, last_page: 1, from: 0, to: 0 },
+        pagination: {
+          total: 0,
+          per_page: perPage,
+          current_page: 1,
+          last_page: 1,
+          from: 0,
+          to: 0,
+        },
       },
     };
   }
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isAr = locale === "ar";
+
+  const baseUrl = "https://dev.nouracademyeg.com";
+  const siteName = isAr ? "نور أكاديمي" : "Nour Academy";
+
+  const seo = await getCoursesSeo(locale);
+
+  const title = seo?.title || siteName;
+  const description = seo?.description || siteName;
+  const keywords = seo?.keywords
+    ? seo.keywords
+        .split(",")
+        .map((k) => k.trim())
+        .filter(Boolean)
+    : [siteName];
+
+  return {
+    title,
+    description,
+    keywords,
+
+    openGraph: {
+      title,
+      description,
+      url: `${baseUrl}/${locale}/courses`,
+      siteName,
+      locale: isAr ? "ar_EG" : "en_US",
+      type: "website",
+    },
+
+    alternates: {
+      canonical: `${baseUrl}/${locale}/courses`,
+      languages: {
+        ar: `${baseUrl}/ar/courses`,
+        en: `${baseUrl}/en/courses`,
+      },
+    },
+
+    robots: {
+      index: true,
+      follow: true,
+    },
+  };
 }
 
 export default async function CoursesPage({ searchParams }: CoursesPageProps) {
@@ -56,7 +143,13 @@ export default async function CoursesPage({ searchParams }: CoursesPageProps) {
 
   const locale = await getLocale();
 
-  const coursesData = await getCourses(locale, selectedCategory, currentPage, perPage, searchQuery);
+  const coursesData = await getCourses(
+    locale,
+    selectedCategory,
+    currentPage,
+    perPage,
+    searchQuery,
+  );
   const courses = coursesData.data.data;
   const pagination = coursesData.data.pagination;
 
@@ -70,7 +163,10 @@ export default async function CoursesPage({ searchParams }: CoursesPageProps) {
         pagination={pagination}
         perPage={perPage}
         categoryFilter={
-          <CategoryFilter selectedCategory={selectedCategory} basePath="/courses" />
+          <CategoryFilter
+            selectedCategory={selectedCategory}
+            basePath="/courses"
+          />
         }
       />
       <CoursesFinalCtaSection />

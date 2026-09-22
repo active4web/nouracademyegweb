@@ -1,0 +1,192 @@
+.headerSection {
+  padding-block: 130px 10px;
+
+  .breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 24px;
+    font-size: 0.85rem;
+
+    .breadLink {
+      color: var(--text-color);
+      opacity: 0.75;
+      text-decoration: none;
+      transition: color 0.15s ease;
+
+      &:hover {
+        color: var(--primary-color);
+        opacity: 1;
+      }
+    }
+
+    .breadIcon {
+      color: rgba(196, 167, 94, 0.7);
+    }
+
+    .breadCurrent {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+  }
+
+  .profileCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    text-align: center;
+    background-color: #ffffff;
+    border: 1px solid rgba(196, 167, 94, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(18, 61, 50, 0.06);
+    padding: 32px 20px;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      text-align: start;
+      align-items: center;
+      padding: 40px;
+      gap: 40px;
+    }
+
+    .imageCol {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+
+      .avatarWrapper {
+        position: relative;
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 4px solid #ffffff;
+        outline: 2px solid rgba(196, 167, 94, 0.4);
+        box-shadow: 0 6px 20px rgba(18, 61, 50, 0.12);
+
+        @media (min-width: 768px) {
+          width: 170px;
+          height: 170px;
+        }
+
+        .avatarImg {
+          object-fit: cover;
+        }
+      }
+
+      .codeBadge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background-color: rgba(18, 61, 50, 0.06);
+        color: var(--primary-color);
+        font-size: 0.8rem;
+        font-weight: 600;
+        padding: 5px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(196, 167, 94, 0.3);
+      }
+    }
+
+    .infoCol {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+
+      @media (min-width: 768px) {
+        align-items: flex-start;
+      }
+
+      .verifiedTag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background-color: rgba(34, 139, 96, 0.1);
+        color: #1f8a56;
+        font-size: 0.78rem;
+        font-weight: 600;
+        padding: 4px 12px;
+        border-radius: 999px;
+        margin-bottom: 6px;
+      }
+
+      .userName {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        line-height: 1.25;
+
+        @media (min-width: 768px) {
+          font-size: 2rem;
+        }
+      }
+
+      .userRole {
+        font-size: 0.92rem;
+        color: var(--text-color);
+        opacity: 0.75;
+        margin-bottom: 18px;
+      }
+
+      .statsRow {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        width: 100%;
+
+        @media (min-width: 768px) {
+          justify-content: flex-start;
+        }
+
+        .statBox {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          .iconCircle {
+            width: 36px;
+            height: 36px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(18, 61, 50, 0.06);
+            color: var(--primary-color);
+          }
+
+          .statInfo {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.3;
+            text-align: start;
+
+            .statNum {
+              font-size: 0.9rem;
+              font-weight: 700;
+              color: var(--primary-color);
+            }
+
+            .statLabel {
+              font-size: 0.75rem;
+              color: var(--text-color);
+              opacity: 0.65;
+            }
+          }
+        }
+
+        .statDivider {
+          width: 1px;
+          height: 30px;
+          background-color: rgba(196, 167, 94, 0.3);
+        }
+      }
+    }
+  }
+}

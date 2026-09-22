@@ -8,28 +8,28 @@
     "namePlaceholder": "مثال: عمر خالد المنصوري",
     "country": "دولة الإقامة *",
     "countryPlaceholder": "مثال: مصر، السعودية، الإمارات...",
-    "phone": "رقم الهاتف *",
+    "phone": "رقم الهاتف (اختياري)",
     "phonePlaceholder": "+20 100 000 0000",
-    "whatsapp": "رقم الواتساب *",
+    "whatsapp": "رقم الواتساب (اختياري)",
     "whatsappPlaceholder": "+20 100 000 0000",
-    "email": "البريد الإلكتروني *",
+    "email": "البريد الإلكتروني (اختياري)",
     "emailPlaceholder": "student@example.com",
     "parentPhone": "رقم هاتف ولي الأمر *",
     "parentPhonePlaceholder": "+20 100 000 0000",
-    "parentWhatsapp": "رقم واتساب ولي الأمر *",
+    "parentWhatsapp": "رقم واتساب ولي الأمر (اختياري)",
     "parentWhatsappPlaceholder": "+20 100 000 0000",
-    "parentEmail": "البريد الإلكتروني لولي الأمر (اختياري)",
+    "parentEmail": "البريد الإلكتروني لولي الأمر *",
     "parentEmailPlaceholder": "guardian@example.com",
     "registerBtn": "إنشاء الحساب",
     "sendingBtn": "جاري الإرسال...",
-    "submitSuccessMsg": "تم إنشاء حسابك بنجاح، وسيتم إرسال بياناتك إلى بريدك الإلكتروني قريباً",
+    "submitSuccessMsg": "تم إنشاء حسابك بنجاح، وسيتم إرسال بياناتك إلى بريد ولي الأمر الإلكتروني قريباً",
     "submitErrorMsg": "حصل خطأ، برجاء المحاولة مرة أخرى"
   },
   "Login": {
     "formTitle": "تسجيل الدخول",
-    "formDesc": "أدخل بريدك الإلكتروني أو رقم هاتفك وكلمة المرور",
-    "identifier": "البريد الإلكتروني أو رقم الهاتف *",
-    "identifierPlaceholder": "example@domain.com",
+    "formDesc": "أدخل كود الطالب وكلمة المرور",
+    "identifier": "كود الطالب *",
+    "identifierPlaceholder": "مثال : STU1234",
     "password": "كلمة المرور *",
     "passwordPlaceholder": "••••••••",
     "showPassword": "إظهار كلمة المرور",
@@ -39,6 +39,43 @@
     "submitErrorMsg": "بيانات الدخول غير صحيحة، برجاء المحاولة مرة أخرى",
     "noAccountText": "ليس لديك حساب؟",
     "registerLink": "أنشئ حساباً جديداً"
+  },
+  "UserProfile": {
+    "loading": "جاري تحميل البيانات...",
+    "errorMsg": "حصل خطأ في تحميل البروفايل، برجاء المحاولة مرة أخرى",
+    "verifiedBadge": "حساب موثّق",
+    "studentLabel": "طالب",
+    "breadcrumbs": {
+      "home": "الرئيسية",
+      "profile": "الملف الشخصي"
+    },
+    "stats": {
+      "country": "الدولة",
+      "memberSince": "عضو منذ",
+      "subscriptions": "الاشتراكات"
+    },
+    "contactSection": {
+      "title": "بيانات الحساب",
+      "code": "كود الطالب",
+      "email": "البريد الإلكتروني",
+      "phone": "رقم الهاتف",
+      "whatsapp": "رقم الواتساب",
+      "country": "الدولة"
+    },
+    "guardianSection": {
+      "title": "بيانات ولي الأمر",
+      "parentPhone": "رقم هاتف ولي الأمر",
+      "parentWhatsapp": "رقم واتساب ولي الأمر",
+      "parentEmail": "البريد الإلكتروني لولي الأمر"
+    },
+    "subscriptionsSection": {
+      "badge": "اشتراكاتي",
+      "title": "الباقات والاشتراكات",
+      "emptyText": "لسه مفيش اشتراكات نشطة على حسابك",
+      "browsePackages": "تصفح الباقات",
+      "subscriptionFallback": "باقة اشتراك",
+      "packageFallbackPrefix": "باقة"
+    }
   },
   "Header": {
     "home": "الرئيسية",
@@ -53,7 +90,8 @@
     "loggingOut": "جاري تسجيل الخروج...",
     "menu": "القائمة",
     "close": "إغلاق",
-    "switchLang": "English"
+    "switchLang": "English",
+    "profile": "الملف الشخصي"
   },
   "Hero": {
     "badge": "صرح تعليمي قرآني ولغوي معتمد",
@@ -408,7 +446,8 @@
     "waMsgGuardianPhone": "• *هاتف ولي الأمر:*",
     "waMsgGuardianWhatsapp": "• *واتساب ولي الأمر:*",
     "waMsgGuardianEmail": "• *إيميل ولي الأمر:*",
-    "waMsgNotes": "• *ملاحظات إضافية:*"
+    "waMsgNotes": "• *ملاحظات إضافية:*",
+    "applySuccessMsg": "تم إرسال طلب اشتراكك بنجاح"
   },
   "PackageApplyFinalCta": {
     "badge": "رحلتك تبدأ الآن",
