@@ -80,7 +80,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const isAr = locale === "ar";
 
-  const baseUrl = "https://dev.nouracademyeg.com";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
   const siteName = isAr ? "نور أكاديمي" : "Nour Academy";
 
   const seo = await getHomeSeo(locale);
