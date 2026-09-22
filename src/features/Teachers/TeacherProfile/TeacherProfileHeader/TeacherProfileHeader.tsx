@@ -94,7 +94,7 @@ export default function TeacherProfileHeader({
                 </div>
               </div>
 
-              <div className={styles.statDivider} />
+              {/* <div className={styles.statDivider} />
 
               <div className={styles.statBox}>
                 <div className={styles.iconCircle}>
@@ -122,7 +122,7 @@ export default function TeacherProfileHeader({
                   </span>
                   <span className={styles.statLabel}>{t("stats.rating")}</span>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
